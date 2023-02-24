@@ -1,5 +1,6 @@
 # Agon-Projects
-Various coding experiments for the Agon 
+Various coding experiments for the Agon Light https://www.thebyteattic.com/p/agon.html
+Discussed in the video https://youtu.be/S7iilqWDxNE
 
 # fullkeycode
 * Project for use with ZDS II https://www.zilog.com/index.php?option=com_zcm&task=view&soft_id=38&Itemid=74
@@ -16,4 +17,5 @@ Various coding experiments for the Agon
 
 * note change in mos-keycode.asm = commented out the waitkey so it just loops even with no keypress
 
-#
+# StarFieldInBBCBasic
+The BBC Basic file from the video 
