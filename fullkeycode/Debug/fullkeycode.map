@@ -1,0 +1,545 @@
+
+IEEE 695 OMF Linker Version 6.25 (19073001)
+Copyright (C) 1999-2008 Zilog, Inc. All Rights Reserved
+
+LINK MAP:
+
+DATE:      Mon Feb 20 18:52:15 2023
+PROCESSOR: assembler
+FILES:     .\init.obj             .\main.obj             .\vdp.obj              
+           .\mos-interface.obj
+           .\mos-keycode.obj
+           .\agontimer.obj        
+           C:\ZiLOG\ZDSII_eZ80Acclaim!_5.3.4\lib\std\chelpD.lib
+           C:\ZiLOG\ZDSII_eZ80Acclaim!_5.3.4\lib\std\crtD.lib
+           C:\ZiLOG\ZDSII_eZ80Acclaim!_5.3.4\lib\std\crtSD.lib
+           C:\ZiLOG\ZDSII_eZ80Acclaim!_5.3.4\lib\std\nokernelD.lib
+           C:\ZiLOG\ZDSII_eZ80Acclaim!_5.3.4\lib\zilog\zsldevinitdummy.obj
+           
+
+
+COMMAND LIST:
+=============
+-FORMAT=OMF695,INTEL32
+-map -maxhexlen=64 -quiet -warnoverlap -xref -unresolved=fatal
+-sort NAME=ascending -warn -debug -NOigcase
+
+
+RANGE ROM $000000 : $01FFFF
+RANGE RAM $040000 : $0BFFFF
+RANGE EXTIO $000000 : $00FFFF
+RANGE INTIO $000000 : $0000FF
+
+CHANGE CODE = RAM
+CHANGE STRSECT = RAM
+CHANGE DATA = RAM 
+
+ORDER CODE,DATA
+
+DEFINE __low_bss = base of BSS
+DEFINE __len_bss = length of BSS
+
+ "fullkeycode"=  ".\init.obj",  ".\main.obj",  ".\vdp.obj",  ".\mos-interface.obj",  ".\mos-keycode.obj",  ".\agontimer.obj",  "C:\ZiLOG\ZDSII_eZ80Acclaim!_5.3.4\lib\std\chelpD.lib",  "C:\ZiLOG\ZDSII_eZ80Acclaim!_5.3.4\lib\std\crtD.lib",  "C:\ZiLOG\ZDSII_eZ80Acclaim!_5.3.4\lib\std\crtSD.lib",  "C:\ZiLOG\ZDSII_eZ80Acclaim!_5.3.4\lib\std\nokernelD.lib",  "C:\ZiLOG\ZDSII_eZ80Acclaim!_5.3.4\lib\zilog\zsldevinitdummy.obj"
+
+
+SPACE ALLOCATION:
+=================
+
+Space                     Base         Top      Size      Used    Unused
+------------------ ----------- ----------- --------- --------- ---------
+RAM                   D:040000    D:041DAD    80000H     1DAEH    7E252H
+                                          (   524288      7598    516690)
+
+
+SEGMENTS WITHIN SPACE:
+======================
+
+RAM                               Type        Base         Top      Size
+------------------ ------------------- ----------- ----------- ---------
+CODE               normal data            D:040000    D:041D6F     1d70h
+DATA               normal data            D:041D70    D:041DA3       34h
+STRSECT            normal data            D:041DA4    D:041DAD        ah
+
+SEGMENTS WITHIN MODULES:
+========================
+
+Module: ..\agontimer.c (File: agontimer.obj) Version: 1:0 02/20/2023 18:52:15
+
+    Name                                           Base         Top      Size
+    --------------------------------------- ----------- ----------- ---------
+    Segment: CODE                              D:041A0D    D:041A6E       62h
+
+
+Module: ..\main.c (File: main.obj) Version: 1:0 02/20/2023 18:52:15
+
+    Name                                           Base         Top      Size
+    --------------------------------------- ----------- ----------- ---------
+    Segment: CODE                              D:0400D7    D:040E12      d3ch
+    Segment: STRSECT                           D:041DA4    D:041DAD        ah
+
+
+Module: ..\src\boot\common\zsldevinitdummy.asm (File: zsldevinitdummy.obj) Version: 1:0 10/11/2019 10:10:12
+
+    Name                                           Base         Top      Size
+    --------------------------------------- ----------- ----------- ---------
+    Segment: CODE                              D:041A6F    D:041A6F        1h
+
+
+Module: ..\vdp.c (File: vdp.obj) Version: 1:0 02/20/2023 18:52:15
+
+    Name                                           Base         Top      Size
+    --------------------------------------- ----------- ----------- ---------
+    Segment: CODE                              D:040E13    D:04191E      b0ch
+
+
+Module: .\puts.asm (Library: crtD.lib) Version: 1:0 10/11/2019 10:08:44
+
+    Name                                           Base         Top      Size
+    --------------------------------------- ----------- ----------- ---------
+    Segment: CODE                              D:041B46    D:041B79       34h
+
+
+Module: .\rtl\common\case8D.asm (Library: chelpD.lib) Version: 1:0 10/11/2019 10:09:35
+
+    Name                                           Base         Top      Size
+    --------------------------------------- ----------- ----------- ---------
+    Segment: CODE                              D:041C20    D:041C59       3ah
+
+
+Module: .\rtl\common\iand.asm (Library: chelpD.lib) Version: 1:0 10/11/2019 10:09:30
+
+    Name                                           Base         Top      Size
+    --------------------------------------- ----------- ----------- ---------
+    Segment: CODE                              D:041CE8    D:041D02       1bh
+
+
+Module: .\rtl\common\icmpzero.asm (Library: chelpD.lib) Version: 1:0 10/11/2019 10:09:34
+
+    Name                                           Base         Top      Size
+    --------------------------------------- ----------- ----------- ---------
+    Segment: CODE                              D:041B3A    D:041B45        ch
+
+
+Module: .\rtl\common\idivs.asm (Library: chelpD.lib) Version: 1:0 10/11/2019 10:09:30
+
+    Name                                           Base         Top      Size
+    --------------------------------------- ----------- ----------- ---------
+    Segment: CODE                              D:041BE7    D:041C1F       39h
+
+
+Module: .\rtl\common\idivu.asm (Library: chelpD.lib) Version: 1:0 10/11/2019 10:09:30
+
+    Name                                           Base         Top      Size
+    --------------------------------------- ----------- ----------- ---------
+    Segment: CODE                              D:041AF7    D:041B17       21h
+
+
+Module: .\rtl\common\ildix.asm (Library: chelpD.lib) Version: 1:0 10/11/2019 10:09:30
+
+    Name                                           Base         Top      Size
+    --------------------------------------- ----------- ----------- ---------
+    Segment: CODE                              D:041CD3    D:041CDE        ch
+
+
+Module: .\rtl\common\imulu.asm (Library: chelpD.lib) Version: 1:0 10/11/2019 10:09:30
+
+    Name                                           Base         Top      Size
+    --------------------------------------- ----------- ----------- ---------
+    Segment: CODE                              D:041B7A    D:041BC1       48h
+
+
+Module: .\rtl\common\irems.asm (Library: chelpD.lib) Version: 1:0 10/11/2019 10:09:31
+
+    Name                                           Base         Top      Size
+    --------------------------------------- ----------- ----------- ---------
+    Segment: CODE                              D:041AA4    D:041ADB       38h
+
+
+Module: .\rtl\common\iremu.asm (Library: chelpD.lib) Version: 1:0 10/11/2019 10:09:31
+
+    Name                                           Base         Top      Size
+    --------------------------------------- ----------- ----------- ---------
+    Segment: CODE                              D:041AE8    D:041AF0        9h
+
+
+Module: .\rtl\common\ishrs.asm (Library: chelpD.lib) Version: 1:0 10/11/2019 10:09:31
+
+    Name                                           Base         Top      Size
+    --------------------------------------- ----------- ----------- ---------
+    Segment: CODE                              D:041A7F    D:041AA3       25h
+
+
+Module: .\rtl\common\ishru.asm (Library: chelpD.lib) Version: 1:0 10/11/2019 10:09:31
+
+    Name                                           Base         Top      Size
+    --------------------------------------- ----------- ----------- ---------
+    Segment: CODE                              D:041BC2    D:041BE6       25h
+
+
+Module: .\rtl\common\istix.asm (Library: chelpD.lib) Version: 1:0 10/11/2019 10:09:31
+
+    Name                                           Base         Top      Size
+    --------------------------------------- ----------- ----------- ---------
+    Segment: CODE                              D:041ADC    D:041AE7        ch
+
+
+Module: .\rtl\common\ladd.asm (Library: chelpD.lib) Version: 1:0 10/11/2019 10:09:31
+
+    Name                                           Base         Top      Size
+    --------------------------------------- ----------- ----------- ---------
+    Segment: CODE                              D:041CB5    D:041CC9       15h
+
+
+Module: .\rtl\common\land.asm (Library: chelpD.lib) Version: 1:0 10/11/2019 10:09:31
+
+    Name                                           Base         Top      Size
+    --------------------------------------- ----------- ----------- ---------
+    Segment: CODE                              D:041CDF    D:041CE7        9h
+
+
+Module: .\rtl\common\lmulu.asm (Library: chelpD.lib) Version: 1:0 10/11/2019 10:09:31
+
+    Name                                           Base         Top      Size
+    --------------------------------------- ----------- ----------- ---------
+    Segment: CODE                              D:041D03    D:041D6F       6dh
+
+
+Module: .\rtl\common\lshru.asm (Library: chelpD.lib) Version: 1:0 10/11/2019 10:09:32
+
+    Name                                           Base         Top      Size
+    --------------------------------------- ----------- ----------- ---------
+    Segment: CODE                              D:041B18    D:041B39       22h
+
+
+Module: .\rtl\common\rand.c (Library: crtD.lib) Version: 1:0 10/11/2019 10:08:40
+
+    Name                                           Base         Top      Size
+    --------------------------------------- ----------- ----------- ---------
+    Segment: CODE                              D:041C67    D:041CB4       4eh
+    Segment: DATA                              D:041DA0    D:041DA3        4h
+
+
+Module: .\rtl\common\scmpzero.asm (Library: chelpD.lib) Version: 1:0 10/11/2019 10:09:34
+
+    Name                                           Base         Top      Size
+    --------------------------------------- ----------- ----------- ---------
+    Segment: CODE                              D:041C5A    D:041C66        dh
+
+
+Module: .\rtl\common\setflag.asm (Library: chelpD.lib) Version: 1:0 10/11/2019 10:09:34
+
+    Name                                           Base         Top      Size
+    --------------------------------------- ----------- ----------- ---------
+    Segment: CODE                              D:041A70    D:041A7E        fh
+
+
+Module: .\rtl\common\sor.asm (Library: chelpD.lib) Version: 1:0 10/11/2019 10:09:32
+
+    Name                                           Base         Top      Size
+    --------------------------------------- ----------- ----------- ---------
+    Segment: CODE                              D:041CCA    D:041CD2        9h
+
+
+Module: .\rtl\common\stoiu.asm (Library: chelpD.lib) Version: 1:0 10/11/2019 10:09:33
+
+    Name                                           Base         Top      Size
+    --------------------------------------- ----------- ----------- ---------
+    Segment: CODE                              D:041AF1    D:041AF6        6h
+
+
+Module: E:\__Agon\fullkeycode\init.asm (File: init.obj) Version: 1:0 02/20/2023 18:52:14
+
+    Name                                           Base         Top      Size
+    --------------------------------------- ----------- ----------- ---------
+    Segment: CODE                              D:040000    D:0400D6       d7h
+    Segment: DATA                              D:041D70    D:041D9F       30h
+
+
+Module: E:\__Agon\fullkeycode\mos-interface.asm (File: mos-interface.obj) Version: 1:0 02/20/2023 18:52:15
+
+    Name                                           Base         Top      Size
+    --------------------------------------- ----------- ----------- ---------
+    Segment: CODE                              D:04191F    D:0419F7       d9h
+
+
+Module: E:\__Agon\fullkeycode\mos-keycode.asm (File: mos-keycode.obj) Version: 1:0 02/20/2023 18:52:15
+
+    Name                                           Base         Top      Size
+    --------------------------------------- ----------- ----------- ---------
+    Segment: CODE                              D:0419F8    D:041A0C       15h
+
+EXTERNAL DEFINITIONS:
+=====================
+
+Symbol                               Address Module          Segment
+-------------------------------- ----------- --------------- --------------------------------
+__case8D                            D:041C20 case8D          CODE                            
+__close_periphdevice                D:041A6F zsldevinitdummy CODE                            
+__getch                             D:041937 mos-interface   CODE                            
+__iand                              D:041CE8 iand            CODE                            
+__icmpzero                          D:041B3A icmpzero        CODE                            
+__idivs                             D:041BE7 idivs           CODE                            
+__idivu                             D:041AF7 idivu           CODE                            
+__idvrmu                            D:041B01 idivu           CODE                            
+__ildix                             D:041CD3 ildix           CODE                            
+__imul_b                            D:041B7A imulu           CODE                            
+__imuls                             D:041B86 imulu           CODE                            
+__imulu                             D:041B86 imulu           CODE                            
+__irems                             D:041AA4 irems           CODE                            
+__iremu                             D:041AE8 iremu           CODE                            
+__ishrs                             D:041A87 ishrs           CODE                            
+__ishrs_b                           D:041A7F ishrs           CODE                            
+__ishru                             D:041BCA ishru           CODE                            
+__ishru_b                           D:041BC2 ishru           CODE                            
+__istix                             D:041ADC istix           CODE                            
+__ladd                              D:041CC4 ladd            CODE                            
+__ladd_b                            D:041CB5 ladd            CODE                            
+__land                              D:041CDF land            CODE                            
+__len_bss                           00000000 (User Defined)
+__lmuls                             D:041D03 lmulu           CODE                            
+__lmulu                             D:041D03 lmulu           CODE                            
+__low_bss                           00000000 (User Defined)
+__lshru                             D:041B18 lshru           CODE                            
+__next                              D:041DA0 rand            DATA                            
+__open_periphdevice                 D:041A6F zsldevinitdummy CODE                            
+__putch                             D:04191F mos-interface   CODE                            
+__scmpzero                          D:041C5A scmpzero        CODE                            
+__setflag                           D:041A70 setflag         CODE                            
+__sor                               D:041CCA sor             CODE                            
+__stoiu                             D:041AF1 stoiu           CODE                            
+_close_periphdevice                 D:041A6F zsldevinitdummy CODE                            
+_delayms                            D:041A0D agontimer       CODE                            
+_getch                              D:041937 mos-interface   CODE                            
+_getfullkeycode                     D:0419F8 mos-keycode     CODE                            
+_getsysvar16bit                     D:041975 mos-interface   CODE                            
+_getsysvar24bit                     D:041975 mos-interface   CODE                            
+_getsysvar8bit                      D:041961 mos-interface   CODE                            
+_main                               D:040132 main            CODE                            
+_mos_fclose                         D:0419A1 mos-interface   CODE                            
+_mos_feof                           D:0419E3 mos-interface   CODE                            
+_mos_fgetc                          D:0419B6 mos-interface   CODE                            
+_mos_fopen                          D:041989 mos-interface   CODE                            
+_mos_fputc                          D:0419CB mos-interface   CODE                            
+_open_periphdevice                  D:041A6F zsldevinitdummy CODE                            
+_plot                               D:0400D7 main            CODE                            
+_putch                              D:04191F mos-interface   CODE                            
+_puts                               D:041B46 puts            CODE                            
+_rand                               D:041C67 rand            CODE                            
+_vdp_asciiCodeAt                    D:041800 vdp             CODE                            
+_vdp_bgcolour                       D:040FE8 vdp             CODE                            
+_vdp_bitmapCreateSolidColor         D:0413A5 vdp             CODE                            
+_vdp_bitmapCreateSolidColorSelec    D:041357 vdp             CODE                            
+_vdp_bitmapDraw                     D:041330 vdp             CODE                            
+_vdp_bitmapDrawSelected             D:0412F2 vdp             CODE                            
+_vdp_bitmapSelect                   D:0411F0 vdp             CODE                            
+_vdp_bitmapSendData                 D:0412C6 vdp             CODE                            
+_vdp_bitmapSendDataSelected         D:041229 vdp             CODE                            
+_vdp_clearGraphics                  D:041011 vdp             CODE                            
+_vdp_cls                            D:040EE6 vdp             CODE                            
+_vdp_colour                         D:040F60 vdp             CODE                            
+_vdp_cursorDisable                  D:04187E vdp             CODE                            
+_vdp_cursorEnable                   D:0418AA vdp             CODE                            
+_vdp_cursorGetXpos                  D:041760 vdp             CODE                            
+_vdp_cursorGetYpos                  D:0417B0 vdp             CODE                            
+_vdp_cursorGoto                     D:040F2E vdp             CODE                            
+_vdp_cursorHome                     D:040EFE vdp             CODE                            
+_vdp_cursorUp                       D:040F16 vdp             CODE                            
+_vdp_fgcolour                       D:040FBF vdp             CODE                            
+_vdp_mode                           D:040EC1 vdp             CODE                            
+_vdp_plot                           D:041072 vdp             CODE                            
+_vdp_plotCircleCircumference        D:04117A vdp             CODE                            
+_vdp_plotCircleRadius               D:041157 vdp             CODE                            
+_vdp_plotColour                     D:041029 vdp             CODE                            
+_vdp_plotLineTo                     D:0410F1 vdp             CODE                            
+_vdp_plotMoveTo                     D:0410CF vdp             CODE                            
+_vdp_plotPoint                      D:041113 vdp             CODE                            
+_vdp_plotSetOrigin                  D:04119C vdp             CODE                            
+_vdp_plotTriangle                   D:041135 vdp             CODE                            
+_vdp_scroll                         D:0418D6 vdp             CODE                            
+_vdp_spriteActivateTotal            D:0416FB vdp             CODE                            
+_vdp_spriteAddFrame                 D:041493 vdp             CODE                            
+_vdp_spriteAddFrameSelected         D:04145A vdp             CODE                            
+_vdp_spriteClearFrames              D:04143D vdp             CODE                            
+_vdp_spriteClearFramesSelected      D:041411 vdp             CODE                            
+_vdp_spriteHide                     D:041614 vdp             CODE                            
+_vdp_spriteHideSelected             D:0415E8 vdp             CODE                            
+_vdp_spriteMoveBy                   D:0416D4 vdp             CODE                            
+_vdp_spriteMoveBySelected           D:041696 vdp             CODE                            
+_vdp_spriteMoveTo                   D:04166F vdp             CODE                            
+_vdp_spriteMoveToSelected           D:041631 vdp             CODE                            
+_vdp_spriteNextFrame                D:0414E3 vdp             CODE                            
+_vdp_spriteNextFrameSelected        D:0414B7 vdp             CODE                            
+_vdp_spritePreviousFrame            D:04152C vdp             CODE                            
+_vdp_spritePreviousFrameSelected    D:041500 vdp             CODE                            
+_vdp_spriteRefresh                  D:041734 vdp             CODE                            
+_vdp_spriteSelect                   D:0413D8 vdp             CODE                            
+_vdp_spriteSetFrame                 D:041582 vdp             CODE                            
+_vdp_spriteSetFrameSelected         D:041549 vdp             CODE                            
+_vdp_spriteShow                     D:0415CB vdp             CODE                            
+_vdp_spriteShowSelected             D:04159F vdp             CODE                            
+_waitvblank                         D:041950 mos-interface   CODE                            
+_write16bit                         D:040E13 vdp             CODE                            
+_write32bit                         D:040E46 vdp             CODE                            
+
+107 external symbol(s).
+
+SYMBOL CROSS REFERENCE:
+=======================
+Name                              Use         Module
+--------------------------------- ----------- -------------------------
+__case8D                          Defined     .\rtl\common\case8D.asm
+                                  Referenced  ..\main.c
+__close_periphdevice              Defined     ..\src\boot\common\zsldevinitdummy.asm
+__getch                           Defined     E:\__Agon\fullkeycode\mos-interface.asm
+__iand                            Defined     .\rtl\common\iand.asm
+                                  Referenced  .\rtl\common\land.asm
+__icmpzero                        Defined     .\rtl\common\icmpzero.asm
+                                  Referenced  ..\vdp.c
+                                  Referenced  ..\agontimer.c
+__idivs                           Defined     .\rtl\common\idivs.asm
+                                  Referenced  ..\main.c
+__idivu                           Defined     .\rtl\common\idivu.asm
+                                  Referenced  .\rtl\common\idivs.asm
+__idvrmu                          Defined     .\rtl\common\idivu.asm
+                                  Referenced  .\rtl\common\iremu.asm
+__ildix                           Defined     .\rtl\common\ildix.asm
+                                  Referenced  ..\main.c
+__imul_b                          Defined     .\rtl\common\imulu.asm
+__imuls                           Defined     .\rtl\common\imulu.asm
+                                  Referenced  ..\vdp.c
+__imulu                           Defined     .\rtl\common\imulu.asm
+__irems                           Defined     .\rtl\common\irems.asm
+                                  Referenced  ..\main.c
+__iremu                           Defined     .\rtl\common\iremu.asm
+                                  Referenced  .\rtl\common\irems.asm
+__ishrs                           Defined     .\rtl\common\ishrs.asm
+__ishrs_b                         Defined     .\rtl\common\ishrs.asm
+                                  Referenced  ..\vdp.c
+__ishru                           Defined     .\rtl\common\ishru.asm
+__ishru_b                         Defined     .\rtl\common\ishru.asm
+                                  Referenced  ..\vdp.c
+__istix                           Defined     .\rtl\common\istix.asm
+                                  Referenced  ..\main.c
+__ladd                            Defined     .\rtl\common\ladd.asm
+                                  Referenced  .\rtl\common\rand.c
+__ladd_b                          Defined     .\rtl\common\ladd.asm
+__land                            Defined     .\rtl\common\land.asm
+                                  Referenced  .\rtl\common\rand.c
+__len_bss                         Defined     LINKER
+                                  Referenced  E:\__Agon\fullkeycode\init.asm
+__lmuls                           Defined     .\rtl\common\lmulu.asm
+__lmulu                           Defined     .\rtl\common\lmulu.asm
+                                  Referenced  .\rtl\common\rand.c
+__low_bss                         Defined     LINKER
+                                  Referenced  E:\__Agon\fullkeycode\init.asm
+__lshru                           Defined     .\rtl\common\lshru.asm
+                                  Referenced  ..\vdp.c
+                                  Referenced  .\rtl\common\rand.c
+__next                            Defined     .\rtl\common\rand.c
+__open_periphdevice               Defined     ..\src\boot\common\zsldevinitdummy.asm
+__putch                           Defined     E:\__Agon\fullkeycode\mos-interface.asm
+__scmpzero                        Defined     .\rtl\common\scmpzero.asm
+                                  Referenced  ..\agontimer.c
+__setflag                         Defined     .\rtl\common\setflag.asm
+                                  Referenced  ..\main.c
+__sor                             Defined     .\rtl\common\sor.asm
+                                  Referenced  ..\agontimer.c
+__stoiu                           Defined     .\rtl\common\stoiu.asm
+                                  Referenced  ..\main.c
+                                  Referenced  ..\vdp.c
+_close_periphdevice               Defined     ..\src\boot\common\zsldevinitdummy.asm
+_delayms                          Defined     ..\agontimer.c
+_getch                            Defined     E:\__Agon\fullkeycode\mos-interface.asm
+_getfullkeycode                   Defined     E:\__Agon\fullkeycode\mos-keycode.asm
+                                  Referenced  ..\main.c
+_getsysvar16bit                   Defined     E:\__Agon\fullkeycode\mos-interface.asm
+_getsysvar24bit                   Defined     E:\__Agon\fullkeycode\mos-interface.asm
+_getsysvar8bit                    Defined     E:\__Agon\fullkeycode\mos-interface.asm
+                                  Referenced  ..\vdp.c
+_main                             Defined     ..\main.c
+                                  Referenced  E:\__Agon\fullkeycode\init.asm
+_mos_fclose                       Defined     E:\__Agon\fullkeycode\mos-interface.asm
+_mos_feof                         Defined     E:\__Agon\fullkeycode\mos-interface.asm
+_mos_fgetc                        Defined     E:\__Agon\fullkeycode\mos-interface.asm
+_mos_fopen                        Defined     E:\__Agon\fullkeycode\mos-interface.asm
+_mos_fputc                        Defined     E:\__Agon\fullkeycode\mos-interface.asm
+_open_periphdevice                Defined     ..\src\boot\common\zsldevinitdummy.asm
+_plot                             Defined     ..\main.c
+_putch                            Defined     E:\__Agon\fullkeycode\mos-interface.asm
+                                  Referenced  ..\vdp.c
+                                  Referenced  .\puts.asm
+_puts                             Defined     .\puts.asm
+                                  Referenced  ..\main.c
+_rand                             Defined     .\rtl\common\rand.c
+                                  Referenced  ..\main.c
+_vdp_asciiCodeAt                  Defined     ..\vdp.c
+_vdp_bgcolour                     Defined     ..\vdp.c
+_vdp_bitmapCreateSolidColor       Defined     ..\vdp.c
+_vdp_bitmapCreateSolidColorSelect Defined     ..\vdp.c
+_vdp_bitmapDraw                   Defined     ..\vdp.c
+_vdp_bitmapDrawSelected           Defined     ..\vdp.c
+_vdp_bitmapSelect                 Defined     ..\vdp.c
+_vdp_bitmapSendData               Defined     ..\vdp.c
+_vdp_bitmapSendDataSelected       Defined     ..\vdp.c
+_vdp_clearGraphics                Defined     ..\vdp.c
+_vdp_cls                          Defined     ..\vdp.c
+                                  Referenced  ..\main.c
+_vdp_colour                       Defined     ..\vdp.c
+_vdp_cursorDisable                Defined     ..\vdp.c
+_vdp_cursorEnable                 Defined     ..\vdp.c
+_vdp_cursorGetXpos                Defined     ..\vdp.c
+_vdp_cursorGetYpos                Defined     ..\vdp.c
+_vdp_cursorGoto                   Defined     ..\vdp.c
+_vdp_cursorHome                   Defined     ..\vdp.c
+_vdp_cursorUp                     Defined     ..\vdp.c
+_vdp_fgcolour                     Defined     ..\vdp.c
+                                  Referenced  ..\main.c
+_vdp_mode                         Defined     ..\vdp.c
+                                  Referenced  ..\main.c
+_vdp_plot                         Defined     ..\vdp.c
+                                  Referenced  ..\main.c
+_vdp_plotCircleCircumference      Defined     ..\vdp.c
+_vdp_plotCircleRadius             Defined     ..\vdp.c
+_vdp_plotColour                   Defined     ..\vdp.c
+_vdp_plotLineTo                   Defined     ..\vdp.c
+_vdp_plotMoveTo                   Defined     ..\vdp.c
+_vdp_plotPoint                    Defined     ..\vdp.c
+_vdp_plotSetOrigin                Defined     ..\vdp.c
+_vdp_plotTriangle                 Defined     ..\vdp.c
+_vdp_scroll                       Defined     ..\vdp.c
+_vdp_spriteActivateTotal          Defined     ..\vdp.c
+_vdp_spriteAddFrame               Defined     ..\vdp.c
+_vdp_spriteAddFrameSelected       Defined     ..\vdp.c
+_vdp_spriteClearFrames            Defined     ..\vdp.c
+_vdp_spriteClearFramesSelected    Defined     ..\vdp.c
+_vdp_spriteHide                   Defined     ..\vdp.c
+_vdp_spriteHideSelected           Defined     ..\vdp.c
+_vdp_spriteMoveBy                 Defined     ..\vdp.c
+_vdp_spriteMoveBySelected         Defined     ..\vdp.c
+_vdp_spriteMoveTo                 Defined     ..\vdp.c
+_vdp_spriteMoveToSelected         Defined     ..\vdp.c
+_vdp_spriteNextFrame              Defined     ..\vdp.c
+_vdp_spriteNextFrameSelected      Defined     ..\vdp.c
+_vdp_spritePreviousFrame          Defined     ..\vdp.c
+_vdp_spritePreviousFrameSelected  Defined     ..\vdp.c
+_vdp_spriteRefresh                Defined     ..\vdp.c
+_vdp_spriteSelect                 Defined     ..\vdp.c
+_vdp_spriteSetFrame               Defined     ..\vdp.c
+_vdp_spriteSetFrameSelected       Defined     ..\vdp.c
+_vdp_spriteShow                   Defined     ..\vdp.c
+_vdp_spriteShowSelected           Defined     ..\vdp.c
+_waitvblank                       Defined     E:\__Agon\fullkeycode\mos-interface.asm
+_write16bit                       Defined     ..\vdp.c
+_write32bit                       Defined     ..\vdp.c
+
+OUTPUT CHECKSUM
+===============
+fullkeycode.hex      0F001E
+fullkeycode.lod      0F001E
+
+
+
+END OF LINK MAP:
+================
+0 Errors
+0 Warnings

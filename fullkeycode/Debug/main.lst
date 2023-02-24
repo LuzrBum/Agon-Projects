@@ -1,0 +1,2139 @@
+Zilog eZ80 Macro Assembler Version 4.3 (19073001) RELISTED20-Feb-23     18:52:16     page:   1
+
+
+PC     Object              I  Line    Source 
+                           A     1    ; Zilog eZ80 ANSI C Compiler Release 3.4
+                           A     2    ; -nomodsect -optsize -noreduceopt -nopadbranch
+                           A     3    ; -peephole -globalopt -localcse -const=ROM 
+                           A     4    	FILE	"..\main.c"
+                           A     5    	.assume ADL=1
+                           A     6    .DEBUG "C"
+                           A     7    	SEGMENT CODE
+                           A     8    .BEGREC "fmt_type",19
+                           A     9    .DEFINE "status"
+                           A    10    .VALUE 0
+                           A    11    .CLASS 8
+                           A    12    .TYPE 12
+                           A    13    .ENDEF
+                           A    14    .DEFINE "flags"
+                           A    15    .VALUE 1
+                           A    16    .CLASS 8
+                           A    17    .TYPE 12
+                           A    18    .ENDEF
+                           A    19    .DEFINE "size"
+                           A    20    .VALUE 2
+                           A    21    .CLASS 8
+                           A    22    .TYPE 2
+                           A    23    .ENDEF
+                           A    24    .DEFINE "chr"
+                           A    25    .VALUE 3
+                           A    26    .CLASS 8
+                           A    27    .TYPE 2
+                           A    28    .ENDEF
+                           A    29    .DEFINE "type"
+                           A    30    .VALUE 4
+                           A    31    .CLASS 8
+                           A    32    .TYPE 2
+                           A    33    .ENDEF
+                           A    34    .DEFINE "field_width"
+                           A    35    .VALUE 5
+                           A    36    .CLASS 8
+                           A    37    .TYPE 2
+                           A    38    .ENDEF
+                           A    39    .DEFINE "precision"
+                           A    40    .VALUE 6
+                           A    41    .CLASS 8
+                           A    42    .TYPE 2
+                           A    43    .ENDEF
+                           A    44    .DEFINE "set_begin"
+                           A    45    .VALUE 7
+                           A    46    .CLASS 8
+                           A    47    .TYPE 34
+                           A    48    .ENDEF
+                           A    49    .DEFINE "set_end"
+                           A    50    .VALUE 10
+                           A    51    .CLASS 8
+                           A    52    .TYPE 34
+                           A    53    .ENDEF
+                           A    54    .DEFINE "pad_whole"
+                           A    55    .VALUE 13
+                           A    56    .CLASS 8
+                           A    57    .TYPE 12
+                           A    58    .ENDEF
+                           A    59    .DEFINE "pad_pre_fract"
+                           A    60    .VALUE 14
+                           A    61    .CLASS 8
+                           A    62    .TYPE 12
+                           A    63    .ENDEF
+                           A    64    .DEFINE "pad_post_fract"
+                           A    65    .VALUE 15
+                           A    66    .CLASS 8
+                           A    67    .TYPE 12
+                           A    68    .ENDEF
+                           A    69    .DEFINE "pad_at"
+                           A    70    .VALUE 16
+                           A    71    .CLASS 8
+                           A    72    .TYPE 34
+                           A    73    .ENDEF
+                           A    74    .ENDREC "fmt_type"
+                           A    75    .BEGREC "flt_info",12
+                           A    76    .DEFINE "flags"
+                           A    77    .VALUE 0
+                           A    78    .CLASS 8
+                           A    79    .TYPE 12
+                           A    80    .ENDEF
+                           A    81    .DEFINE "exp"
+                           A    82    .VALUE 1
+                           A    83    .CLASS 8
+                           A    84    .TYPE 2
+                           A    85    .ENDEF
+                           A    86    .DEFINE "digits"
+                           A    87    .VALUE 2
+                           A    88    .CLASS 8
+                           A    89    .DIM 10
+                           A    90    .TYPE 108
+                           A    91    .ENDEF
+                           A    92    .ENDREC "flt_info"
+                           A    93    .BEGREC "NONAME0",6
+                           A    94    .DEFINE "quot"
+                           A    95    .VALUE 0
+                           A    96    .CLASS 8
+                           A    97    .TYPE 4
+                           A    98    .ENDEF
+                           A    99    .DEFINE "rem"
+                           A   100    .VALUE 3
+                           A   101    .CLASS 8
+                           A   102    .TYPE 4
+                           A   103    .ENDEF
+                           A   104    .ENDREC "NONAME0"
+                           A   105    .BEGREC "NONAME1",8
+                           A   106    .DEFINE "quot"
+                           A   107    .VALUE 0
+                           A   108    .CLASS 8
+                           A   109    .TYPE 5
+                           A   110    .ENDEF
+                           A   111    .DEFINE "rem"
+                           A   112    .VALUE 4
+                           A   113    .CLASS 8
+                           A   114    .TYPE 5
+                           A   115    .ENDEF
+                           A   116    .ENDREC "NONAME1"
+                           A   117    .BEGREC "header",6
+                           A   118    .DEFINE "s"
+                           A   119    .VALUE 0
+                           A   120    .CLASS 11
+                           A   121    .TAG "NONAME2"
+                           A   122    .TYPE 8
+                           A   123    .ENDEF
+                           A   124    .DEFINE "x"
+                           A   125    .VALUE 0
+                           A   126    .CLASS 11
+                           A   127    .TYPE 2
+                           A   128    .ENDEF
+                           A   129    .ENDREC "header"
+                           A   130    .BEGREC "NONAME2",6
+                           A   131    .DEFINE "ptr"
+                           A   132    .VALUE 0
+                           A   133    .CLASS 8
+                           A   134    .TAG "header"
+                           A   135    .TYPE 40
+                           A   136    .ENDEF
+                           A   137    .DEFINE "size"
+                           A   138    .VALUE 3
+                           A   139    .CLASS 8
+                           A   140    .TYPE 14
+                           A   141    .ENDEF
+                           A   142    .ENDREC "NONAME2"
+                           A   143    ;    1	#include <stdio.h>
+                           A   144    ;    2	#include <Stdlib.h>
+                           A   145    ;    3	#include <ctype.h>
+                           A   146    ;    4	#include "mos-interface.h"
+                           A   147    ;    5	#include "vdp.h"
+                           A   148    ;    6	#include "mos-keycode.h"
+                           A   149    ;    7	#include "agontimer.h"
+                           A   150    ;    8	#include "Math.h"
+                           A   151    ;    9	
+                           A   152    ;   10	
+                           A   153    ;   11	void plot(char color, UINT16 Lx, UINT16
+0400D7                     A   154    _plot:
+                           A   155    .DEFINE "_plot"
+                           A   156    
+                           A   157    .VALUE _plot
+                           A   158    
+                           A   159    .CLASS 2
+                           A   160    
+                           A   161    .TYPE 65
+                           A   162    
+                           A   163    .ENDEF
+                           A   164    
+                           A   165    .BEGFUNC "plot",11,"_plot"
+                           A   166    
+                           A   167    .LINE 11
+                           A   168    
+                           A   169    .DEFINE "color"
+                           A   170    
+                           A   171    .CLASS 65
+                           A   172    
+                           A   173    .VALUE 6
+                           A   174    
+                           A   175    .TYPE 2
+                           A   176    
+                           A   177    .ENDEF
+                           A   178    
+                           A   179    .DEFINE "Lx"
+                           A   180    
+                           A   181    .CLASS 65
+                           A   182    
+                           A   183    .VALUE 9
+                           A   184    
+                           A   185    .TYPE 13
+                           A   186    
+                           A   187    .ENDEF
+                           A   188    
+                           A   189    .DEFINE "Ly"
+                           A   190    
+                           A   191    .CLASS 65
+                           A   192    
+                           A   193    .VALUE 12
+                           A   194    
+                           A   195    .TYPE 13
+                           A   196    
+                           A   197    .ENDEF
+                           A   198    
+0400D7 DDE5                A   199    	PUSH	IX
+0400D9 DD210000 00         A   200    	LD	IX,0
+0400DE DD39                A   201    	ADD	IX,SP
+                           A   202    ;   12		vdp_fgcolour(color, color, color);
+                           A   203    .LINE 12
+                           A   204    
+0400E0 DD4E06              A   205    	LD	C,(IX+%6)
+0400E3 0600                A   206    	LD	B,%0
+0400E5 C5                  A   207    	PUSH	BC
+0400E6 DD4E06              A   208    	LD	C,(IX+%6)
+0400E9 C5                  A   209    	PUSH	BC
+0400EA DD4E06              A   210    	LD	C,(IX+%6)
+0400ED C5                  A   211    	PUSH	BC
+0400EE CD BF 0F 04         A   212    	CALL	_vdp_fgcolour
+0400F2 C1                  A   213    	POP	BC
+0400F3 C1                  A   214    	POP	BC
+0400F4 C1                  A   215    	POP	BC
+                           A   216    ;   13		vdp_plot(4,Lx,Ly);
+                           A   217    .LINE 13
+                           A   218    
+0400F5 DD070C              A   219    	LD	BC,(IX+%C)
+0400F8 CD F1 1A 04         A   220    	CALL	__stoiu
+0400FC E5                  A   221    	PUSH	HL
+0400FD DD0709              A   222    	LD	BC,(IX+%9)
+040100 CD F1 1A 04         A   223    	CALL	__stoiu
+040104 E5                  A   224    	PUSH	HL
+040105 01040000            A   225    	LD	BC,4
+040109 C5                  A   226    	PUSH	BC
+04010A CD 72 10 04         A   227    	CALL	_vdp_plot
+04010E C1                  A   228    	POP	BC
+04010F C1                  A   229    	POP	BC
+040110 C1                  A   230    	POP	BC
+                           A   231    ;   14		vdp_plot(5,Lx,Ly);
+                           A   232    .LINE 14
+                           A   233    
+040111 DD070C              A   234    	LD	BC,(IX+%C)
+040114 CD F1 1A 04         A   235    	CALL	__stoiu
+040118 E5                  A   236    	PUSH	HL
+040119 DD0709              A   237    	LD	BC,(IX+%9)
+04011C CD F1 1A 04         A   238    	CALL	__stoiu
+040120 E5                  A   239    	PUSH	HL
+040121 01050000            A   240    	LD	BC,5
+040125 C5                  A   241    	PUSH	BC
+040126 CD 72 10 04         A   242    	CALL	_vdp_plot
+04012A C1                  A   243    	POP	BC
+04012B C1                  A   244    	POP	BC
+04012C C1                  A   245    	POP	BC
+                           A   246    ;   15		}
+                           A   247    .LINE 15
+                           A   248    
+04012D DDF9                A   249    	LD	SP,IX
+04012F DDE1                A   250    	POP	IX
+040131 C9                  A   251    	RET	
+                           A   252    
+                           A   253    
+                           A   254    ;**************************** _plot ***********
+                           A   255    ;Name                         Addr/Register   S
+                           A   256    ;_vdp_plot                           IMPORT  --
+                           A   257    ;_vdp_fgcolour                       IMPORT  --
+                           A   258    ;Ly                                   IX+12    
+                           A   259    ;Lx                                    IX+9    
+                           A   260    ;color                                 IX+6    
+                           A   261    
+                           A   262    
+                           A   263    ; Stack Frame Size: 15 (bytes)
+                           A   264    ;       Spill Code: 0 (instruction)
+                           A   265    
+                           A   266    
+                           A   267    .ENDFUNC "plot",15,"_plot"
+                           A   268    ;   16		
+                           A   269    ;   17	int main(int argc, char * argv[]) {
+040132                     A   270    _main:
+                           A   271    .DEFINE "_main"
+                           A   272    
+                           A   273    .VALUE _main
+                           A   274    
+                           A   275    .CLASS 2
+                           A   276    
+                           A   277    .TYPE 68
+                           A   278    
+                           A   279    .ENDEF
+                           A   280    
+                           A   281    .BEGFUNC "main",17,"_main"
+                           A   282    
+                           A   283    .LINE 17
+                           A   284    
+                           A   285    .DEFINE "argc"
+                           A   286    
+                           A   287    .CLASS 65
+                           A   288    
+                           A   289    .VALUE 6
+                           A   290    
+                           A   291    .TYPE 4
+                           A   292    
+                           A   293    .ENDEF
+                           A   294    
+                           A   295    .DEFINE "argv"
+                           A   296    
+                           A   297    .CLASS 65
+                           A   298    
+                           A   299    .VALUE 9
+                           A   300    
+                           A   301    .TYPE 290
+                           A   302    
+                           A   303    .ENDEF
+                           A   304    
+                           A   305    .DEFINE "i"
+                           A   306    
+                           A   307    .CLASS 65
+                           A   308    
+                           A   309    .VALUE -3
+                           A   310    
+                           A   311    .TYPE 4
+                           A   312    
+                           A   313    .ENDEF
+                           A   314    
+                           A   315    .DEFINE "x1"
+                           A   316    
+                           A   317    .CLASS 65
+                           A   318    
+                           A   319    .VALUE -8
+                           A   320    
+                           A   321    .TYPE 13
+                           A   322    
+                           A   323    .ENDEF
+                           A   324    
+                           A   325    .DEFINE "y1"
+                           A   326    
+                           A   327    .CLASS 65
+                           A   328    
+                           A   329    .VALUE -10
+                           A   330    
+                           A   331    .TYPE 13
+                           A   332    
+                           A   333    .ENDEF
+                           A   334    
+                           A   335    .DEFINE "running"
+                           A   336    
+                           A   337    .CLASS 65
+                           A   338    
+                           A   339    .VALUE -14
+                           A   340    
+                           A   341    .TYPE 12
+                           A   342    
+                           A   343    .ENDEF
+                           A   344    
+                           A   345    .DEFINE "cy"
+                           A   346    
+                           A   347    .CLASS 65
+                           A   348    
+                           A   349    .VALUE -17
+                           A   350    
+                           A   351    .TYPE 4
+                           A   352    
+                           A   353    .ENDEF
+                           A   354    
+                           A   355    .DEFINE "cx"
+                           A   356    
+                           A   357    .CLASS 65
+                           A   358    
+                           A   359    .VALUE -20
+                           A   360    
+                           A   361    .TYPE 4
+                           A   362    
+                           A   363    .ENDEF
+                           A   364    
+                           A   365    .DEFINE "cz"
+                           A   366    
+                           A   367    .CLASS 65
+                           A   368    
+                           A   369    .VALUE -32
+                           A   370    
+                           A   371    .TYPE 4
+                           A   372    
+                           A   373    .ENDEF
+                           A   374    
+                           A   375    .DEFINE "key"
+                           A   376    
+                           A   377    .CLASS 65
+                           A   378    
+                           A   379    .VALUE -34
+                           A   380    
+                           A   381    .TYPE 13
+                           A   382    
+                           A   383    .ENDEF
+                           A   384    
+                           A   385    .DEFINE "starY"
+                           A   386    
+                           A   387    .CLASS 65
+                           A   388    
+                           A   389    .VALUE -421
+                           A   390    
+                           A   391    .DIM 128
+                           A   392    
+                           A   393    .TYPE 100
+                           A   394    
+                           A   395    .ENDEF
+                           A   396    
+                           A   397    .DEFINE "starZ"
+                           A   398    
+                           A   399    .CLASS 65
+                           A   400    
+                           A   401    .VALUE -805
+                           A   402    
+                           A   403    .DIM 128
+                           A   404    
+                           A   405    .TYPE 100
+                           A   406    
+                           A   407    .ENDEF
+                           A   408    
+                           A   409    .DEFINE "starX"
+                           A   410    
+                           A   411    .CLASS 65
+                           A   412    
+                           A   413    .VALUE -1189
+                           A   414    
+                           A   415    .DIM 128
+                           A   416    
+                           A   417    .TYPE 100
+                           A   418    
+                           A   419    .ENDEF
+                           A   420    
+040132 DDE5                A   421    	PUSH	IX
+040134 DD210000 00         A   422    	LD	IX,0
+040139 DD39                A   423    	ADD	IX,SP
+04013B 21E8FAFF            A   424    	LD	HL,-1304
+04013F 39                  A   425    	ADD	HL,SP
+040140 F9                  A   426    	LD	SP,HL
+                           A   427    ;   18		UINT16 key;
+                           A   428    ;   19		UINT16 x,y,moveclock =0, animationc
+                           A   429    ;   20		UINT16 x1,y1;
+                           A   430    ;   21		UINT8 frame,r,g,b,filehandle;
+                           A   431    ;   22		UINT8 xpos,ypos;
+                           A   432    ;   23		int i,j;
+                           A   433    ;   24		char c;
+                           A   434    ;   25		BOOL running;
+                           A   435    ;   26		char myString[];
+                           A   436    ;   27		int starX[128];
+                           A   437    ;   28		int starY[128];
+                           A   438    ;   29		int starZ[128];
+                           A   439    ;   30		int starRange = 2500;
+                           A   440    ;   31		int maxd = 150;
+                           A   441    ;   32		int cx,cy,cz;
+                           A   442    ;   33		int maxX=640;
+                           A   443    ;   34		int maxY=480;
+                           A   444    ;   35		float cosT = 0.9848;
+                           A   445    ;   36		float sinT = 0.1736;
+                           A   446    ;   37		float rx, ry;
+                           A   447    ;   38	
+                           A   448    ;   39		for(i=0;i<128;i++)	{
+                           A   449    .LINE 39
+                           A   450    
+040141 01000000            A   451    	LD	BC,0
+040145 DD0FFD              A   452    	LD	(IX+%FFFFFFFD),BC
+040148 C3 1B 03 04         A   453    	JR	L_4
+04014C                     A   454    L_2:
+                           A   455    ;   40			starX[i]=starRange-2*(rand()%st
+                           A   456    .LINE 40
+                           A   457    
+04014C FDE5                A   458    	PUSH	IY
+04014E C5                  A   459    	PUSH	BC
+04014F FD21E8FA FF         A   460    	LD	IY,-1304
+040154 DDE5C1              A   461    	LD	BC,IX
+040157 FD09                A   462    	ADD	IY,BC
+040159 FD7700              A   463    	LD	(IY),A
+04015C C1                  A   464    	POP	BC
+04015D FDE1                A   465    	POP	IY
+04015F CD 67 1C 04         A   466    	CALL	_rand
+040163 FDE5                A   467    	PUSH	IY
+040165 C5                  A   468    	PUSH	BC
+040166 FD21E8FA FF         A   469    	LD	IY,-1304
+04016B DDE5C1              A   470    	LD	BC,IX
+04016E FD09                A   471    	ADD	IY,BC
+040170 FD7E00              A   472    	LD	A,(IY)
+040173 C1                  A   473    	POP	BC
+040174 FDE1                A   474    	POP	IY
+040176 01C40900            A   475    	LD	BC,2500
+04017A CD A4 1A 04         A   476    	CALL	__irems
+04017E 29                  A   477    	ADD	HL,HL
+04017F E5C1                A   478    	LD	BC,HL
+040181 DD27FD              A   479    	LD	HL,(IX+%FFFFFFFD)
+040184 E5D1                A   480    	LD	DE,HL
+040186 29                  A   481    	ADD	HL,HL
+040187 19                  A   482    	ADD	HL,DE
+040188 E5D1                A   483    	LD	DE,HL
+04018A DDE5E1              A   484    	LD	HL,IX
+04018D C5                  A   485    	PUSH	BC
+04018E E5                  A   486    	PUSH	HL
+04018F D5E1                A   487    	LD	HL,DE
+040191 01ECFAFF            A   488    	LD	BC,-1300	; spill
+040195 CD DC 1A 04         A   489    	CALL	__istix
+040199 E1                  A   490    	POP	HL
+04019A C1                  A   491    	POP	BC
+04019B 115BFBFF            A   492    	LD	DE,-1189
+04019F C5                  A   493    	PUSH	BC
+0401A0 E5                  A   494    	PUSH	HL
+0401A1 D5E1                A   495    	LD	HL,DE	; unspill
+0401A3 01E9FAFF            A   496    	LD	BC,-1303	; spill
+0401A7 CD DC 1A 04         A   497    	CALL	__istix
+0401AB E1                  A   498    	POP	HL
+0401AC 01ECFAFF            A   499    	LD	BC,-1300	; unspill
+0401B0 E5                  A   500    	PUSH	HL
+0401B1 CD D3 1C 04         A   501    	CALL	__ildix
+0401B5 01ECFAFF            A   502    	LD	BC,-1300	; spill
+0401B9 CD DC 1A 04         A   503    	CALL	__istix
+0401BD E1                  A   504    	POP	HL
+0401BE 01E9FAFF            A   505    	LD	BC,-1303	; unspill
+0401C2 E5                  A   506    	PUSH	HL
+0401C3 CD D3 1C 04         A   507    	CALL	__ildix
+0401C7 E5D1                A   508    	LD	DE,HL
+0401C9 E1                  A   509    	POP	HL
+0401CA C1                  A   510    	POP	BC
+0401CB 19                  A   511    	ADD	HL,DE
+0401CC C5                  A   512    	PUSH	BC
+0401CD 01ECFAFF            A   513    	LD	BC,-1300	; unspill
+0401D1 E5                  A   514    	PUSH	HL
+0401D2 CD D3 1C 04         A   515    	CALL	__ildix
+0401D6 E5D1                A   516    	LD	DE,HL
+0401D8 E1                  A   517    	POP	HL
+0401D9 C1                  A   518    	POP	BC
+0401DA 19                  A   519    	ADD	HL,DE
+0401DB E5FDE1              A   520    	LD	IY,HL
+0401DE 21C40900            A   521    	LD	HL,2500
+0401E2 B7                  A   522    	OR	A,A
+0401E3 ED42                A   523    	SBC	HL,BC
+0401E5 FD2F00              A   524    	LD	(IY),HL
+                           A   525    ;   41			starY[i]=starRange-2*(rand()%st
+                           A   526    .LINE 41
+                           A   527    
+0401E8 FDE5                A   528    	PUSH	IY
+0401EA C5                  A   529    	PUSH	BC
+0401EB FD21E8FA FF         A   530    	LD	IY,-1304
+0401F0 DDE5C1              A   531    	LD	BC,IX
+0401F3 FD09                A   532    	ADD	IY,BC
+0401F5 FD7700              A   533    	LD	(IY),A
+0401F8 C1                  A   534    	POP	BC
+0401F9 FDE1                A   535    	POP	IY
+0401FB CD 67 1C 04         A   536    	CALL	_rand
+0401FF FDE5                A   537    	PUSH	IY
+040201 C5                  A   538    	PUSH	BC
+040202 FD21E8FA FF         A   539    	LD	IY,-1304
+040207 DDE5C1              A   540    	LD	BC,IX
+04020A FD09                A   541    	ADD	IY,BC
+04020C FD7E00              A   542    	LD	A,(IY)
+04020F C1                  A   543    	POP	BC
+040210 FDE1                A   544    	POP	IY
+040212 01C40900            A   545    	LD	BC,2500
+040216 CD A4 1A 04         A   546    	CALL	__irems
+04021A 29                  A   547    	ADD	HL,HL
+04021B E5C1                A   548    	LD	BC,HL
+04021D DD27FD              A   549    	LD	HL,(IX+%FFFFFFFD)
+040220 E5D1                A   550    	LD	DE,HL
+040222 29                  A   551    	ADD	HL,HL
+040223 19                  A   552    	ADD	HL,DE
+040224 E5D1                A   553    	LD	DE,HL
+040226 DDE5E1              A   554    	LD	HL,IX
+040229 C5                  A   555    	PUSH	BC
+04022A E5                  A   556    	PUSH	HL
+04022B D5E1                A   557    	LD	HL,DE
+04022D 01F2FAFF            A   558    	LD	BC,-1294	; spill
+040231 CD DC 1A 04         A   559    	CALL	__istix
+040235 E1                  A   560    	POP	HL
+040236 C1                  A   561    	POP	BC
+040237 115BFEFF            A   562    	LD	DE,-421
+04023B C5                  A   563    	PUSH	BC
+04023C E5                  A   564    	PUSH	HL
+04023D D5E1                A   565    	LD	HL,DE	; unspill
+04023F 01EFFAFF            A   566    	LD	BC,-1297	; spill
+040243 CD DC 1A 04         A   567    	CALL	__istix
+040247 E1                  A   568    	POP	HL
+040248 01F2FAFF            A   569    	LD	BC,-1294	; unspill
+04024C E5                  A   570    	PUSH	HL
+04024D CD D3 1C 04         A   571    	CALL	__ildix
+040251 01F2FAFF            A   572    	LD	BC,-1294	; spill
+040255 CD DC 1A 04         A   573    	CALL	__istix
+040259 E1                  A   574    	POP	HL
+04025A 01EFFAFF            A   575    	LD	BC,-1297	; unspill
+04025E E5                  A   576    	PUSH	HL
+04025F CD D3 1C 04         A   577    	CALL	__ildix
+040263 E5D1                A   578    	LD	DE,HL
+040265 E1                  A   579    	POP	HL
+040266 C1                  A   580    	POP	BC
+040267 19                  A   581    	ADD	HL,DE
+040268 C5                  A   582    	PUSH	BC
+040269 01F2FAFF            A   583    	LD	BC,-1294	; unspill
+04026D E5                  A   584    	PUSH	HL
+04026E CD D3 1C 04         A   585    	CALL	__ildix
+040272 E5D1                A   586    	LD	DE,HL
+040274 E1                  A   587    	POP	HL
+040275 C1                  A   588    	POP	BC
+040276 19                  A   589    	ADD	HL,DE
+040277 E5FDE1              A   590    	LD	IY,HL
+04027A 21C40900            A   591    	LD	HL,2500
+04027E B7                  A   592    	OR	A,A
+04027F ED42                A   593    	SBC	HL,BC
+040281 FD2F00              A   594    	LD	(IY),HL
+                           A   595    ;   42			starZ[i]=rand()%maxd;
+                           A   596    .LINE 42
+                           A   597    
+040284 FDE5                A   598    	PUSH	IY
+040286 C5                  A   599    	PUSH	BC
+040287 FD21E8FA FF         A   600    	LD	IY,-1304
+04028C DDE5C1              A   601    	LD	BC,IX
+04028F FD09                A   602    	ADD	IY,BC
+040291 FD7700              A   603    	LD	(IY),A
+040294 C1                  A   604    	POP	BC
+040295 FDE1                A   605    	POP	IY
+040297 CD 67 1C 04         A   606    	CALL	_rand
+04029B FDE5                A   607    	PUSH	IY
+04029D C5                  A   608    	PUSH	BC
+04029E FD21E8FA FF         A   609    	LD	IY,-1304
+0402A3 DDE5C1              A   610    	LD	BC,IX
+0402A6 FD09                A   611    	ADD	IY,BC
+0402A8 FD7E00              A   612    	LD	A,(IY)
+0402AB C1                  A   613    	POP	BC
+0402AC FDE1                A   614    	POP	IY
+0402AE 01960000            A   615    	LD	BC,150
+0402B2 CD A4 1A 04         A   616    	CALL	__irems
+0402B6 E5C1                A   617    	LD	BC,HL
+0402B8 DD27FD              A   618    	LD	HL,(IX+%FFFFFFFD)
+0402BB E5D1                A   619    	LD	DE,HL
+0402BD 29                  A   620    	ADD	HL,HL
+0402BE 19                  A   621    	ADD	HL,DE
+0402BF E5D1                A   622    	LD	DE,HL
+0402C1 DDE5E1              A   623    	LD	HL,IX
+0402C4 C5                  A   624    	PUSH	BC
+0402C5 E5                  A   625    	PUSH	HL
+0402C6 D5E1                A   626    	LD	HL,DE
+0402C8 01F8FAFF            A   627    	LD	BC,-1288	; spill
+0402CC CD DC 1A 04         A   628    	CALL	__istix
+0402D0 E1                  A   629    	POP	HL
+0402D1 C1                  A   630    	POP	BC
+0402D2 11DBFCFF            A   631    	LD	DE,-805
+0402D6 C5                  A   632    	PUSH	BC
+0402D7 E5                  A   633    	PUSH	HL
+0402D8 D5E1                A   634    	LD	HL,DE	; unspill
+0402DA 01F5FAFF            A   635    	LD	BC,-1291	; spill
+0402DE CD DC 1A 04         A   636    	CALL	__istix
+0402E2 E1                  A   637    	POP	HL
+0402E3 01F8FAFF            A   638    	LD	BC,-1288	; unspill
+0402E7 E5                  A   639    	PUSH	HL
+0402E8 CD D3 1C 04         A   640    	CALL	__ildix
+0402EC 01F8FAFF            A   641    	LD	BC,-1288	; spill
+0402F0 CD DC 1A 04         A   642    	CALL	__istix
+0402F4 E1                  A   643    	POP	HL
+0402F5 01F5FAFF            A   644    	LD	BC,-1291	; unspill
+0402F9 E5                  A   645    	PUSH	HL
+0402FA CD D3 1C 04         A   646    	CALL	__ildix
+0402FE E5D1                A   647    	LD	DE,HL
+040300 E1                  A   648    	POP	HL
+040301 C1                  A   649    	POP	BC
+040302 19                  A   650    	ADD	HL,DE
+040303 C5                  A   651    	PUSH	BC
+040304 01F8FAFF            A   652    	LD	BC,-1288	; unspill
+040308 E5                  A   653    	PUSH	HL
+040309 CD D3 1C 04         A   654    	CALL	__ildix
+04030D E5D1                A   655    	LD	DE,HL
+04030F E1                  A   656    	POP	HL
+040310 C1                  A   657    	POP	BC
+040311 19                  A   658    	ADD	HL,DE
+040312 ED0F                A   659    	LD	(HL),BC
+040314 DD07FD              A   660    	LD	BC,(IX+%FFFFFFFD)
+040317 03                  A   661    	INC	BC
+040318 DD0FFD              A   662    	LD	(IX+%FFFFFFFD),BC
+                           A   663    ;   43			}
+04031B                     A   664    L_4:
+                           A   665    .LINE 43
+                           A   666    
+04031B 01800000            A   667    	LD	BC,128
+04031F DD27FD              A   668    	LD	HL,(IX+%FFFFFFFD)
+040322 B7                  A   669    	OR	A,A
+040323 ED42                A   670    	SBC	HL,BC
+040325 CD 70 1A 04         A   671    	CALL	__setflag
+040329 FA 4C 01 04         A   672    	JP	M,L_2
+                           A   673    ;   44		rx = starX[i]*cosT-starY[i]*sinT;
+                           A   674    .LINE 44
+                           A   675    
+                           A   676    ;   45		ry = starY[i]*cosT+starY[i]*sinT;	
+                           A   677    ;   46	
+                           A   678    ;   47			x1=150;
+                           A   679    .LINE 47
+                           A   680    
+04032D DD36F896            A   681    	LD	(IX+%FFFFFFF8),%96
+040331 DD36F900            A   682    	LD	(IX+%FFFFFFF9),%0
+                           A   683    ;   48		y1=150;
+                           A   684    .LINE 48
+                           A   685    
+040335 DD36F696            A   686    	LD	(IX+%FFFFFFF6),%96
+040339 DD36F700            A   687    	LD	(IX+%FFFFFFF7),%0
+                           A   688    ;   49		vdp_mode(0);
+                           A   689    .LINE 49
+                           A   690    
+04033D 01000000            A   691    	LD	BC,0
+040341 C5                  A   692    	PUSH	BC
+040342 CD C1 0E 04         A   693    	CALL	_vdp_mode
+040346 C1                  A   694    	POP	BC
+                           A   695    ;   50		vdp_cls();
+                           A   696    .LINE 50
+                           A   697    
+040347 CD E6 0E 04         A   698    	CALL	_vdp_cls
+                           A   699    ;   51		vdp_fgcolour(255,255,255);
+                           A   700    .LINE 51
+                           A   701    
+04034B 01FF0000            A   702    	LD	BC,255
+04034F C5                  A   703    	PUSH	BC
+040350 C5                  A   704    	PUSH	BC
+040351 C5                  A   705    	PUSH	BC
+040352 CD BF 0F 04         A   706    	CALL	_vdp_fgcolour
+040356 C1                  A   707    	POP	BC
+040357 C1                  A   708    	POP	BC
+040358 C1                  A   709    	POP	BC
+                           A   710    ;   52		
+                           A   711    ;   53		
+                           A   712    ;   54		running=TRUE;
+                           A   713    .LINE 54
+                           A   714    
+040359 DD36F201            A   715    	LD	(IX+%FFFFFFF2),%1
+                           A   716    ;   55		while(running)
+                           A   717    .LINE 55
+                           A   718    
+04035D C3 FF 0D 04         A   719    	JR	L_54
+040361                     A   720    L_55:
+                           A   721    ;   56		{
+                           A   722    ;   57			key = getfullkeycode();
+                           A   723    .LINE 57
+                           A   724    
+040361 FDE5                A   725    	PUSH	IY
+040363 C5                  A   726    	PUSH	BC
+040364 FD21E8FA FF         A   727    	LD	IY,-1304
+040369 DDE5C1              A   728    	LD	BC,IX
+04036C FD09                A   729    	ADD	IY,BC
+04036E FD7700              A   730    	LD	(IY),A
+040371 C1                  A   731    	POP	BC
+040372 FDE1                A   732    	POP	IY
+040374 CD F8 19 04         A   733    	CALL	_getfullkeycode
+040378 FDE5                A   734    	PUSH	IY
+04037A C5                  A   735    	PUSH	BC
+04037B FD21E8FA FF         A   736    	LD	IY,-1304
+040380 DDE5C1              A   737    	LD	BC,IX
+040383 FD09                A   738    	ADD	IY,BC
+040385 FD7E00              A   739    	LD	A,(IY)
+040388 C1                  A   740    	POP	BC
+040389 FDE1                A   741    	POP	IY
+04038B DD75DE              A   742    	LD	(IX+%FFFFFFDE),L
+04038E DD74DF              A   743    	LD	(IX+%FFFFFFDF),H
+                           A   744    ;   58			
+                           A   745    ;   59			for(i=0;i<128;i++)	{
+                           A   746    .LINE 59
+                           A   747    
+040391 01000000            A   748    	LD	BC,0
+040395 DD0FFD              A   749    	LD	(IX+%FFFFFFFD),BC
+040398 C3 AF 05 04         A   750    	JR	L_10
+04039C                     A   751    L_8:
+                           A   752    ;   60				starZ[i]=starZ[i]-1;
+                           A   753    .LINE 60
+                           A   754    
+04039C DD27FD              A   755    	LD	HL,(IX+%FFFFFFFD)
+04039F E5C1                A   756    	LD	BC,HL
+0403A1 29                  A   757    	ADD	HL,HL
+0403A2 09                  A   758    	ADD	HL,BC
+0403A3 DD2FF3              A   759    	LD	(IX+%FFFFFFF3),HL
+0403A6 E5C1                A   760    	LD	BC,HL
+0403A8 DDE5E1              A   761    	LD	HL,IX
+0403AB 11DBFCFF            A   762    	LD	DE,-805
+0403AF 19                  A   763    	ADD	HL,DE
+0403B0 09                  A   764    	ADD	HL,BC
+0403B1 0158FBFF            A   765    	LD	BC,-1192
+0403B5 CD DC 1A 04         A   766    	CALL	__istix
+0403B9 0158FBFF            A   767    	LD	BC,-1192
+0403BD CD D3 1C 04         A   768    	CALL	__ildix
+0403C1 E5FDE1              A   769    	LD	IY,HL
+0403C4 0158FBFF            A   770    	LD	BC,-1192
+0403C8 CD D3 1C 04         A   771    	CALL	__ildix
+0403CC FD0700              A   772    	LD	BC,(IY)
+0403CF 0B                  A   773    	DEC	BC
+0403D0 ED0F                A   774    	LD	(HL),BC
+                           A   775    ;   61				if(starZ[i]<=0) {
+                           A   776    .LINE 61
+                           A   777    
+0403D2 0158FBFF            A   778    	LD	BC,-1192
+0403D6 CD D3 1C 04         A   779    	CALL	__ildix
+0403DA ED07                A   780    	LD	BC,(HL)
+0403DC B7                  A   781    	OR	A,A
+0403DD ED62                A   782    	SBC	HL,HL
+0403DF B7                  A   783    	OR	A,A
+0403E0 ED42                A   784    	SBC	HL,BC
+0403E2 CD 70 1A 04         A   785    	CALL	__setflag
+0403E6 FA A8 05 04         A   786    	JP	M,L_9
+                           A   787    ;   62					starZ[i]=maxd;
+                           A   788    .LINE 62
+                           A   789    
+0403EA DD07F3              A   790    	LD	BC,(IX+%FFFFFFF3)
+0403ED DDE5E1              A   791    	LD	HL,IX
+0403F0 19                  A   792    	ADD	HL,DE
+0403F1 09                  A   793    	ADD	HL,BC
+0403F2 01960000            A   794    	LD	BC,150
+0403F6 ED0F                A   795    	LD	(HL),BC
+                           A   796    ;   63					starX[i]=starRange-2*(r
+                           A   797    .LINE 63
+                           A   798    
+0403F8 FDE5                A   799    	PUSH	IY
+0403FA C5                  A   800    	PUSH	BC
+0403FB FD21E8FA FF         A   801    	LD	IY,-1304
+040400 DDE5C1              A   802    	LD	BC,IX
+040403 FD09                A   803    	ADD	IY,BC
+040405 FD7700              A   804    	LD	(IY),A
+040408 C1                  A   805    	POP	BC
+040409 FDE1                A   806    	POP	IY
+04040B CD 67 1C 04         A   807    	CALL	_rand
+04040F FDE5                A   808    	PUSH	IY
+040411 C5                  A   809    	PUSH	BC
+040412 FD21E8FA FF         A   810    	LD	IY,-1304
+040417 DDE5C1              A   811    	LD	BC,IX
+04041A FD09                A   812    	ADD	IY,BC
+04041C FD7E00              A   813    	LD	A,(IY)
+04041F C1                  A   814    	POP	BC
+040420 FDE1                A   815    	POP	IY
+040422 01C40900            A   816    	LD	BC,2500
+040426 CD A4 1A 04         A   817    	CALL	__irems
+04042A 29                  A   818    	ADD	HL,HL
+04042B E5C1                A   819    	LD	BC,HL
+04042D DDE5E1              A   820    	LD	HL,IX
+040430 C5                  A   821    	PUSH	BC
+040431 E5                  A   822    	PUSH	HL
+040432 DD27F3              A   823    	LD	HL,(IX+%FFFFFFF3)
+040435 0116FBFF            A   824    	LD	BC,-1258	; spill
+040439 CD DC 1A 04         A   825    	CALL	__istix
+04043D E1                  A   826    	POP	HL
+04043E C1                  A   827    	POP	BC
+04043F 115BFBFF            A   828    	LD	DE,-1189
+040443 C5                  A   829    	PUSH	BC
+040444 E5                  A   830    	PUSH	HL
+040445 D5E1                A   831    	LD	HL,DE	; unspill
+040447 0113FBFF            A   832    	LD	BC,-1261	; spill
+04044B CD DC 1A 04         A   833    	CALL	__istix
+04044F E1                  A   834    	POP	HL
+040450 0116FBFF            A   835    	LD	BC,-1258	; unspill
+040454 E5                  A   836    	PUSH	HL
+040455 CD D3 1C 04         A   837    	CALL	__ildix
+040459 0116FBFF            A   838    	LD	BC,-1258	; spill
+04045D CD DC 1A 04         A   839    	CALL	__istix
+040461 E1                  A   840    	POP	HL
+040462 0113FBFF            A   841    	LD	BC,-1261	; unspill
+040466 E5                  A   842    	PUSH	HL
+040467 CD D3 1C 04         A   843    	CALL	__ildix
+04046B E5D1                A   844    	LD	DE,HL
+04046D E1                  A   845    	POP	HL
+04046E C1                  A   846    	POP	BC
+04046F 19                  A   847    	ADD	HL,DE
+040470 C5                  A   848    	PUSH	BC
+040471 0116FBFF            A   849    	LD	BC,-1258	; unspill
+040475 E5                  A   850    	PUSH	HL
+040476 CD D3 1C 04         A   851    	CALL	__ildix
+04047A E5D1                A   852    	LD	DE,HL
+04047C E1                  A   853    	POP	HL
+04047D C1                  A   854    	POP	BC
+04047E 19                  A   855    	ADD	HL,DE
+04047F E5FDE1              A   856    	LD	IY,HL
+040482 21C40900            A   857    	LD	HL,2500
+040486 B7                  A   858    	OR	A,A
+040487 ED42                A   859    	SBC	HL,BC
+040489 FD2F00              A   860    	LD	(IY),HL
+                           A   861    ;   64					starY[i]=starRange-2*(r
+                           A   862    .LINE 64
+                           A   863    
+04048C FDE5                A   864    	PUSH	IY
+04048E C5                  A   865    	PUSH	BC
+04048F FD21E8FA FF         A   866    	LD	IY,-1304
+040494 DDE5C1              A   867    	LD	BC,IX
+040497 FD09                A   868    	ADD	IY,BC
+040499 FD7700              A   869    	LD	(IY),A
+04049C C1                  A   870    	POP	BC
+04049D FDE1                A   871    	POP	IY
+04049F CD 67 1C 04         A   872    	CALL	_rand
+0404A3 FDE5                A   873    	PUSH	IY
+0404A5 C5                  A   874    	PUSH	BC
+0404A6 FD21E8FA FF         A   875    	LD	IY,-1304
+0404AB DDE5C1              A   876    	LD	BC,IX
+0404AE FD09                A   877    	ADD	IY,BC
+0404B0 FD7E00              A   878    	LD	A,(IY)
+0404B3 C1                  A   879    	POP	BC
+0404B4 FDE1                A   880    	POP	IY
+0404B6 01C40900            A   881    	LD	BC,2500
+0404BA CD A4 1A 04         A   882    	CALL	__irems
+0404BE 29                  A   883    	ADD	HL,HL
+0404BF E5C1                A   884    	LD	BC,HL
+0404C1 DDE5E1              A   885    	LD	HL,IX
+0404C4 C5                  A   886    	PUSH	BC
+0404C5 E5                  A   887    	PUSH	HL
+0404C6 DD27F3              A   888    	LD	HL,(IX+%FFFFFFF3)
+0404C9 011CFBFF            A   889    	LD	BC,-1252	; spill
+0404CD CD DC 1A 04         A   890    	CALL	__istix
+0404D1 E1                  A   891    	POP	HL
+0404D2 C1                  A   892    	POP	BC
+0404D3 115BFEFF            A   893    	LD	DE,-421
+0404D7 C5                  A   894    	PUSH	BC
+0404D8 E5                  A   895    	PUSH	HL
+0404D9 D5E1                A   896    	LD	HL,DE	; unspill
+0404DB 0119FBFF            A   897    	LD	BC,-1255	; spill
+0404DF CD DC 1A 04         A   898    	CALL	__istix
+0404E3 E1                  A   899    	POP	HL
+0404E4 011CFBFF            A   900    	LD	BC,-1252	; unspill
+0404E8 E5                  A   901    	PUSH	HL
+0404E9 CD D3 1C 04         A   902    	CALL	__ildix
+0404ED 011CFBFF            A   903    	LD	BC,-1252	; spill
+0404F1 CD DC 1A 04         A   904    	CALL	__istix
+0404F5 E1                  A   905    	POP	HL
+0404F6 0119FBFF            A   906    	LD	BC,-1255	; unspill
+0404FA E5                  A   907    	PUSH	HL
+0404FB CD D3 1C 04         A   908    	CALL	__ildix
+0404FF E5D1                A   909    	LD	DE,HL
+040501 E1                  A   910    	POP	HL
+040502 C1                  A   911    	POP	BC
+040503 19                  A   912    	ADD	HL,DE
+040504 C5                  A   913    	PUSH	BC
+040505 011CFBFF            A   914    	LD	BC,-1252	; unspill
+040509 E5                  A   915    	PUSH	HL
+04050A CD D3 1C 04         A   916    	CALL	__ildix
+04050E E5D1                A   917    	LD	DE,HL
+040510 E1                  A   918    	POP	HL
+040511 C1                  A   919    	POP	BC
+040512 19                  A   920    	ADD	HL,DE
+040513 E5FDE1              A   921    	LD	IY,HL
+040516 21C40900            A   922    	LD	HL,2500
+04051A B7                  A   923    	OR	A,A
+04051B ED42                A   924    	SBC	HL,BC
+04051D FD2F00              A   925    	LD	(IY),HL
+                           A   926    ;   65					starZ[i]=rand()%maxd;
+                           A   927    .LINE 65
+                           A   928    
+040520 FDE5                A   929    	PUSH	IY
+040522 C5                  A   930    	PUSH	BC
+040523 FD21E8FA FF         A   931    	LD	IY,-1304
+040528 DDE5C1              A   932    	LD	BC,IX
+04052B FD09                A   933    	ADD	IY,BC
+04052D FD7700              A   934    	LD	(IY),A
+040530 C1                  A   935    	POP	BC
+040531 FDE1                A   936    	POP	IY
+040533 CD 67 1C 04         A   937    	CALL	_rand
+040537 FDE5                A   938    	PUSH	IY
+040539 C5                  A   939    	PUSH	BC
+04053A FD21E8FA FF         A   940    	LD	IY,-1304
+04053F DDE5C1              A   941    	LD	BC,IX
+040542 FD09                A   942    	ADD	IY,BC
+040544 FD7E00              A   943    	LD	A,(IY)
+040547 C1                  A   944    	POP	BC
+040548 FDE1                A   945    	POP	IY
+04054A 01960000            A   946    	LD	BC,150
+04054E CD A4 1A 04         A   947    	CALL	__irems
+040552 E5C1                A   948    	LD	BC,HL
+040554 DDE5E1              A   949    	LD	HL,IX
+040557 C5                  A   950    	PUSH	BC
+040558 E5                  A   951    	PUSH	HL
+040559 DD27F3              A   952    	LD	HL,(IX+%FFFFFFF3)
+04055C 0122FBFF            A   953    	LD	BC,-1246	; spill
+040560 CD DC 1A 04         A   954    	CALL	__istix
+040564 E1                  A   955    	POP	HL
+040565 C1                  A   956    	POP	BC
+040566 11DBFCFF            A   957    	LD	DE,-805
+04056A C5                  A   958    	PUSH	BC
+04056B E5                  A   959    	PUSH	HL
+04056C D5E1                A   960    	LD	HL,DE	; unspill
+04056E 011FFBFF            A   961    	LD	BC,-1249	; spill
+040572 CD DC 1A 04         A   962    	CALL	__istix
+040576 E1                  A   963    	POP	HL
+040577 0122FBFF            A   964    	LD	BC,-1246	; unspill
+04057B E5                  A   965    	PUSH	HL
+04057C CD D3 1C 04         A   966    	CALL	__ildix
+040580 0122FBFF            A   967    	LD	BC,-1246	; spill
+040584 CD DC 1A 04         A   968    	CALL	__istix
+040588 E1                  A   969    	POP	HL
+040589 011FFBFF            A   970    	LD	BC,-1249	; unspill
+04058D E5                  A   971    	PUSH	HL
+04058E CD D3 1C 04         A   972    	CALL	__ildix
+040592 E5D1                A   973    	LD	DE,HL
+040594 E1                  A   974    	POP	HL
+040595 C1                  A   975    	POP	BC
+040596 19                  A   976    	ADD	HL,DE
+040597 C5                  A   977    	PUSH	BC
+040598 0122FBFF            A   978    	LD	BC,-1246	; unspill
+04059C E5                  A   979    	PUSH	HL
+04059D CD D3 1C 04         A   980    	CALL	__ildix
+0405A1 E5D1                A   981    	LD	DE,HL
+0405A3 E1                  A   982    	POP	HL
+0405A4 C1                  A   983    	POP	BC
+0405A5 19                  A   984    	ADD	HL,DE
+0405A6 ED0F                A   985    	LD	(HL),BC
+                           A   986    ;   66					}		
+                           A   987    ;   67				}
+0405A8                     A   988    L_9:
+                           A   989    .LINE 67
+                           A   990    
+0405A8 DD07FD              A   991    	LD	BC,(IX+%FFFFFFFD)
+0405AB 03                  A   992    	INC	BC
+0405AC DD0FFD              A   993    	LD	(IX+%FFFFFFFD),BC
+0405AF                     A   994    L_10:
+0405AF 01800000            A   995    	LD	BC,128
+0405B3 DD27FD              A   996    	LD	HL,(IX+%FFFFFFFD)
+0405B6 B7                  A   997    	OR	A,A
+0405B7 ED42                A   998    	SBC	HL,BC
+0405B9 CD 70 1A 04         A   999    	CALL	__setflag
+0405BD FA 9C 03 04         A  1000    	JP	M,L_8
+                           A  1001    ;   68			vdp_cls();
+                           A  1002    .LINE 68
+                           A  1003    
+0405C1 FDE5                A  1004    	PUSH	IY
+0405C3 C5                  A  1005    	PUSH	BC
+0405C4 FD21E8FA FF         A  1006    	LD	IY,-1304
+0405C9 DDE5C1              A  1007    	LD	BC,IX
+0405CC FD09                A  1008    	ADD	IY,BC
+0405CE FD7700              A  1009    	LD	(IY),A
+0405D1 C1                  A  1010    	POP	BC
+0405D2 FDE1                A  1011    	POP	IY
+0405D4 CD E6 0E 04         A  1012    	CALL	_vdp_cls
+0405D8 FDE5                A  1013    	PUSH	IY
+0405DA C5                  A  1014    	PUSH	BC
+0405DB FD21E8FA FF         A  1015    	LD	IY,-1304
+0405E0 DDE5C1              A  1016    	LD	BC,IX
+0405E3 FD09                A  1017    	ADD	IY,BC
+0405E5 FD7E00              A  1018    	LD	A,(IY)
+0405E8 C1                  A  1019    	POP	BC
+0405E9 FDE1                A  1020    	POP	IY
+                           A  1021    ;   69			for(i=0;i<128;i++)	{
+                           A  1022    .LINE 69
+                           A  1023    
+0405EB 01000000            A  1024    	LD	BC,0
+0405EF DD0FFD              A  1025    	LD	(IX+%FFFFFFFD),BC
+0405F2 C3 BC 0A 04         A  1026    	JR	L_21
+0405F6                     A  1027    L_19:
+                           A  1028    ;   70				cz = starZ[i];
+                           A  1029    .LINE 70
+                           A  1030    
+0405F6 DD27FD              A  1031    	LD	HL,(IX+%FFFFFFFD)
+0405F9 E5C1                A  1032    	LD	BC,HL
+0405FB 29                  A  1033    	ADD	HL,HL
+0405FC 09                  A  1034    	ADD	HL,BC
+0405FD DD2FFA              A  1035    	LD	(IX+%FFFFFFFA),HL
+040600 DD2FE3              A  1036    	LD	(IX+%FFFFFFE3),HL
+040603 DD2FE6              A  1037    	LD	(IX+%FFFFFFE6),HL
+040606 DD2FE9              A  1038    	LD	(IX+%FFFFFFE9),HL
+040609 DD2FDB              A  1039    	LD	(IX+%FFFFFFDB),HL
+04060C E5C1                A  1040    	LD	BC,HL
+04060E DDE5E1              A  1041    	LD	HL,IX
+040611 11DBFCFF            A  1042    	LD	DE,-805
+040615 19                  A  1043    	ADD	HL,DE
+040616 09                  A  1044    	ADD	HL,BC
+040617 ED07                A  1045    	LD	BC,(HL)
+040619 DD0FE0              A  1046    	LD	(IX+%FFFFFFE0),BC
+                           A  1047    ;   71				cx = starX[i]/cz;
+                           A  1048    .LINE 71
+                           A  1049    
+04061C DD17FA              A  1050    	LD	DE,(IX+%FFFFFFFA)
+04061F DDE5E1              A  1051    	LD	HL,IX
+040622 E5                  A  1052    	PUSH	HL
+040623 C5E1                A  1053    	LD	HL,BC
+040625 0128FBFF            A  1054    	LD	BC,-1240	; spill
+040629 CD DC 1A 04         A  1055    	CALL	__istix
+04062D E1                  A  1056    	POP	HL
+04062E 015BFBFF            A  1057    	LD	BC,-1189
+040632 E5                  A  1058    	PUSH	HL
+040633 C5E1                A  1059    	LD	HL,BC	; unspill
+040635 0125FBFF            A  1060    	LD	BC,-1243	; spill
+040639 CD DC 1A 04         A  1061    	CALL	__istix
+04063D E1                  A  1062    	POP	HL
+04063E 0128FBFF            A  1063    	LD	BC,-1240	; unspill
+040642 E5                  A  1064    	PUSH	HL
+040643 CD D3 1C 04         A  1065    	CALL	__ildix
+040647 0128FBFF            A  1066    	LD	BC,-1240	; spill
+04064B CD DC 1A 04         A  1067    	CALL	__istix
+04064F E1                  A  1068    	POP	HL
+040650 0125FBFF            A  1069    	LD	BC,-1243	; unspill
+040654 E5                  A  1070    	PUSH	HL
+040655 CD D3 1C 04         A  1071    	CALL	__ildix
+040659 E5C1                A  1072    	LD	BC,HL
+04065B E1                  A  1073    	POP	HL
+04065C 09                  A  1074    	ADD	HL,BC
+04065D 0128FBFF            A  1075    	LD	BC,-1240	; unspill
+040661 E5                  A  1076    	PUSH	HL
+040662 CD D3 1C 04         A  1077    	CALL	__ildix
+040666 E5C1                A  1078    	LD	BC,HL
+040668 E1                  A  1079    	POP	HL
+040669 19                  A  1080    	ADD	HL,DE
+04066A ED27                A  1081    	LD	HL,(HL)
+04066C CD E7 1B 04         A  1082    	CALL	__idivs
+040670 DD2FEC              A  1083    	LD	(IX+%FFFFFFEC),HL
+                           A  1084    ;   72				cy = starY[i]/cz;
+                           A  1085    .LINE 72
+                           A  1086    
+040673 DD07FA              A  1087    	LD	BC,(IX+%FFFFFFFA)
+040676 DDE5E1              A  1088    	LD	HL,IX
+040679 115BFEFF            A  1089    	LD	DE,-421
+04067D 19                  A  1090    	ADD	HL,DE
+04067E 09                  A  1091    	ADD	HL,BC
+04067F ED27                A  1092    	LD	HL,(HL)
+040681 DD07E0              A  1093    	LD	BC,(IX+%FFFFFFE0)
+040684 CD E7 1B 04         A  1094    	CALL	__idivs
+040688 DD2FEF              A  1095    	LD	(IX+%FFFFFFEF),HL
+                           A  1096    ;   73				
+                           A  1097    ;   74				if((cx<-320) || (cx>320)) {
+                           A  1098    .LINE 74
+                           A  1099    
+04068B 01C0FEFF            A  1100    	LD	BC,16776896
+04068F DD27EC              A  1101    	LD	HL,(IX+%FFFFFFEC)
+040692 B7                  A  1102    	OR	A,A
+040693 ED42                A  1103    	SBC	HL,BC
+040695 CD 70 1A 04         A  1104    	CALL	__setflag
+040699 FA AF 06 04         A  1105    	JP	M,L_14
+04069D DD07EC              A  1106    	LD	BC,(IX+%FFFFFFEC)
+0406A0 21400100            A  1107    	LD	HL,320
+0406A4 B7                  A  1108    	OR	A,A
+0406A5 ED42                A  1109    	SBC	HL,BC
+0406A7 CD 70 1A 04         A  1110    	CALL	__setflag
+0406AB F2 89 08 04         A  1111    	JP	P,L_17
+0406AF                     A  1112    L_14:
+                           A  1113    ;   75					starZ[i]=maxd;
+                           A  1114    .LINE 75
+                           A  1115    
+0406AF DD07FA              A  1116    	LD	BC,(IX+%FFFFFFFA)
+0406B2 DDE5E1              A  1117    	LD	HL,IX
+0406B5 11DBFCFF            A  1118    	LD	DE,-805
+0406B9 19                  A  1119    	ADD	HL,DE
+0406BA 09                  A  1120    	ADD	HL,BC
+0406BB 01960000            A  1121    	LD	BC,150
+0406BF ED0F                A  1122    	LD	(HL),BC
+                           A  1123    ;   76					starX[i]=starRange-2*(r
+                           A  1124    .LINE 76
+                           A  1125    
+0406C1 FDE5                A  1126    	PUSH	IY
+0406C3 C5                  A  1127    	PUSH	BC
+0406C4 FD21E8FA FF         A  1128    	LD	IY,-1304
+0406C9 DDE5C1              A  1129    	LD	BC,IX
+0406CC FD09                A  1130    	ADD	IY,BC
+0406CE FD7700              A  1131    	LD	(IY),A
+0406D1 C1                  A  1132    	POP	BC
+0406D2 FDE1                A  1133    	POP	IY
+0406D4 CD 67 1C 04         A  1134    	CALL	_rand
+0406D8 FDE5                A  1135    	PUSH	IY
+0406DA C5                  A  1136    	PUSH	BC
+0406DB FD21E8FA FF         A  1137    	LD	IY,-1304
+0406E0 DDE5C1              A  1138    	LD	BC,IX
+0406E3 FD09                A  1139    	ADD	IY,BC
+0406E5 FD7E00              A  1140    	LD	A,(IY)
+0406E8 C1                  A  1141    	POP	BC
+0406E9 FDE1                A  1142    	POP	IY
+0406EB 01C40900            A  1143    	LD	BC,2500
+0406EF CD A4 1A 04         A  1144    	CALL	__irems
+0406F3 29                  A  1145    	ADD	HL,HL
+0406F4 E5C1                A  1146    	LD	BC,HL
+0406F6 DDE5E1              A  1147    	LD	HL,IX
+0406F9 C5                  A  1148    	PUSH	BC
+0406FA E5                  A  1149    	PUSH	HL
+0406FB DD27FA              A  1150    	LD	HL,(IX+%FFFFFFFA)
+0406FE 012EFBFF            A  1151    	LD	BC,-1234	; spill
+040702 CD DC 1A 04         A  1152    	CALL	__istix
+040706 E1                  A  1153    	POP	HL
+040707 C1                  A  1154    	POP	BC
+040708 115BFBFF            A  1155    	LD	DE,-1189
+04070C C5                  A  1156    	PUSH	BC
+04070D E5                  A  1157    	PUSH	HL
+04070E D5E1                A  1158    	LD	HL,DE	; unspill
+040710 012BFBFF            A  1159    	LD	BC,-1237	; spill
+040714 CD DC 1A 04         A  1160    	CALL	__istix
+040718 E1                  A  1161    	POP	HL
+040719 012EFBFF            A  1162    	LD	BC,-1234	; unspill
+04071D E5                  A  1163    	PUSH	HL
+04071E CD D3 1C 04         A  1164    	CALL	__ildix
+040722 012EFBFF            A  1165    	LD	BC,-1234	; spill
+040726 CD DC 1A 04         A  1166    	CALL	__istix
+04072A E1                  A  1167    	POP	HL
+04072B 012BFBFF            A  1168    	LD	BC,-1237	; unspill
+04072F E5                  A  1169    	PUSH	HL
+040730 CD D3 1C 04         A  1170    	CALL	__ildix
+040734 E5D1                A  1171    	LD	DE,HL
+040736 E1                  A  1172    	POP	HL
+040737 C1                  A  1173    	POP	BC
+040738 19                  A  1174    	ADD	HL,DE
+040739 C5                  A  1175    	PUSH	BC
+04073A 012EFBFF            A  1176    	LD	BC,-1234	; unspill
+04073E E5                  A  1177    	PUSH	HL
+04073F CD D3 1C 04         A  1178    	CALL	__ildix
+040743 E5D1                A  1179    	LD	DE,HL
+040745 E1                  A  1180    	POP	HL
+040746 C1                  A  1181    	POP	BC
+040747 19                  A  1182    	ADD	HL,DE
+040748 E5FDE1              A  1183    	LD	IY,HL
+04074B 21C40900            A  1184    	LD	HL,2500
+04074F B7                  A  1185    	OR	A,A
+040750 ED42                A  1186    	SBC	HL,BC
+040752 FD2F00              A  1187    	LD	(IY),HL
+                           A  1188    ;   77					starY[i]=starRange-2*(r
+                           A  1189    .LINE 77
+                           A  1190    
+040755 FDE5                A  1191    	PUSH	IY
+040757 C5                  A  1192    	PUSH	BC
+040758 FD21E8FA FF         A  1193    	LD	IY,-1304
+04075D DDE5C1              A  1194    	LD	BC,IX
+040760 FD09                A  1195    	ADD	IY,BC
+040762 FD7700              A  1196    	LD	(IY),A
+040765 C1                  A  1197    	POP	BC
+040766 FDE1                A  1198    	POP	IY
+040768 CD 67 1C 04         A  1199    	CALL	_rand
+04076C FDE5                A  1200    	PUSH	IY
+04076E C5                  A  1201    	PUSH	BC
+04076F FD21E8FA FF         A  1202    	LD	IY,-1304
+040774 DDE5C1              A  1203    	LD	BC,IX
+040777 FD09                A  1204    	ADD	IY,BC
+040779 FD7E00              A  1205    	LD	A,(IY)
+04077C C1                  A  1206    	POP	BC
+04077D FDE1                A  1207    	POP	IY
+04077F 01C40900            A  1208    	LD	BC,2500
+040783 CD A4 1A 04         A  1209    	CALL	__irems
+040787 29                  A  1210    	ADD	HL,HL
+040788 E5C1                A  1211    	LD	BC,HL
+04078A DDE5E1              A  1212    	LD	HL,IX
+04078D C5                  A  1213    	PUSH	BC
+04078E E5                  A  1214    	PUSH	HL
+04078F DD27FA              A  1215    	LD	HL,(IX+%FFFFFFFA)
+040792 0134FBFF            A  1216    	LD	BC,-1228	; spill
+040796 CD DC 1A 04         A  1217    	CALL	__istix
+04079A E1                  A  1218    	POP	HL
+04079B C1                  A  1219    	POP	BC
+04079C 115BFEFF            A  1220    	LD	DE,-421
+0407A0 C5                  A  1221    	PUSH	BC
+0407A1 E5                  A  1222    	PUSH	HL
+0407A2 D5E1                A  1223    	LD	HL,DE	; unspill
+0407A4 0131FBFF            A  1224    	LD	BC,-1231	; spill
+0407A8 CD DC 1A 04         A  1225    	CALL	__istix
+0407AC E1                  A  1226    	POP	HL
+0407AD 0134FBFF            A  1227    	LD	BC,-1228	; unspill
+0407B1 E5                  A  1228    	PUSH	HL
+0407B2 CD D3 1C 04         A  1229    	CALL	__ildix
+0407B6 0134FBFF            A  1230    	LD	BC,-1228	; spill
+0407BA CD DC 1A 04         A  1231    	CALL	__istix
+0407BE E1                  A  1232    	POP	HL
+0407BF 0131FBFF            A  1233    	LD	BC,-1231	; unspill
+0407C3 E5                  A  1234    	PUSH	HL
+0407C4 CD D3 1C 04         A  1235    	CALL	__ildix
+0407C8 E5D1                A  1236    	LD	DE,HL
+0407CA E1                  A  1237    	POP	HL
+0407CB C1                  A  1238    	POP	BC
+0407CC 19                  A  1239    	ADD	HL,DE
+0407CD C5                  A  1240    	PUSH	BC
+0407CE 0134FBFF            A  1241    	LD	BC,-1228	; unspill
+0407D2 E5                  A  1242    	PUSH	HL
+0407D3 CD D3 1C 04         A  1243    	CALL	__ildix
+0407D7 E5D1                A  1244    	LD	DE,HL
+0407D9 E1                  A  1245    	POP	HL
+0407DA C1                  A  1246    	POP	BC
+0407DB 19                  A  1247    	ADD	HL,DE
+0407DC E5FDE1              A  1248    	LD	IY,HL
+0407DF 21C40900            A  1249    	LD	HL,2500
+0407E3 B7                  A  1250    	OR	A,A
+0407E4 ED42                A  1251    	SBC	HL,BC
+0407E6 FD2F00              A  1252    	LD	(IY),HL
+                           A  1253    ;   78					starZ[i]=rand()%maxd;
+                           A  1254    .LINE 78
+                           A  1255    
+0407E9 DD07FA              A  1256    	LD	BC,(IX+%FFFFFFFA)
+0407EC DD0FE3              A  1257    	LD	(IX+%FFFFFFE3),BC
+0407EF DD07FA              A  1258    	LD	BC,(IX+%FFFFFFFA)
+0407F2 DD0FE6              A  1259    	LD	(IX+%FFFFFFE6),BC
+0407F5 DD07FA              A  1260    	LD	BC,(IX+%FFFFFFFA)
+0407F8 DD0FE9              A  1261    	LD	(IX+%FFFFFFE9),BC
+0407FB DD07FA              A  1262    	LD	BC,(IX+%FFFFFFFA)
+0407FE DD0FDB              A  1263    	LD	(IX+%FFFFFFDB),BC
+040801 FDE5                A  1264    	PUSH	IY
+040803 C5                  A  1265    	PUSH	BC
+040804 FD21E8FA FF         A  1266    	LD	IY,-1304
+040809 DDE5C1              A  1267    	LD	BC,IX
+04080C FD09                A  1268    	ADD	IY,BC
+04080E FD7700              A  1269    	LD	(IY),A
+040811 C1                  A  1270    	POP	BC
+040812 FDE1                A  1271    	POP	IY
+040814 CD 67 1C 04         A  1272    	CALL	_rand
+040818 FDE5                A  1273    	PUSH	IY
+04081A C5                  A  1274    	PUSH	BC
+04081B FD21E8FA FF         A  1275    	LD	IY,-1304
+040820 DDE5C1              A  1276    	LD	BC,IX
+040823 FD09                A  1277    	ADD	IY,BC
+040825 FD7E00              A  1278    	LD	A,(IY)
+040828 C1                  A  1279    	POP	BC
+040829 FDE1                A  1280    	POP	IY
+04082B 01960000            A  1281    	LD	BC,150
+04082F CD A4 1A 04         A  1282    	CALL	__irems
+040833 E5C1                A  1283    	LD	BC,HL
+040835 DDE5E1              A  1284    	LD	HL,IX
+040838 C5                  A  1285    	PUSH	BC
+040839 E5                  A  1286    	PUSH	HL
+04083A DD27FA              A  1287    	LD	HL,(IX+%FFFFFFFA)
+04083D 013AFBFF            A  1288    	LD	BC,-1222	; spill
+040841 CD DC 1A 04         A  1289    	CALL	__istix
+040845 E1                  A  1290    	POP	HL
+040846 C1                  A  1291    	POP	BC
+040847 11DBFCFF            A  1292    	LD	DE,-805
+04084B C5                  A  1293    	PUSH	BC
+04084C E5                  A  1294    	PUSH	HL
+04084D D5E1                A  1295    	LD	HL,DE	; unspill
+04084F 0137FBFF            A  1296    	LD	BC,-1225	; spill
+040853 CD DC 1A 04         A  1297    	CALL	__istix
+040857 E1                  A  1298    	POP	HL
+040858 013AFBFF            A  1299    	LD	BC,-1222	; unspill
+04085C E5                  A  1300    	PUSH	HL
+04085D CD D3 1C 04         A  1301    	CALL	__ildix
+040861 013AFBFF            A  1302    	LD	BC,-1222	; spill
+040865 CD DC 1A 04         A  1303    	CALL	__istix
+040869 E1                  A  1304    	POP	HL
+04086A 0137FBFF            A  1305    	LD	BC,-1225	; unspill
+04086E E5                  A  1306    	PUSH	HL
+04086F CD D3 1C 04         A  1307    	CALL	__ildix
+040873 E5D1                A  1308    	LD	DE,HL
+040875 E1                  A  1309    	POP	HL
+040876 C1                  A  1310    	POP	BC
+040877 19                  A  1311    	ADD	HL,DE
+040878 C5                  A  1312    	PUSH	BC
+040879 013AFBFF            A  1313    	LD	BC,-1222	; unspill
+04087D E5                  A  1314    	PUSH	HL
+04087E CD D3 1C 04         A  1315    	CALL	__ildix
+040882 E5D1                A  1316    	LD	DE,HL
+040884 E1                  A  1317    	POP	HL
+040885 C1                  A  1318    	POP	BC
+040886 19                  A  1319    	ADD	HL,DE
+040887 ED0F                A  1320    	LD	(HL),BC
+                           A  1321    ;   79					}
+040889                     A  1322    L_17:
+                           A  1323    .LINE 79
+                           A  1324    
+                           A  1325    ;   80				if((cy<-240) || (cy>240)) {
+                           A  1326    .LINE 80
+                           A  1327    
+040889 0110FFFF            A  1328    	LD	BC,16776976
+04088D DD27EF              A  1329    	LD	HL,(IX+%FFFFFFEF)
+040890 B7                  A  1330    	OR	A,A
+040891 ED42                A  1331    	SBC	HL,BC
+040893 CD 70 1A 04         A  1332    	CALL	__setflag
+040897 FA AD 08 04         A  1333    	JP	M,L_16
+04089B DD07EF              A  1334    	LD	BC,(IX+%FFFFFFEF)
+04089E 21F00000            A  1335    	LD	HL,240
+0408A2 B7                  A  1336    	OR	A,A
+0408A3 ED42                A  1337    	SBC	HL,BC
+0408A5 CD 70 1A 04         A  1338    	CALL	__setflag
+0408A9 F2 6F 0A 04         A  1339    	JP	P,L_18
+0408AD                     A  1340    L_16:
+                           A  1341    ;   81					starZ[i]=maxd;
+                           A  1342    .LINE 81
+                           A  1343    
+0408AD DD07E3              A  1344    	LD	BC,(IX+%FFFFFFE3)
+0408B0 DDE5E1              A  1345    	LD	HL,IX
+0408B3 11DBFCFF            A  1346    	LD	DE,-805
+0408B7 19                  A  1347    	ADD	HL,DE
+0408B8 09                  A  1348    	ADD	HL,BC
+0408B9 01960000            A  1349    	LD	BC,150
+0408BD ED0F                A  1350    	LD	(HL),BC
+                           A  1351    ;   82					starX[i]=starRange-2*(r
+                           A  1352    .LINE 82
+                           A  1353    
+0408BF FDE5                A  1354    	PUSH	IY
+0408C1 C5                  A  1355    	PUSH	BC
+0408C2 FD21E8FA FF         A  1356    	LD	IY,-1304
+0408C7 DDE5C1              A  1357    	LD	BC,IX
+0408CA FD09                A  1358    	ADD	IY,BC
+0408CC FD7700              A  1359    	LD	(IY),A
+0408CF C1                  A  1360    	POP	BC
+0408D0 FDE1                A  1361    	POP	IY
+0408D2 CD 67 1C 04         A  1362    	CALL	_rand
+0408D6 FDE5                A  1363    	PUSH	IY
+0408D8 C5                  A  1364    	PUSH	BC
+0408D9 FD21E8FA FF         A  1365    	LD	IY,-1304
+0408DE DDE5C1              A  1366    	LD	BC,IX
+0408E1 FD09                A  1367    	ADD	IY,BC
+0408E3 FD7E00              A  1368    	LD	A,(IY)
+0408E6 C1                  A  1369    	POP	BC
+0408E7 FDE1                A  1370    	POP	IY
+0408E9 01C40900            A  1371    	LD	BC,2500
+0408ED CD A4 1A 04         A  1372    	CALL	__irems
+0408F1 29                  A  1373    	ADD	HL,HL
+0408F2 E5C1                A  1374    	LD	BC,HL
+0408F4 DDE5E1              A  1375    	LD	HL,IX
+0408F7 C5                  A  1376    	PUSH	BC
+0408F8 E5                  A  1377    	PUSH	HL
+0408F9 DD27E6              A  1378    	LD	HL,(IX+%FFFFFFE6)
+0408FC 0140FBFF            A  1379    	LD	BC,-1216	; spill
+040900 CD DC 1A 04         A  1380    	CALL	__istix
+040904 E1                  A  1381    	POP	HL
+040905 C1                  A  1382    	POP	BC
+040906 115BFBFF            A  1383    	LD	DE,-1189
+04090A C5                  A  1384    	PUSH	BC
+04090B E5                  A  1385    	PUSH	HL
+04090C D5E1                A  1386    	LD	HL,DE	; unspill
+04090E 013DFBFF            A  1387    	LD	BC,-1219	; spill
+040912 CD DC 1A 04         A  1388    	CALL	__istix
+040916 E1                  A  1389    	POP	HL
+040917 0140FBFF            A  1390    	LD	BC,-1216	; unspill
+04091B E5                  A  1391    	PUSH	HL
+04091C CD D3 1C 04         A  1392    	CALL	__ildix
+040920 0140FBFF            A  1393    	LD	BC,-1216	; spill
+040924 CD DC 1A 04         A  1394    	CALL	__istix
+040928 E1                  A  1395    	POP	HL
+040929 013DFBFF            A  1396    	LD	BC,-1219	; unspill
+04092D E5                  A  1397    	PUSH	HL
+04092E CD D3 1C 04         A  1398    	CALL	__ildix
+040932 E5D1                A  1399    	LD	DE,HL
+040934 E1                  A  1400    	POP	HL
+040935 C1                  A  1401    	POP	BC
+040936 19                  A  1402    	ADD	HL,DE
+040937 C5                  A  1403    	PUSH	BC
+040938 0140FBFF            A  1404    	LD	BC,-1216	; unspill
+04093C E5                  A  1405    	PUSH	HL
+04093D CD D3 1C 04         A  1406    	CALL	__ildix
+040941 E5D1                A  1407    	LD	DE,HL
+040943 E1                  A  1408    	POP	HL
+040944 C1                  A  1409    	POP	BC
+040945 19                  A  1410    	ADD	HL,DE
+040946 E5FDE1              A  1411    	LD	IY,HL
+040949 21C40900            A  1412    	LD	HL,2500
+04094D B7                  A  1413    	OR	A,A
+04094E ED42                A  1414    	SBC	HL,BC
+040950 FD2F00              A  1415    	LD	(IY),HL
+                           A  1416    ;   83					starY[i]=starRange-2*(r
+                           A  1417    .LINE 83
+                           A  1418    
+040953 FDE5                A  1419    	PUSH	IY
+040955 C5                  A  1420    	PUSH	BC
+040956 FD21E8FA FF         A  1421    	LD	IY,-1304
+04095B DDE5C1              A  1422    	LD	BC,IX
+04095E FD09                A  1423    	ADD	IY,BC
+040960 FD7700              A  1424    	LD	(IY),A
+040963 C1                  A  1425    	POP	BC
+040964 FDE1                A  1426    	POP	IY
+040966 CD 67 1C 04         A  1427    	CALL	_rand
+04096A FDE5                A  1428    	PUSH	IY
+04096C C5                  A  1429    	PUSH	BC
+04096D FD21E8FA FF         A  1430    	LD	IY,-1304
+040972 DDE5C1              A  1431    	LD	BC,IX
+040975 FD09                A  1432    	ADD	IY,BC
+040977 FD7E00              A  1433    	LD	A,(IY)
+04097A C1                  A  1434    	POP	BC
+04097B FDE1                A  1435    	POP	IY
+04097D 01C40900            A  1436    	LD	BC,2500
+040981 CD A4 1A 04         A  1437    	CALL	__irems
+040985 29                  A  1438    	ADD	HL,HL
+040986 E5C1                A  1439    	LD	BC,HL
+040988 DDE5E1              A  1440    	LD	HL,IX
+04098B C5                  A  1441    	PUSH	BC
+04098C E5                  A  1442    	PUSH	HL
+04098D DD27E9              A  1443    	LD	HL,(IX+%FFFFFFE9)
+040990 0146FBFF            A  1444    	LD	BC,-1210	; spill
+040994 CD DC 1A 04         A  1445    	CALL	__istix
+040998 E1                  A  1446    	POP	HL
+040999 C1                  A  1447    	POP	BC
+04099A 115BFEFF            A  1448    	LD	DE,-421
+04099E C5                  A  1449    	PUSH	BC
+04099F E5                  A  1450    	PUSH	HL
+0409A0 D5E1                A  1451    	LD	HL,DE	; unspill
+0409A2 0143FBFF            A  1452    	LD	BC,-1213	; spill
+0409A6 CD DC 1A 04         A  1453    	CALL	__istix
+0409AA E1                  A  1454    	POP	HL
+0409AB 0146FBFF            A  1455    	LD	BC,-1210	; unspill
+0409AF E5                  A  1456    	PUSH	HL
+0409B0 CD D3 1C 04         A  1457    	CALL	__ildix
+0409B4 0146FBFF            A  1458    	LD	BC,-1210	; spill
+0409B8 CD DC 1A 04         A  1459    	CALL	__istix
+0409BC E1                  A  1460    	POP	HL
+0409BD 0143FBFF            A  1461    	LD	BC,-1213	; unspill
+0409C1 E5                  A  1462    	PUSH	HL
+0409C2 CD D3 1C 04         A  1463    	CALL	__ildix
+0409C6 E5D1                A  1464    	LD	DE,HL
+0409C8 E1                  A  1465    	POP	HL
+0409C9 C1                  A  1466    	POP	BC
+0409CA 19                  A  1467    	ADD	HL,DE
+0409CB C5                  A  1468    	PUSH	BC
+0409CC 0146FBFF            A  1469    	LD	BC,-1210	; unspill
+0409D0 E5                  A  1470    	PUSH	HL
+0409D1 CD D3 1C 04         A  1471    	CALL	__ildix
+0409D5 E5D1                A  1472    	LD	DE,HL
+0409D7 E1                  A  1473    	POP	HL
+0409D8 C1                  A  1474    	POP	BC
+0409D9 19                  A  1475    	ADD	HL,DE
+0409DA E5FDE1              A  1476    	LD	IY,HL
+0409DD 21C40900            A  1477    	LD	HL,2500
+0409E1 B7                  A  1478    	OR	A,A
+0409E2 ED42                A  1479    	SBC	HL,BC
+0409E4 FD2F00              A  1480    	LD	(IY),HL
+                           A  1481    ;   84					starZ[i]=rand()%maxd;
+                           A  1482    .LINE 84
+                           A  1483    
+0409E7 FDE5                A  1484    	PUSH	IY
+0409E9 C5                  A  1485    	PUSH	BC
+0409EA FD21E8FA FF         A  1486    	LD	IY,-1304
+0409EF DDE5C1              A  1487    	LD	BC,IX
+0409F2 FD09                A  1488    	ADD	IY,BC
+0409F4 FD7700              A  1489    	LD	(IY),A
+0409F7 C1                  A  1490    	POP	BC
+0409F8 FDE1                A  1491    	POP	IY
+0409FA CD 67 1C 04         A  1492    	CALL	_rand
+0409FE FDE5                A  1493    	PUSH	IY
+040A00 C5                  A  1494    	PUSH	BC
+040A01 FD21E8FA FF         A  1495    	LD	IY,-1304
+040A06 DDE5C1              A  1496    	LD	BC,IX
+040A09 FD09                A  1497    	ADD	IY,BC
+040A0B FD7E00              A  1498    	LD	A,(IY)
+040A0E C1                  A  1499    	POP	BC
+040A0F FDE1                A  1500    	POP	IY
+040A11 01960000            A  1501    	LD	BC,150
+040A15 CD A4 1A 04         A  1502    	CALL	__irems
+040A19 E5C1                A  1503    	LD	BC,HL
+040A1B DDE5E1              A  1504    	LD	HL,IX
+040A1E C5                  A  1505    	PUSH	BC
+040A1F E5                  A  1506    	PUSH	HL
+040A20 DD27DB              A  1507    	LD	HL,(IX+%FFFFFFDB)
+040A23 014CFBFF            A  1508    	LD	BC,-1204	; spill
+040A27 CD DC 1A 04         A  1509    	CALL	__istix
+040A2B E1                  A  1510    	POP	HL
+040A2C C1                  A  1511    	POP	BC
+040A2D 11DBFCFF            A  1512    	LD	DE,-805
+040A31 C5                  A  1513    	PUSH	BC
+040A32 E5                  A  1514    	PUSH	HL
+040A33 D5E1                A  1515    	LD	HL,DE	; unspill
+040A35 0149FBFF            A  1516    	LD	BC,-1207	; spill
+040A39 CD DC 1A 04         A  1517    	CALL	__istix
+040A3D E1                  A  1518    	POP	HL
+040A3E 014CFBFF            A  1519    	LD	BC,-1204	; unspill
+040A42 E5                  A  1520    	PUSH	HL
+040A43 CD D3 1C 04         A  1521    	CALL	__ildix
+040A47 014CFBFF            A  1522    	LD	BC,-1204	; spill
+040A4B CD DC 1A 04         A  1523    	CALL	__istix
+040A4F E1                  A  1524    	POP	HL
+040A50 0149FBFF            A  1525    	LD	BC,-1207	; unspill
+040A54 E5                  A  1526    	PUSH	HL
+040A55 CD D3 1C 04         A  1527    	CALL	__ildix
+040A59 E5D1                A  1528    	LD	DE,HL
+040A5B E1                  A  1529    	POP	HL
+040A5C C1                  A  1530    	POP	BC
+040A5D 19                  A  1531    	ADD	HL,DE
+040A5E C5                  A  1532    	PUSH	BC
+040A5F 014CFBFF            A  1533    	LD	BC,-1204	; unspill
+040A63 E5                  A  1534    	PUSH	HL
+040A64 CD D3 1C 04         A  1535    	CALL	__ildix
+040A68 E5D1                A  1536    	LD	DE,HL
+040A6A E1                  A  1537    	POP	HL
+040A6B C1                  A  1538    	POP	BC
+040A6C 19                  A  1539    	ADD	HL,DE
+040A6D ED0F                A  1540    	LD	(HL),BC
+                           A  1541    ;   85					}	
+040A6F                     A  1542    L_18:
+                           A  1543    .LINE 85
+                           A  1544    
+                           A  1545    ;   86				plot(255,320+cx,240+cy);
+                           A  1546    .LINE 86
+                           A  1547    
+040A6F DD27EF              A  1548    	LD	HL,(IX+%FFFFFFEF)
+040A72 4911F000            A  1549    	LD.LIS	DE,240
+040A76 4019                A  1550    	ADD.SIS	HL,DE
+040A78 E5                  A  1551    	PUSH	HL
+040A79 DD27EC              A  1552    	LD	HL,(IX+%FFFFFFEC)
+040A7C 49114001            A  1553    	LD.LIS	DE,320
+040A80 4019                A  1554    	ADD.SIS	HL,DE
+040A82 E5                  A  1555    	PUSH	HL
+040A83 01FFFFFF            A  1556    	LD	BC,16777215
+040A87 C5                  A  1557    	PUSH	BC
+040A88 FDE5                A  1558    	PUSH	IY
+040A8A C5                  A  1559    	PUSH	BC
+040A8B FD21E8FA FF         A  1560    	LD	IY,-1304
+040A90 DDE5C1              A  1561    	LD	BC,IX
+040A93 FD09                A  1562    	ADD	IY,BC
+040A95 FD7700              A  1563    	LD	(IY),A
+040A98 C1                  A  1564    	POP	BC
+040A99 FDE1                A  1565    	POP	IY
+040A9B CD D7 00 04         A  1566    	CALL	_plot
+040A9F FDE5                A  1567    	PUSH	IY
+040AA1 C5                  A  1568    	PUSH	BC
+040AA2 FD21E8FA FF         A  1569    	LD	IY,-1304
+040AA7 DDE5C1              A  1570    	LD	BC,IX
+040AAA FD09                A  1571    	ADD	IY,BC
+040AAC FD7E00              A  1572    	LD	A,(IY)
+040AAF C1                  A  1573    	POP	BC
+040AB0 FDE1                A  1574    	POP	IY
+040AB2 C1                  A  1575    	POP	BC
+040AB3 C1                  A  1576    	POP	BC
+040AB4 C1                  A  1577    	POP	BC
+040AB5 DD07FD              A  1578    	LD	BC,(IX+%FFFFFFFD)
+040AB8 03                  A  1579    	INC	BC
+040AB9 DD0FFD              A  1580    	LD	(IX+%FFFFFFFD),BC
+                           A  1581    ;   87			}
+040ABC                     A  1582    L_21:
+                           A  1583    .LINE 87
+                           A  1584    
+040ABC 01800000            A  1585    	LD	BC,128
+040AC0 DD27FD              A  1586    	LD	HL,(IX+%FFFFFFFD)
+040AC3 B7                  A  1587    	OR	A,A
+040AC4 ED42                A  1588    	SBC	HL,BC
+040AC6 CD 70 1A 04         A  1589    	CALL	__setflag
+040ACA FA F6 05 04         A  1590    	JP	M,L_19
+                           A  1591    ;   88			
+                           A  1592    ;   89					
+                           A  1593    ;   90			
+                           A  1594    ;   91			switch( (key&0xFF))
+                           A  1595    .LINE 91
+                           A  1596    
+040ACE DD07DE              A  1597    	LD	BC,(IX+%FFFFFFDE)
+040AD1 CD F1 1A 04         A  1598    	CALL	__stoiu
+040AD5 7D                  A  1599    	LD	A,L
+040AD6 B7ED62              A  1600    	UEXT	HL
+040AD9 6F                  A  1601    	LD	L,A
+040ADA CD 20 1C 04         A  1602    	CALL	__case8D
+040ADE E9                  A  1603    	JP	(HL)
+040ADF                     A  1604    L__9:
+040ADF 0600                A  1605    	DW	6
+040AE1 08                  A  1606    	DB	8
+040AE2 5C0C04              A  1607    	DW24	L_36	
+                           A  1608    
+040AE5 0A                  A  1609    	DB	10
+040AE6 FC0A04              A  1610    	DW24	L_22	
+                           A  1611    
+040AE9 0B                  A  1612    	DB	11
+040AEA AB0B04              A  1613    	DW24	L_29	
+                           A  1614    
+040AED 15                  A  1615    	DB	21
+040AEE 0D0D04              A  1616    	DW24	L_43	
+                           A  1617    
+040AF1 1B                  A  1618    	DB	27
+040AF2 F10D04              A  1619    	DW24	L_51	
+                           A  1620    
+040AF5 20                  A  1621    	DB	32
+040AF6 DB0D04              A  1622    	DW24	L_50	
+                           A  1623    
+040AF9 FF0D04              A  1624    	DW24	L_54	
+                           A  1625    
+                           A  1626    ;   92				{
+                           A  1627    ;   93					case 0x0a:
+040AFC                     A  1628    L_22:
+                           A  1629    .LINE 93
+                           A  1630    
+                           A  1631    ;   94							//puts("DOWN");
+                           A  1632    ;   95							y1++;
+                           A  1633    .LINE 95
+                           A  1634    
+040AFC DD27F6              A  1635    	LD	HL,(IX+%FFFFFFF6)
+040AFF 23                  A  1636    	INC	HL
+040B00 DD75F6              A  1637    	LD	(IX+%FFFFFFF6),L
+040B03 DD74F7              A  1638    	LD	(IX+%FFFFFFF7),H
+                           A  1639    ;   96							plot(255,x1,y1)
+                           A  1640    .LINE 96
+                           A  1641    
+040B06 DD07F6              A  1642    	LD	BC,(IX+%FFFFFFF6)
+040B09 C5                  A  1643    	PUSH	BC
+040B0A DD07F8              A  1644    	LD	BC,(IX+%FFFFFFF8)
+040B0D C5                  A  1645    	PUSH	BC
+040B0E 01FFFFFF            A  1646    	LD	BC,16777215
+040B12 C5                  A  1647    	PUSH	BC
+040B13 CD D7 00 04         A  1648    	CALL	_plot
+040B17 C1                  A  1649    	POP	BC
+040B18 C1                  A  1650    	POP	BC
+040B19 C1                  A  1651    	POP	BC
+                           A  1652    ;   97							for(i=0;i<128;i
+                           A  1653    .LINE 97
+                           A  1654    
+040B1A 01000000            A  1655    	LD	BC,0
+040B1E DD0FFD              A  1656    	LD	(IX+%FFFFFFFD),BC
+040B21 18 72               A  1657    	JR	L_27
+040B23                     A  1658    L_25:
+                           A  1659    ;   98								starY[i]=st
+                           A  1660    .LINE 98
+                           A  1661    
+040B23 DD27FD              A  1662    	LD	HL,(IX+%FFFFFFFD)
+040B26 E5C1                A  1663    	LD	BC,HL
+040B28 29                  A  1664    	ADD	HL,HL
+040B29 09                  A  1665    	ADD	HL,BC
+040B2A E5C1                A  1666    	LD	BC,HL
+040B2C DDE5E1              A  1667    	LD	HL,IX
+040B2F 115BFEFF            A  1668    	LD	DE,-421
+040B33 19                  A  1669    	ADD	HL,DE
+040B34 09                  A  1670    	ADD	HL,BC
+040B35 0155FBFF            A  1671    	LD	BC,-1195
+040B39 CD DC 1A 04         A  1672    	CALL	__istix
+040B3D 0155FBFF            A  1673    	LD	BC,-1195
+040B41 CD D3 1C 04         A  1674    	CALL	__ildix
+040B45 E5FDE1              A  1675    	LD	IY,HL
+040B48 0155FBFF            A  1676    	LD	BC,-1195
+040B4C CD D3 1C 04         A  1677    	CALL	__ildix
+040B50 E5                  A  1678    	PUSH	HL
+040B51 FDE5E1              A  1679    	LD	HL,IY
+040B54 01FEFAFF            A  1680    	LD	BC,-1282	; spill
+040B58 CD DC 1A 04         A  1681    	CALL	__istix
+040B5C E1                  A  1682    	POP	HL
+040B5D E5FDE1              A  1683    	LD	IY,HL
+040B60 FDE5E1              A  1684    	LD	HL,IY	; unspill
+040B63 01FBFAFF            A  1685    	LD	BC,-1285	; spill
+040B67 CD DC 1A 04         A  1686    	CALL	__istix
+040B6B 01FEFAFF            A  1687    	LD	BC,-1282	; unspill
+040B6F CD D3 1C 04         A  1688    	CALL	__ildix
+040B73 E5FDE1              A  1689    	LD	IY,HL
+040B76 0138FFFF            A  1690    	LD	BC,16777016
+040B7A FD2700              A  1691    	LD	HL,(IY)
+040B7D 09                  A  1692    	ADD	HL,BC
+040B7E 01FBFAFF            A  1693    	LD	BC,-1285	; unspill
+040B82 E5                  A  1694    	PUSH	HL
+040B83 CD D3 1C 04         A  1695    	CALL	__ildix
+040B87 E5FDE1              A  1696    	LD	IY,HL
+040B8A E1                  A  1697    	POP	HL
+040B8B FD2F00              A  1698    	LD	(IY),HL
+040B8E DD07FD              A  1699    	LD	BC,(IX+%FFFFFFFD)
+040B91 03                  A  1700    	INC	BC
+040B92 DD0FFD              A  1701    	LD	(IX+%FFFFFFFD),BC
+                           A  1702    ;   99								}		
+040B95                     A  1703    L_27:
+                           A  1704    .LINE 99
+                           A  1705    
+040B95 01800000            A  1706    	LD	BC,128
+040B99 DD27FD              A  1707    	LD	HL,(IX+%FFFFFFFD)
+040B9C B7                  A  1708    	OR	A,A
+040B9D ED42                A  1709    	SBC	HL,BC
+040B9F CD 70 1A 04         A  1710    	CALL	__setflag
+040BA3 FA 23 0B 04         A  1711    	JP	M,L_25
+                           A  1712    ;  100							break;
+                           A  1713    .LINE 100
+                           A  1714    
+040BA7 C3 FF 0D 04         A  1715    	JR	L_54
+                           A  1716    ;  101					case 0x0b:
+040BAB                     A  1717    L_29:
+                           A  1718    .LINE 101
+                           A  1719    
+                           A  1720    ;  102							//puts("UP");
+                           A  1721    ;  103							y1--;
+                           A  1722    .LINE 103
+                           A  1723    
+040BAB DD31F6              A  1724    	LD	IY,(IX+%FFFFFFF6)
+040BAE ED23FF              A  1725    	LEA	HL,IY+%FFFFFFFF
+040BB1 DD75F6              A  1726    	LD	(IX+%FFFFFFF6),L
+040BB4 DD74F7              A  1727    	LD	(IX+%FFFFFFF7),H
+                           A  1728    ;  104							plot(255,x1,y1)
+                           A  1729    .LINE 104
+                           A  1730    
+040BB7 DD07F6              A  1731    	LD	BC,(IX+%FFFFFFF6)
+040BBA C5                  A  1732    	PUSH	BC
+040BBB DD07F8              A  1733    	LD	BC,(IX+%FFFFFFF8)
+040BBE C5                  A  1734    	PUSH	BC
+040BBF 01FFFFFF            A  1735    	LD	BC,16777215
+040BC3 C5                  A  1736    	PUSH	BC
+040BC4 CD D7 00 04         A  1737    	CALL	_plot
+040BC8 C1                  A  1738    	POP	BC
+040BC9 C1                  A  1739    	POP	BC
+040BCA C1                  A  1740    	POP	BC
+                           A  1741    ;  105							for(i=0;i<128;i
+                           A  1742    .LINE 105
+                           A  1743    
+040BCB 01000000            A  1744    	LD	BC,0
+040BCF DD0FFD              A  1745    	LD	(IX+%FFFFFFFD),BC
+040BD2 18 72               A  1746    	JR	L_34
+040BD4                     A  1747    L_32:
+                           A  1748    ;  106								starY[i]=st
+                           A  1749    .LINE 106
+                           A  1750    
+040BD4 DD27FD              A  1751    	LD	HL,(IX+%FFFFFFFD)
+040BD7 E5C1                A  1752    	LD	BC,HL
+040BD9 29                  A  1753    	ADD	HL,HL
+040BDA 09                  A  1754    	ADD	HL,BC
+040BDB E5C1                A  1755    	LD	BC,HL
+040BDD DDE5E1              A  1756    	LD	HL,IX
+040BE0 115BFEFF            A  1757    	LD	DE,-421
+040BE4 19                  A  1758    	ADD	HL,DE
+040BE5 09                  A  1759    	ADD	HL,BC
+040BE6 0152FBFF            A  1760    	LD	BC,-1198
+040BEA CD DC 1A 04         A  1761    	CALL	__istix
+040BEE 0152FBFF            A  1762    	LD	BC,-1198
+040BF2 CD D3 1C 04         A  1763    	CALL	__ildix
+040BF6 E5FDE1              A  1764    	LD	IY,HL
+040BF9 0152FBFF            A  1765    	LD	BC,-1198
+040BFD CD D3 1C 04         A  1766    	CALL	__ildix
+040C01 E5                  A  1767    	PUSH	HL
+040C02 FDE5E1              A  1768    	LD	HL,IY
+040C05 0104FBFF            A  1769    	LD	BC,-1276	; spill
+040C09 CD DC 1A 04         A  1770    	CALL	__istix
+040C0D E1                  A  1771    	POP	HL
+040C0E E5FDE1              A  1772    	LD	IY,HL
+040C11 FDE5E1              A  1773    	LD	HL,IY	; unspill
+040C14 0101FBFF            A  1774    	LD	BC,-1279	; spill
+040C18 CD DC 1A 04         A  1775    	CALL	__istix
+040C1C 0104FBFF            A  1776    	LD	BC,-1276	; unspill
+040C20 CD D3 1C 04         A  1777    	CALL	__ildix
+040C24 E5FDE1              A  1778    	LD	IY,HL
+040C27 01C80000            A  1779    	LD	BC,200
+040C2B FD2700              A  1780    	LD	HL,(IY)
+040C2E 09                  A  1781    	ADD	HL,BC
+040C2F 0101FBFF            A  1782    	LD	BC,-1279	; unspill
+040C33 E5                  A  1783    	PUSH	HL
+040C34 CD D3 1C 04         A  1784    	CALL	__ildix
+040C38 E5FDE1              A  1785    	LD	IY,HL
+040C3B E1                  A  1786    	POP	HL
+040C3C FD2F00              A  1787    	LD	(IY),HL
+040C3F DD07FD              A  1788    	LD	BC,(IX+%FFFFFFFD)
+040C42 03                  A  1789    	INC	BC
+040C43 DD0FFD              A  1790    	LD	(IX+%FFFFFFFD),BC
+                           A  1791    ;  107								}		
+040C46                     A  1792    L_34:
+                           A  1793    .LINE 107
+                           A  1794    
+040C46 01800000            A  1795    	LD	BC,128
+040C4A DD27FD              A  1796    	LD	HL,(IX+%FFFFFFFD)
+040C4D B7                  A  1797    	OR	A,A
+040C4E ED42                A  1798    	SBC	HL,BC
+040C50 CD 70 1A 04         A  1799    	CALL	__setflag
+040C54 FA D4 0B 04         A  1800    	JP	M,L_32
+                           A  1801    ;  108							break;
+                           A  1802    .LINE 108
+                           A  1803    
+040C58 C3 FF 0D 04         A  1804    	JR	L_54
+                           A  1805    ;  109					case 0x08:
+040C5C                     A  1806    L_36:
+                           A  1807    .LINE 109
+                           A  1808    
+                           A  1809    ;  110							//puts("LEFT");
+                           A  1810    ;  111							x1--;
+                           A  1811    .LINE 111
+                           A  1812    
+040C5C DD31F8              A  1813    	LD	IY,(IX+%FFFFFFF8)
+040C5F ED23FF              A  1814    	LEA	HL,IY+%FFFFFFFF
+040C62 DD75F8              A  1815    	LD	(IX+%FFFFFFF8),L
+040C65 DD74F9              A  1816    	LD	(IX+%FFFFFFF9),H
+                           A  1817    ;  112							plot(255,x1,y1)
+                           A  1818    .LINE 112
+                           A  1819    
+040C68 DD07F6              A  1820    	LD	BC,(IX+%FFFFFFF6)
+040C6B C5                  A  1821    	PUSH	BC
+040C6C DD07F8              A  1822    	LD	BC,(IX+%FFFFFFF8)
+040C6F C5                  A  1823    	PUSH	BC
+040C70 01FFFFFF            A  1824    	LD	BC,16777215
+040C74 C5                  A  1825    	PUSH	BC
+040C75 CD D7 00 04         A  1826    	CALL	_plot
+040C79 C1                  A  1827    	POP	BC
+040C7A C1                  A  1828    	POP	BC
+040C7B C1                  A  1829    	POP	BC
+                           A  1830    ;  113							for(i=0;i<128;i
+                           A  1831    .LINE 113
+                           A  1832    
+040C7C 01000000            A  1833    	LD	BC,0
+040C80 DD0FFD              A  1834    	LD	(IX+%FFFFFFFD),BC
+040C83 18 72               A  1835    	JR	L_41
+040C85                     A  1836    L_39:
+                           A  1837    ;  114								starX[i]=st
+                           A  1838    .LINE 114
+                           A  1839    
+040C85 DD27FD              A  1840    	LD	HL,(IX+%FFFFFFFD)
+040C88 E5C1                A  1841    	LD	BC,HL
+040C8A 29                  A  1842    	ADD	HL,HL
+040C8B 09                  A  1843    	ADD	HL,BC
+040C8C E5C1                A  1844    	LD	BC,HL
+040C8E DDE5E1              A  1845    	LD	HL,IX
+040C91 115BFBFF            A  1846    	LD	DE,-1189
+040C95 19                  A  1847    	ADD	HL,DE
+040C96 09                  A  1848    	ADD	HL,BC
+040C97 014FFBFF            A  1849    	LD	BC,-1201
+040C9B CD DC 1A 04         A  1850    	CALL	__istix
+040C9F 014FFBFF            A  1851    	LD	BC,-1201
+040CA3 CD D3 1C 04         A  1852    	CALL	__ildix
+040CA7 E5FDE1              A  1853    	LD	IY,HL
+040CAA 014FFBFF            A  1854    	LD	BC,-1201
+040CAE CD D3 1C 04         A  1855    	CALL	__ildix
+040CB2 E5                  A  1856    	PUSH	HL
+040CB3 FDE5E1              A  1857    	LD	HL,IY
+040CB6 010AFBFF            A  1858    	LD	BC,-1270	; spill
+040CBA CD DC 1A 04         A  1859    	CALL	__istix
+040CBE E1                  A  1860    	POP	HL
+040CBF E5FDE1              A  1861    	LD	IY,HL
+040CC2 FDE5E1              A  1862    	LD	HL,IY	; unspill
+040CC5 0107FBFF            A  1863    	LD	BC,-1273	; spill
+040CC9 CD DC 1A 04         A  1864    	CALL	__istix
+040CCD 010AFBFF            A  1865    	LD	BC,-1270	; unspill
+040CD1 CD D3 1C 04         A  1866    	CALL	__ildix
+040CD5 E5FDE1              A  1867    	LD	IY,HL
+040CD8 0138FFFF            A  1868    	LD	BC,16777016
+040CDC FD2700              A  1869    	LD	HL,(IY)
+040CDF 09                  A  1870    	ADD	HL,BC
+040CE0 0107FBFF            A  1871    	LD	BC,-1273	; unspill
+040CE4 E5                  A  1872    	PUSH	HL
+040CE5 CD D3 1C 04         A  1873    	CALL	__ildix
+040CE9 E5FDE1              A  1874    	LD	IY,HL
+040CEC E1                  A  1875    	POP	HL
+040CED FD2F00              A  1876    	LD	(IY),HL
+040CF0 DD07FD              A  1877    	LD	BC,(IX+%FFFFFFFD)
+040CF3 03                  A  1878    	INC	BC
+040CF4 DD0FFD              A  1879    	LD	(IX+%FFFFFFFD),BC
+                           A  1880    ;  115								}		
+040CF7                     A  1881    L_41:
+                           A  1882    .LINE 115
+                           A  1883    
+040CF7 01800000            A  1884    	LD	BC,128
+040CFB DD27FD              A  1885    	LD	HL,(IX+%FFFFFFFD)
+040CFE B7                  A  1886    	OR	A,A
+040CFF ED42                A  1887    	SBC	HL,BC
+040D01 CD 70 1A 04         A  1888    	CALL	__setflag
+040D05 FA 85 0C 04         A  1889    	JP	M,L_39
+                           A  1890    ;  116							break;
+                           A  1891    .LINE 116
+                           A  1892    
+040D09 C3 FF 0D 04         A  1893    	JR	L_54
+                           A  1894    ;  117					case 0x15:
+040D0D                     A  1895    L_43:
+                           A  1896    .LINE 117
+                           A  1897    
+                           A  1898    ;  118							//puts("RIGHT")
+                           A  1899    ;  119							x1++;
+                           A  1900    .LINE 119
+                           A  1901    
+040D0D DD27F8              A  1902    	LD	HL,(IX+%FFFFFFF8)
+040D10 23                  A  1903    	INC	HL
+040D11 DD75F8              A  1904    	LD	(IX+%FFFFFFF8),L
+040D14 DD74F9              A  1905    	LD	(IX+%FFFFFFF9),H
+                           A  1906    ;  120							plot(255,x1,y1)
+                           A  1907    .LINE 120
+                           A  1908    
+040D17 DD07F6              A  1909    	LD	BC,(IX+%FFFFFFF6)
+040D1A C5                  A  1910    	PUSH	BC
+040D1B DD07F8              A  1911    	LD	BC,(IX+%FFFFFFF8)
+040D1E C5                  A  1912    	PUSH	BC
+040D1F 01FFFFFF            A  1913    	LD	BC,16777215
+040D23 C5                  A  1914    	PUSH	BC
+040D24 FDE5                A  1915    	PUSH	IY
+040D26 C5                  A  1916    	PUSH	BC
+040D27 FD21E8FA FF         A  1917    	LD	IY,-1304
+040D2C DDE5C1              A  1918    	LD	BC,IX
+040D2F FD09                A  1919    	ADD	IY,BC
+040D31 FD7700              A  1920    	LD	(IY),A
+040D34 C1                  A  1921    	POP	BC
+040D35 FDE1                A  1922    	POP	IY
+040D37 CD D7 00 04         A  1923    	CALL	_plot
+040D3B FDE5                A  1924    	PUSH	IY
+040D3D C5                  A  1925    	PUSH	BC
+040D3E FD21E8FA FF         A  1926    	LD	IY,-1304
+040D43 DDE5C1              A  1927    	LD	BC,IX
+040D46 FD09                A  1928    	ADD	IY,BC
+040D48 FD7E00              A  1929    	LD	A,(IY)
+040D4B C1                  A  1930    	POP	BC
+040D4C FDE1                A  1931    	POP	IY
+040D4E C1                  A  1932    	POP	BC
+040D4F C1                  A  1933    	POP	BC
+040D50 C1                  A  1934    	POP	BC
+                           A  1935    ;  121					
+                           A  1936    ;  122							for(i=0;i<128;i
+                           A  1937    .LINE 122
+                           A  1938    
+040D51 01000000            A  1939    	LD	BC,0
+040D55 DD0FFD              A  1940    	LD	(IX+%FFFFFFFD),BC
+040D58 18 6D               A  1941    	JR	L_48
+040D5A                     A  1942    L_46:
+                           A  1943    ;  123								starX[i]=st
+                           A  1944    .LINE 123
+                           A  1945    
+040D5A FDE5                A  1946    	PUSH	IY
+040D5C C5                  A  1947    	PUSH	BC
+040D5D FD21E8FA FF         A  1948    	LD	IY,-1304
+040D62 DDE5C1              A  1949    	LD	BC,IX
+040D65 FD09                A  1950    	ADD	IY,BC
+040D67 FD7700              A  1951    	LD	(IY),A
+040D6A C1                  A  1952    	POP	BC
+040D6B FDE1                A  1953    	POP	IY
+040D6D CD 67 1C 04         A  1954    	CALL	_rand
+040D71 FDE5                A  1955    	PUSH	IY
+040D73 C5                  A  1956    	PUSH	BC
+040D74 FD21E8FA FF         A  1957    	LD	IY,-1304
+040D79 DDE5C1              A  1958    	LD	BC,IX
+040D7C FD09                A  1959    	ADD	IY,BC
+040D7E FD7E00              A  1960    	LD	A,(IY)
+040D81 C1                  A  1961    	POP	BC
+040D82 FDE1                A  1962    	POP	IY
+040D84 01C40900            A  1963    	LD	BC,2500
+040D88 CD A4 1A 04         A  1964    	CALL	__irems
+040D8C 29                  A  1965    	ADD	HL,HL
+040D8D 010DFBFF            A  1966    	LD	BC,-1267	; spill
+040D91 CD DC 1A 04         A  1967    	CALL	__istix
+040D95 DD27FD              A  1968    	LD	HL,(IX+%FFFFFFFD)
+040D98 E5C1                A  1969    	LD	BC,HL
+040D9A 29                  A  1970    	ADD	HL,HL
+040D9B 09                  A  1971    	ADD	HL,BC
+040D9C E5D1                A  1972    	LD	DE,HL
+040D9E DDE5E1              A  1973    	LD	HL,IX
+040DA1 015BFBFF            A  1974    	LD	BC,-1189
+040DA5 09                  A  1975    	ADD	HL,BC
+040DA6 19                  A  1976    	ADD	HL,DE
+040DA7 E5FDE1              A  1977    	LD	IY,HL
+040DAA 21C40900            A  1978    	LD	HL,2500
+040DAE B7                  A  1979    	OR	A,A
+040DAF 010DFBFF            A  1980    	LD	BC,-1267	; unspill
+040DB3 E5                  A  1981    	PUSH	HL
+040DB4 CD D3 1C 04         A  1982    	CALL	__ildix
+040DB8 E5C1                A  1983    	LD	BC,HL
+040DBA E1                  A  1984    	POP	HL
+040DBB ED42                A  1985    	SBC	HL,BC
+040DBD FD2F00              A  1986    	LD	(IY),HL
+040DC0 DD07FD              A  1987    	LD	BC,(IX+%FFFFFFFD)
+040DC3 03                  A  1988    	INC	BC
+040DC4 DD0FFD              A  1989    	LD	(IX+%FFFFFFFD),BC
+                           A  1990    ;  124								}		
+040DC7                     A  1991    L_48:
+                           A  1992    .LINE 124
+                           A  1993    
+040DC7 01800000            A  1994    	LD	BC,128
+040DCB DD27FD              A  1995    	LD	HL,(IX+%FFFFFFFD)
+040DCE B7                  A  1996    	OR	A,A
+040DCF ED42                A  1997    	SBC	HL,BC
+040DD1 CD 70 1A 04         A  1998    	CALL	__setflag
+040DD5 FA 5A 0D 04         A  1999    	JP	M,L_46
+                           A  2000    ;  125							break;
+                           A  2001    .LINE 125
+                           A  2002    
+040DD9 18 24               A  2003    	JR	L_54
+                           A  2004    ;  126					
+                           A  2005    ;  127					case 0x20:
+040DDB                     A  2006    L_50:
+                           A  2007    .LINE 127
+                           A  2008    
+                           A  2009    ;  128							//puts("SPACE")
+                           A  2010    ;  129							x1 = 133;
+                           A  2011    .LINE 129
+                           A  2012    
+040DDB DD36F885            A  2013    	LD	(IX+%FFFFFFF8),%85
+040DDF DD36F900            A  2014    	LD	(IX+%FFFFFFF9),%0
+                           A  2015    ;  130							y1 = 133;
+                           A  2016    .LINE 130
+                           A  2017    
+040DE3 DD36F685            A  2018    	LD	(IX+%FFFFFFF6),%85
+040DE7 DD36F700            A  2019    	LD	(IX+%FFFFFFF7),%0
+                           A  2020    ;  131							vdp_cls();
+                           A  2021    .LINE 131
+                           A  2022    
+040DEB CD E6 0E 04         A  2023    	CALL	_vdp_cls
+                           A  2024    ;  132							break;
+                           A  2025    .LINE 132
+                           A  2026    
+040DEF 18 0E               A  2027    	JR	L_54
+                           A  2028    ;  133					case 0x1b:
+040DF1                     A  2029    L_51:
+                           A  2030    .LINE 133
+                           A  2031    
+                           A  2032    ;  134							puts("ESC - BYE
+                           A  2033    .LINE 134
+                           A  2034    
+040DF1 01 A4 1D 04         A  2035    	LD	BC,L__14
+040DF5 C5                  A  2036    	PUSH	BC
+040DF6 CD 46 1B 04         A  2037    	CALL	_puts
+040DFA C1                  A  2038    	POP	BC
+                           A  2039    ;  135							running = FALSE
+                           A  2040    .LINE 135
+                           A  2041    
+040DFB DD36F200            A  2042    	LD	(IX+%FFFFFFF2),%0
+                           A  2043    ;  136						
+                           A  2044    ;  137					default:
+                           A  2045    ;  138							
+                           A  2046    ;  139							break;
+                           A  2047    ;  140					
+                           A  2048    ;  141					
+                           A  2049    ;  142				}
+                           A  2050    ;  143		}
+040DFF                     A  2051    L_54:
+                           A  2052    .LINE 143
+                           A  2053    
+040DFF DD7EF2              A  2054    	LD	A,(IX+%FFFFFFF2)
+040E02 B7                  A  2055    	OR	A,A
+040E03 C2 61 03 04         A  2056    	JR	NZ,L_55
+                           A  2057    ;  144		vdp_cls();
+                           A  2058    .LINE 144
+                           A  2059    
+040E07 CD E6 0E 04         A  2060    	CALL	_vdp_cls
+                           A  2061    ;  145	
+                           A  2062    ;  146		return 0;
+                           A  2063    .LINE 146
+                           A  2064    
+040E0B B7                  A  2065    	OR	A,A
+040E0C ED62                A  2066    	SBC	HL,HL
+                           A  2067    ;  147	}
+                           A  2068    .LINE 147
+                           A  2069    
+040E0E DDF9                A  2070    	LD	SP,IX
+040E10 DDE1                A  2071    	POP	IX
+040E12 C9                  A  2072    	RET	
+                           A  2073    
+                           A  2074    
+                           A  2075    ;**************************** _main ***********
+                           A  2076    ;Name                         Addr/Register   S
+                           A  2077    ;_puts                               IMPORT  --
+                           A  2078    ;_getfullkeycode                     IMPORT  --
+                           A  2079    ;_vdp_fgcolour                       IMPORT  --
+                           A  2080    ;_vdp_cls                            IMPORT  --
+                           A  2081    ;_vdp_mode                           IMPORT  --
+                           A  2082    ;_rand                               IMPORT  --
+                           A  2083    ;starX                              IX-1189    
+                           A  2084    ;starZ                               IX-805    
+                           A  2085    ;starY                               IX-421    
+                           A  2086    ;G_11                                 IX-37    
+                           A  2087    ;key                                  IX-34    
+                           A  2088    ;cz                                   IX-32    
+                           A  2089    ;G_8                                  IX-29    
+                           A  2090    ;G_9                                  IX-26    
+                           A  2091    ;G_10                                 IX-23    
+                           A  2092    ;cx                                   IX-20    
+                           A  2093    ;cy                                   IX-17    
+                           A  2094    ;running                              IX-14    
+                           A  2095    ;G_0                                  IX-13    
+                           A  2096    ;y1                                   IX-10    
+                           A  2097    ;x1                                    IX-8    
+                           A  2098    ;G_4                                   IX-6    
+                           A  2099    ;i                                     IX-3    
+                           A  2100    ;argv                                  IX+9    
+                           A  2101    ;argc                                  IX+6    
+                           A  2102    
+                           A  2103    
+                           A  2104    ; Stack Frame Size: 1316 (bytes)
+                           A  2105    ;       Spill Code: 0 (instruction)
+                           A  2106    
+                           A  2107    
+                           A  2108    .ENDFUNC "main",147,"_main"
+                           A  2109    	SEGMENT STRSECT
+041DA4                     A  2110    L__14:
+041DA4 45534320 2D204259   A  2111    	DB	"ESC - BYE"
+041DAC 45 
+041DAD 00                  A  2112    	DB	0
+                           A  2113    	XREF _vdp_plot:ROM
+                           A  2114    	XREF _getfullkeycode:ROM
+                           A  2115    	XREF _vdp_fgcolour:ROM
+                           A  2116    	XREF _vdp_cls:ROM
+                           A  2117    	XREF _vdp_mode:ROM
+                           A  2118    	XREF _rand:ROM
+                           A  2119    	XREF _puts:ROM
+                           A  2120    	XREF __idivs:ROM
+                           A  2121    	XREF __irems:ROM
+                           A  2122    	XREF __stoiu:ROM
+                           A  2123    	XREF __ildix:ROM
+                           A  2124    	XREF __istix:ROM
+                           A  2125    	XREF __setflag:ROM
+                           A  2126    	XREF __case8D:ROM
+                           A  2127    	XDEF _main
+                           A  2128    	XDEF _plot
+                           A  2129    	END
+
+
+Errors: 0
+Warnings: 0
+Lines Assembled: 2130
