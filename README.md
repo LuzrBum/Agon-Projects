@@ -14,7 +14,7 @@ Discussed in the video https://youtu.be/S7iilqWDxNE
 * I have 3 versions of "main.c" in the folder-01, -02, -03, copy the contents to main.c and Rebuild All
 * main-01 = Move an X across the screen with Arrow keys
 * main-02 = MOVE a pixel across the screen with Arrow keys AND an X across the screen with ASDW
-* main-03 = starfield simulation
+* main-03 = STARFIELD SIMULATION - THIS IS THE DEFAULT
 
 * note change in mos-keycode.asm = commented out the waitkey so it just loops even with no keypress
 
