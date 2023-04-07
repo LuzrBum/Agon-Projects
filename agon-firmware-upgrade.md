@@ -23,7 +23,8 @@
 
 # Steps
 - Procure HW
-- Download SW
+- Download SW  
+
 
 
 - Install MOS Update utility on SD card
