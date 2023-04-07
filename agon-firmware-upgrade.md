@@ -8,8 +8,9 @@
 - This requires VDP 1.03 RC3 and MOS 1.03 RC3
 -
 - VDP https://github.com/breakintoprogram/agon-vdp
-- https://github.com/breakintoprogram/agon-mos/releases/tag/v1.03-RC3
-- Arduino IDE
+- https://github.com/breakintoprogram/agon-vdp/releases/tag/v1.03-RC3
+- Arduino IDE https://www.arduino.cc/en/software
+- using version 1.8.19 for now (to avoid the python serial error) 
 -
 - MOS https://github.com/breakintoprogram/agon-mos
 - https://github.com/breakintoprogram/agon-mos/releases/tag/v1.03-RC3
