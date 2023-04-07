@@ -13,6 +13,7 @@
 
 - MOS https://github.com/breakintoprogram/agon-mos
 - https://github.com/breakintoprogram/agon-mos/releases/tag/v1.03-RC3
+- A CRC code for your version 
 - MOS update utility https://github.com/envenomator/agon-flash 
 - https://github.com/envenomator/agon-flash/releases/tag/v1.2
 
@@ -22,7 +23,8 @@
 - Procure HW
 - Download SW
 
-- Install MOS Update utility 
+- Install MOS Update utility on SD card
+- Get CRC for MOS version 86696B8A 
 - Flash MOS
 - Test
 
