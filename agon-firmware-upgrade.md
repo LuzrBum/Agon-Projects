@@ -28,7 +28,7 @@ Complete and tested(-ish) steps to update Agon Light from 1.02 to latest
 - Copy MOS Update utility (to /MOS) & MOS.bin (to /root) to  SD card https://github.com/envenomator/agon-flash 
 - Get CRC for MOS version 86696B8A for MOS 1.03 RC3 (different)
 - Transfer SD card to Agon and boot Agon
-- Flash MOS = Usage: "FLASH <filename> <crc32>"
+- Flash MOS = Usage: "FLASH \<filename> \<crc32>"
 - Test
 ## VDP
 - Install Arduino SW
