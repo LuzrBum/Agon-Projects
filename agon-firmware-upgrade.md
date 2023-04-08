@@ -1,9 +1,11 @@
-# Required HW
-- Agon
-- PC (Win10 in my case) with micro-sd slot
+Complete and tested(-ish) steps to update Agon Light from 1.02 to latest
+
+# Procure required HW
+- Agon + microSD
+- PC (Win10 in my case) with microSD slot
 - USB-C cable
 
-# Required SW
+# Download required SW  
 - BBC Basic 1.04 RC3 https://github.com/breakintoprogram/agon-bbc-basic/releases/tag/v1.04-RC3
 - This requires VDP 1.03 RC3 and MOS 1.03 RC3
 -
@@ -14,25 +16,28 @@
 -
 - MOS https://github.com/breakintoprogram/agon-mos
 - https://github.com/breakintoprogram/agon-mos/releases/tag/v1.03-RC3
-- A CRC code for your version 
+- A CRC code for your version https://simplycalc.com/crc32-file.php
 - MOS update utility https://github.com/envenomator/agon-flash 
 - https://github.com/envenomator/agon-flash/releases/tag/v1.2
 
-# Steps
-- Procure HW
-- Download SW  
--
-- Install MOS Update utility on SD card
-- Get CRC for MOS version 86696B8A 
-- Flash MOS
+# UPGRADE
+## Prep
+- Tidy up your SD Card (optional)
+- Copy BBC Basic 1.04 RC3 to the SD card (because why the hell not)
+## MOS
+- Copy MOS Update utility (to /MOS) & MOS.bin (to /root) to  SD card https://github.com/envenomator/agon-flash 
+- Get CRC for MOS version 86696B8A for MOS 1.03 RC3 (different)
+- Transfer SD card to Agon and boot Agon
+- Flash MOS = Usage: "FLASH <filename> <crc32>"
 - Test
-- 
+## VDP
 - Install Arduino SW
-- Config Arduino SW
-- Disconnect & jumper x2
+- Config Arduino SW https://github.com/breakintoprogram/agon-vdp
+- Disconnect power & flip jumper x2
 - connect USB-C
+- Determine COM port
 - Update arduino
-- test?
-<br>
-- Backup SD card?
-- Update BBCBASIC file
+- Reconnect power & flip jumper x2
+- Test
+
+  
