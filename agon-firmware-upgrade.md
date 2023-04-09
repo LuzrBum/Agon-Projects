@@ -18,7 +18,7 @@ Complete and tested(-ish) steps to update Agon Light from 1.02 to latest
 
 
 # UPGRADE
-- Always do the MOS first while the Agon is in a stable config bceause it needs to be launched from MOS. MOS update may break screen/keyboard, then you cannot type the command anymore. Then do the VDP
+- Always do the MOS first while the Agon is in a stable config because it needs to be launched from MOS command line. MOS update may break screen/keyboard, then you cannot type the command anymore. Then do the VDP second.
 
 ## Prep
 - Download
