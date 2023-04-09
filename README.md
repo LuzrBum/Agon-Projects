@@ -1,6 +1,8 @@
 # Agon-Projects
 Various coding experiments for the Agon Light https://www.thebyteattic.com/p/agon.html  
 Discussed in the video https://youtu.be/S7iilqWDxNE
+# MOS & VDP update walkthorugh
+https://github.com/LuzrBum/Agon-Projects/blob/main/agon-firmware-upgrade.md
 
 # fullkeycode
 * Project for use with ZDS II https://www.zilog.com/index.php?option=com_zcm&task=view&soft_id=38&Itemid=74
