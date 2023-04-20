@@ -1,6 +1,6 @@
 # Upgrading MOS and VDP on an Agon light 
 - Complete and tested(-ish) steps to update Agon Light from ~~1.02~~ 1.03-RC3 to latest (1.03 Official Release)
-- More or less successfully stumbled through thesesteps in this livestream https://www.youtube.com/live/1YSsFT5JrCM and https://www.youtube.com/live/7eSDdzOzUZU
+- More or less successfully stumbled through these steps in this livestream https://www.youtube.com/live/1YSsFT5JrCM and https://www.youtube.com/live/7eSDdzOzUZU
 
 # Procure required HW
 - Agon + microSD
