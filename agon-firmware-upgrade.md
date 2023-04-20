@@ -30,7 +30,7 @@
 - Copy BBC Basic 1.04 Final to the SD card + all sample files (optional but good for testing)
 -  
 ## MOS
-- Copy MOS Update utility "flash.bin" to /MOS) & MOS.bin (to /root) to  SD card
+- Copy MOS Update utility "flash.bin" to (to /MOS) & MOS.bin (to /root) to  SD card
 - Get CRC for MOS version ~~86696B8A for MOS 1.03 RC3~~ 86696B8A for MOS 1.03 Final (different for each version)
 - Transfer SD card to Agon and boot Agon
 - Flash MOS = Usage: "FLASH \<filename> \<crc32>"
