@@ -8,28 +8,28 @@
 - USB-C cable
 
 # Download required SW  
-- BBC Basic 1.04 Final https://github.com/breakintoprogram/agon-bbc-basic/releases/tag/v1.04-RC3
-- BBC Basic "examples" & "tests" folders from https://github.com/breakintoprogram/agon-bbc-basic/archive/refs/tags/v1.04.zip
+- BBC Basic 1.04 Final binary https://github.com/breakintoprogram/agon-bbc-basic/releases/download/v1.04/bbcbasic.bin
+- BBC Basic "examples" & "tests" & "resources" folders from https://github.com/breakintoprogram/agon-bbc-basic/archive/refs/tags/v1.04.zip
 -
-- MOS 1.03 Final https://github.com/breakintoprogram/agon-mos/releases/download/v1.03/MOS.bin
+- MOS 1.03 Final binary https://github.com/breakintoprogram/agon-mos/releases/download/v1.03/MOS.bin
 - MOS update utility https://github.com/envenomator/agon-flash/releases/download/v1.2/flash.bin
 - If you need to create  a CRC code for your VDP version https://simplycalc.com/crc32-file.php
 -
-- VDP1.03 Final  https://github.com/breakintoprogram/agon-vdp/archive/refs/tags/v1.03.zip
-- Extract the Zip, and renae the folder containing the source to "video"
+- VDP1.03 Final https://github.com/breakintoprogram/agon-vdp/archive/refs/tags/v1.03.zip
+- Extract the Zip, and rename the folder containing the source to "video"
 - Arduino IDE https://www.arduino.cc/en/software
 - using version IDE 1.8.19 for now (to avoid the python serial error)
-
+- 
 
 # UPGRADE
 - Always do the MOS first while the Agon is in a stable config because it needs to be launched from MOS command line. MOS update may break screen/keyboard, then you cannot type the command anymore. Then do the VDP second.
-
+- 
 ## Prep
 - Download
 - Tidy up your SD Card (optional)
 - Copy BBC Basic 1.04 Final to the SD card + all sample files (optional but good for testing)
 -  
-## MO
+## MOS
 - Copy MOS Update utility "flash.bin" to /MOS) & MOS.bin (to /root) to  SD card
 - Get CRC for MOS version ~~86696B8A for MOS 1.03 RC3~~ 86696B8A for MOS 1.03 Final (different for each version)
 - Transfer SD card to Agon and boot Agon
