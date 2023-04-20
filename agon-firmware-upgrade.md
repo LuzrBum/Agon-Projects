@@ -1,5 +1,5 @@
 # Upgrading MOS and VDP on an Agon light 
-- Complete and tested(-ish) steps to update Agon Light from 1.02 to latest
+- Complete and tested(-ish) steps to update Agon Light from ~~1.02~~ 1.03-RC3 to latest (1.03 Official Release)
 - More or less successfully stumbled through thesesteps in this livestream https://www.youtube.com/live/1YSsFT5JrCM and https://www.youtube.com/live/7eSDdzOzUZU
 
 # Procure required HW
@@ -8,15 +8,17 @@
 - USB-C cable
 
 # Download required SW  
-- BBC Basic 1.04 RC3 https://github.com/breakintoprogram/agon-bbc-basic/releases/tag/v1.04-RC3
+- BBC Basic 1.04 Final https://github.com/breakintoprogram/agon-bbc-basic/releases/tag/v1.04-RC3
+- BBC Basic "examples" & "tests" folders from https://github.com/breakintoprogram/agon-bbc-basic/archive/refs/tags/v1.04.zip
 -
-- https://github.com/breakintoprogram/agon-vdp/releases/tag/v1.03-RC3
-- Arduino IDE https://www.arduino.cc/en/software
-- using version 1.8.19 for now (to avoid the python serial error) 
--
-- https://github.com/breakintoprogram/agon-mos/releases/tag/v1.03-RC3
-- MOS update utility https://github.com/envenomator/agon-flash/releases/tag/v1.2
+- MOS 1.03 Final https://github.com/breakintoprogram/agon-mos/releases/download/v1.03/MOS.bin
+- MOS update utility https://github.com/envenomator/agon-flash/releases/download/v1.2/flash.bin
 - If you need to create  a CRC code for your VDP version https://simplycalc.com/crc32-file.php
+-
+- VDP1.03 Final  https://github.com/breakintoprogram/agon-vdp/archive/refs/tags/v1.03.zip
+- Extract the Zip, and renae the folder containing the source to "video"
+- Arduino IDE https://www.arduino.cc/en/software
+- using version IDE 1.8.19 for now (to avoid the python serial error)
 
 
 # UPGRADE
@@ -25,23 +27,25 @@
 ## Prep
 - Download
 - Tidy up your SD Card (optional)
-- Copy BBC Basic 1.04 RC3 to the SD card (because why the hell not) + sa
-## MOS
-- Copy MOS Update utility (to /MOS) & MOS.bin (to /root) to  SD card https://github.com/envenomator/agon-flash 
-- Get CRC for MOS version 86696B8A for MOS 1.03 RC3 (different for each version)
+- Copy BBC Basic 1.04 Final to the SD card + all sample files (optional but good for testing)
+-  
+## MO
+- Copy MOS Update utility "flash.bin" to /MOS) & MOS.bin (to /root) to  SD card
+- Get CRC for MOS version ~~86696B8A for MOS 1.03 RC3~~ 86696B8A for MOS 1.03 Final (different for each version)
 - Transfer SD card to Agon and boot Agon
 - Flash MOS = Usage: "FLASH \<filename> \<crc32>"
 - Test - you may not be able to type and or screen will look weird because MOS is now speaking differently
+- 
 ## VDP
 - Install Arduino IDE
 - Config Arduino IDE - follow ALL instructions https://github.com/breakintoprogram/agon-vdp , enter the URL + install the board, also install the two libraries selecting the right version
-- Open the folder of your VDP version - no
+- Open the folder of your VDP version
 - Disconnect power & flip jumper x2
 - connect USB-C to Agon and PC
 - Determine COM port (I had to go into windows devide manager and disable Bluetooth that was hogging COM3 and COM4)
 - Update VDP: Menu - Sketch - Upload, or press ctrl+U
 - Wait for successfu write: You will see successful write at the bottom of the Arduino IDE screen, and you should see VDP come up on your VGA screen 
 - Reconnect power & flip jumper x2
-- Test
+- Test 
 
   
