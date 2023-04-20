@@ -8,9 +8,6 @@
 - USB-C cable
 
 # Download required SW  
-- BBC Basic 1.04 Final binary https://github.com/breakintoprogram/agon-bbc-basic/releases/download/v1.04/bbcbasic.bin
-- BBC Basic "examples" & "tests" & "resources" folders from https://github.com/breakintoprogram/agon-bbc-basic/archive/refs/tags/v1.04.zip
--
 - MOS 1.03 Final binary https://github.com/breakintoprogram/agon-mos/releases/download/v1.03/MOS.bin
 - MOS update utility https://github.com/envenomator/agon-flash/releases/download/v1.2/flash.bin
 - If you need to create  a CRC code for your VDP version https://simplycalc.com/crc32-file.php
@@ -19,8 +16,10 @@
 - Extract the Zip, and rename the folder containing the source to "video"
 - Arduino IDE https://www.arduino.cc/en/software
 - using version IDE 1.8.19 for now (to avoid the python serial error)
-- 
-
+-
+- BBC Basic 1.04 Final binary https://github.com/breakintoprogram/agon-bbc-basic/releases/download/v1.04/bbcbasic.bin
+- BBC Basic "examples" & "tests" & "resources" folders from https://github.com/breakintoprogram/agon-bbc-basic/archive/refs/tags/v1.04.zip
+-
 # UPGRADE
 - Always do the MOS first while the Agon is in a stable config because it needs to be launched from MOS command line. MOS update may break screen/keyboard, then you cannot type the command anymore. Then do the VDP second.
 - 
@@ -31,7 +30,7 @@
 -  
 ## MOS
 - Copy MOS Update utility "flash.bin" to (to /MOS) & MOS.bin (to /root) to  SD card
-- Get CRC for MOS version ~~86696B8A for MOS 1.03 RC3~~ 86696B8A for MOS 1.03 Final (different for each version)
+- Get CRC for MOS version ~~0x86696B8A for MOS 1.03 RC3~~ 0x81E397C9 for MOS 1.03 Final (different for each version)
 - Transfer SD card to Agon and boot Agon
 - Flash MOS = Usage: "FLASH \<filename> \<crc32>"
 - Test - you may not be able to type and or screen will look weird because MOS is now speaking differently
@@ -40,12 +39,12 @@
 - Install Arduino IDE
 - Config Arduino IDE - follow ALL instructions https://github.com/breakintoprogram/agon-vdp , enter the URL + install the board, also install the two libraries selecting the right version
 - Open the folder of your VDP version
-- Disconnect power & flip jumper x2
+- Disconnect power & flip jumper x2 (ON)
 - connect USB-C to Agon and PC
 - Determine COM port (I had to go into windows devide manager and disable Bluetooth that was hogging COM3 and COM4)
 - Update VDP: Menu - Sketch - Upload, or press ctrl+U
 - Wait for successfu write: You will see successful write at the bottom of the Arduino IDE screen, and you should see VDP come up on your VGA screen 
-- Reconnect power & flip jumper x2
+- Flip jumper x2 (OFF) & reconnect power
 - Test 
 
   
