@@ -39,12 +39,12 @@
 - Install Arduino IDE
 - Config Arduino IDE - follow ALL instructions https://github.com/breakintoprogram/agon-vdp , enter the URL + install the board, also install the two libraries selecting the right version
 - Open the folder of your VDP version
-- Disconnect power & flip jumper x2 (ON)
+- Disconnect power ~~& flip jumper x2 (ON)
 - connect USB-C to Agon and PC
 - Determine COM port (I had to go into windows devide manager and disable Bluetooth that was hogging COM3 and COM4)
 - Update VDP: Menu - Sketch - Upload, or press ctrl+U
 - Wait for successfu write: You will see successful write at the bottom of the Arduino IDE screen, and you should see VDP come up on your VGA screen 
-- Flip jumper x2 (OFF) & reconnect power
+- ~~Flip jumper x2 (OFF) &~~ Reconnect power
 - Test 
 
   
