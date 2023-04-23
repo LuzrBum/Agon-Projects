@@ -7,7 +7,7 @@ Discussed in the video https://youtu.be/S7iilqWDxNE
 
 # "Simon" game 
 - for Olimex weekend Coding Challenge April 2023 https://olimex.wordpress.com/2023/04/21/agonlight-weekend-programming-challenge-issue-1/
-- for YouTube Video TBA
+- for YouTube Video https://youtu.be/oXMx9FPrQQU
 - Original 1983 vesrion by D.Whitworth from https://www.bbcmicro.co.uk/game.php?id=3163
 
 # fullkeycode
