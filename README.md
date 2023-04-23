@@ -5,6 +5,11 @@ Discussed in the video https://youtu.be/S7iilqWDxNE
 - https://github.com/LuzrBum/Agon-Projects/blob/main/agon-firmware-upgrade.md
 - I more or less successfully stumbled thorough these in this livestream https://www.youtube.com/live/1YSsFT5JrCM and https://www.youtube.com/live/7eSDdzOzUZU
 
+# "Simon" game 
+- for Olimex weekend Coding Challenge April 2023 https://olimex.wordpress.com/2023/04/21/agonlight-weekend-programming-challenge-issue-1/
+- for YouTube Video TBA
+- Original 1983 vesrion by D.Whitworth from https://www.bbcmicro.co.uk/game.php?id=3163
+
 # fullkeycode
 * Project for use with ZDS II https://www.zilog.com/index.php?option=com_zcm&task=view&soft_id=38&Itemid=74
 * based on original https://github.com/envenomator/Agon/tree/master/scratch, it is called "fullkeycode" because I was not able to rename the project....
