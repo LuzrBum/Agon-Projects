@@ -10,6 +10,8 @@ Discussed in the video https://youtu.be/S7iilqWDxNE
 - for YouTube Video https://youtu.be/oXMx9FPrQQU
 - Original 1983 vesrion by D.Whitworth from https://www.bbcmicro.co.uk/game.php?id=3163
 
+
+Below Discussed in the video https://youtu.be/S7iilqWDxNE
 # fullkeycode
 * Project for use with ZDS II https://www.zilog.com/index.php?option=com_zcm&task=view&soft_id=38&Itemid=74
 * based on original https://github.com/envenomator/Agon/tree/master/scratch, it is called "fullkeycode" because I was not able to rename the project....
