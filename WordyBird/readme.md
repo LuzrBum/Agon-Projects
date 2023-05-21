@@ -8,7 +8,7 @@ https://olimex.wordpress.com/2023/05/05/agonlight-weekend-programming-challenge-
 - I "won"- YouTube news repor!t https://www.youtube.com/watch?v=9VNhshYAGQ0- 
 
 ## To run
-- Download WB.BBC adn WBL.TXT to SD Card
+- Download WB.BBC and WBL.TXT to SD Card
 
         CHAIN "WB"
 
