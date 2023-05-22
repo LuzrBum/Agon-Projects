@@ -5,14 +5,22 @@ Various coding experiments for the Agon Light https://www.thebyteattic.com/p/ago
 - https://github.com/LuzrBum/Agon-Projects/blob/main/agon-firmware-upgrade.md
 - I more or less successfully stumbled thorough these in this livestream https://www.youtube.com/live/1YSsFT5JrCM and https://www.youtube.com/live/7eSDdzOzUZU
 
+# "WordyBird" game 
+- https://github.com/LuzrBum/Agon-Projects/tree/main/WordyBird
+- My submission for this challenge:  
+https://olimex.wordpress.com/2023/05/05/agonlight-weekend-programming-challenge-issue-2/
+- I "won"- YouTube news report https://www.youtube.com/watch?v=9VNhshYAGQ0- 
+
 # "Simon" game 
 - for Olimex weekend Coding Challenge April 2023 https://olimex.wordpress.com/2023/04/21/agonlight-weekend-programming-challenge-issue-1/
 - for YouTube Video https://youtu.be/oXMx9FPrQQU
 - Original 1983 vesrion by D.Whitworth from https://www.bbcmicro.co.uk/game.php?id=3163
 
-S7iilqWDxNE
+# Agon Ascii Star Wars
+- https://github.com/LuzrBum/Agon-Projects/tree/main/AS
+
 # fullkeycode
-Below Discussed in the video https://youtu.be/
+Below Discussed in the video https://www.youtube.com/watch?v=S7iilqWDxNE
 * Project for use with ZDS II https://www.zilog.com/index.php?option=com_zcm&task=view&soft_id=38&Itemid=74
 * based on original https://github.com/envenomator/Agon/tree/master/scratch, it is called "fullkeycode" because I was not able to rename the project....
 * Copy the entire folder to your PC
