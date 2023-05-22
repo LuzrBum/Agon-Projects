@@ -17,7 +17,7 @@ https://olimex.wordpress.com/2023/05/05/agonlight-weekend-programming-challenge-
 - Original 1983 vesrion by D.Whitworth from https://www.bbcmicro.co.uk/game.php?id=3163
 
 # Agon Ascii Star Wars
-- https://github.com/LuzrBum/Agon-Projects/tree/main/AS
+- https://github.com/LuzrBum/Agon-Projects/tree/main/ASW
 
 # fullkeycode
 Below Discussed in the video https://www.youtube.com/watch?v=S7iilqWDxNE
