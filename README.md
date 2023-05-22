@@ -9,7 +9,13 @@ Various coding experiments for the Agon Light https://www.thebyteattic.com/p/ago
 - https://github.com/LuzrBum/Agon-Projects/tree/main/WordyBird
 - My submission for this challenge:  
 https://olimex.wordpress.com/2023/05/05/agonlight-weekend-programming-challenge-issue-2/
-- I "won"- YouTube news report https://www.youtube.com/watch?v=9VNhshYAGQ0- 
+- I "won"- YouTube news report https://www.youtube.com/watch?v=9VNhshYAGQ0
+
+# Emulation
+- https://github.com/astralaster/agon-light-emulator
+- https://github.com/tomm/ez80
+- https://github.com/libsdl-org/SDL/releases/tag/release-2.26.5 (the "VC" file)
+- Video Walkthrough TBA
 
 # "Simon" game 
 - for Olimex weekend Coding Challenge April 2023 https://olimex.wordpress.com/2023/04/21/agonlight-weekend-programming-challenge-issue-1/
