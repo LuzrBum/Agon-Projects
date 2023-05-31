@@ -1,0 +1,597 @@
+Zilog eZ80 Macro Assembler Version 4.3 (19073001) RELISTED31-May-23     21:30:39     page:   1
+
+
+PC     Object              I  Line    Source 
+                           A     1    ; Zilog eZ80 ANSI C Compiler Release 3.4
+                           A     2    ; -nomodsect -optsize -noreduceopt -nopadbranch
+                           A     3    ; -peephole -globalopt -localcse -const=ROM 
+                           A     4    	FILE	"..\main.c"
+                           A     5    	.assume ADL=1
+                           A     6    .DEBUG "C"
+                           A     7    	SEGMENT CODE
+                           A     8    .BEGREC "fmt_type",19
+                           A     9    .DEFINE "status"
+                           A    10    .VALUE 0
+                           A    11    .CLASS 8
+                           A    12    .TYPE 12
+                           A    13    .ENDEF
+                           A    14    .DEFINE "flags"
+                           A    15    .VALUE 1
+                           A    16    .CLASS 8
+                           A    17    .TYPE 12
+                           A    18    .ENDEF
+                           A    19    .DEFINE "size"
+                           A    20    .VALUE 2
+                           A    21    .CLASS 8
+                           A    22    .TYPE 2
+                           A    23    .ENDEF
+                           A    24    .DEFINE "chr"
+                           A    25    .VALUE 3
+                           A    26    .CLASS 8
+                           A    27    .TYPE 2
+                           A    28    .ENDEF
+                           A    29    .DEFINE "type"
+                           A    30    .VALUE 4
+                           A    31    .CLASS 8
+                           A    32    .TYPE 2
+                           A    33    .ENDEF
+                           A    34    .DEFINE "field_width"
+                           A    35    .VALUE 5
+                           A    36    .CLASS 8
+                           A    37    .TYPE 2
+                           A    38    .ENDEF
+                           A    39    .DEFINE "precision"
+                           A    40    .VALUE 6
+                           A    41    .CLASS 8
+                           A    42    .TYPE 2
+                           A    43    .ENDEF
+                           A    44    .DEFINE "set_begin"
+                           A    45    .VALUE 7
+                           A    46    .CLASS 8
+                           A    47    .TYPE 34
+                           A    48    .ENDEF
+                           A    49    .DEFINE "set_end"
+                           A    50    .VALUE 10
+                           A    51    .CLASS 8
+                           A    52    .TYPE 34
+                           A    53    .ENDEF
+                           A    54    .DEFINE "pad_whole"
+                           A    55    .VALUE 13
+                           A    56    .CLASS 8
+                           A    57    .TYPE 12
+                           A    58    .ENDEF
+                           A    59    .DEFINE "pad_pre_fract"
+                           A    60    .VALUE 14
+                           A    61    .CLASS 8
+                           A    62    .TYPE 12
+                           A    63    .ENDEF
+                           A    64    .DEFINE "pad_post_fract"
+                           A    65    .VALUE 15
+                           A    66    .CLASS 8
+                           A    67    .TYPE 12
+                           A    68    .ENDEF
+                           A    69    .DEFINE "pad_at"
+                           A    70    .VALUE 16
+                           A    71    .CLASS 8
+                           A    72    .TYPE 34
+                           A    73    .ENDEF
+                           A    74    .ENDREC "fmt_type"
+                           A    75    .BEGREC "flt_info",12
+                           A    76    .DEFINE "flags"
+                           A    77    .VALUE 0
+                           A    78    .CLASS 8
+                           A    79    .TYPE 12
+                           A    80    .ENDEF
+                           A    81    .DEFINE "exp"
+                           A    82    .VALUE 1
+                           A    83    .CLASS 8
+                           A    84    .TYPE 2
+                           A    85    .ENDEF
+                           A    86    .DEFINE "digits"
+                           A    87    .VALUE 2
+                           A    88    .CLASS 8
+                           A    89    .DIM 10
+                           A    90    .TYPE 108
+                           A    91    .ENDEF
+                           A    92    .ENDREC "flt_info"
+                           A    93    .BEGREC "NONAME0",8
+                           A    94    .DEFINE "baudRate"
+                           A    95    .VALUE 0
+                           A    96    .CLASS 8
+                           A    97    .TYPE 4
+                           A    98    .ENDEF
+                           A    99    .DEFINE "dataBits"
+                           A   100    .VALUE 3
+                           A   101    .CLASS 8
+                           A   102    .TYPE 12
+                           A   103    .ENDEF
+                           A   104    .DEFINE "stopBits"
+                           A   105    .VALUE 4
+                           A   106    .CLASS 8
+                           A   107    .TYPE 12
+                           A   108    .ENDEF
+                           A   109    .DEFINE "parity"
+                           A   110    .VALUE 5
+                           A   111    .CLASS 8
+                           A   112    .TYPE 12
+                           A   113    .ENDEF
+                           A   114    .DEFINE "flowcontrol"
+                           A   115    .VALUE 6
+                           A   116    .CLASS 8
+                           A   117    .TYPE 12
+                           A   118    .ENDEF
+                           A   119    .DEFINE "eir"
+                           A   120    .VALUE 7
+                           A   121    .CLASS 8
+                           A   122    .TYPE 12
+                           A   123    .ENDEF
+                           A   124    .ENDREC "NONAME0"
+                           A   125    .BEGREC "NONAME1",15
+                           A   126    .DEFINE "fs"
+                           A   127    .VALUE 0
+                           A   128    .CLASS 8
+                           A   129    .TYPE 46
+                           A   130    .ENDEF
+                           A   131    .DEFINE "id"
+                           A   132    .VALUE 3
+                           A   133    .CLASS 8
+                           A   134    .TYPE 13
+                           A   135    .ENDEF
+                           A   136    .DEFINE "attr"
+                           A   137    .VALUE 5
+                           A   138    .CLASS 8
+                           A   139    .TYPE 12
+                           A   140    .ENDEF
+                           A   141    .DEFINE "stat"
+                           A   142    .VALUE 6
+                           A   143    .CLASS 8
+                           A   144    .TYPE 12
+                           A   145    .ENDEF
+                           A   146    .DEFINE "sclust"
+                           A   147    .VALUE 7
+                           A   148    .CLASS 8
+                           A   149    .TYPE 15
+                           A   150    .ENDEF
+                           A   151    .DEFINE "objsize"
+                           A   152    .VALUE 11
+                           A   153    .CLASS 8
+                           A   154    .TYPE 15
+                           A   155    .ENDEF
+                           A   156    .ENDREC "NONAME1"
+                           A   157    .BEGREC "NONAME2",36
+                           A   158    .DEFINE "obj"
+                           A   159    .VALUE 0
+                           A   160    .CLASS 8
+                           A   161    .TAG "NONAME1"
+                           A   162    .TYPE 8
+                           A   163    .ENDEF
+                           A   164    .DEFINE "flag"
+                           A   165    .VALUE 15
+                           A   166    .CLASS 8
+                           A   167    .TYPE 12
+                           A   168    .ENDEF
+                           A   169    .DEFINE "err"
+                           A   170    .VALUE 16
+                           A   171    .CLASS 8
+                           A   172    .TYPE 12
+                           A   173    .ENDEF
+                           A   174    .DEFINE "fptr"
+                           A   175    .VALUE 17
+                           A   176    .CLASS 8
+                           A   177    .TYPE 15
+                           A   178    .ENDEF
+                           A   179    .DEFINE "clust"
+                           A   180    .VALUE 21
+                           A   181    .CLASS 8
+                           A   182    .TYPE 15
+                           A   183    .ENDEF
+                           A   184    .DEFINE "sect"
+                           A   185    .VALUE 25
+                           A   186    .CLASS 8
+                           A   187    .TYPE 15
+                           A   188    .ENDEF
+                           A   189    .DEFINE "dir_sect"
+                           A   190    .VALUE 29
+                           A   191    .CLASS 8
+                           A   192    .TYPE 15
+                           A   193    .ENDEF
+                           A   194    .DEFINE "dir_ptr"
+                           A   195    .VALUE 33
+                           A   196    .CLASS 8
+                           A   197    .TYPE 46
+                           A   198    .ENDEF
+                           A   199    .ENDREC "NONAME2"
+                           A   200    ;    1	#include <stdio.h >
+                           A   201    ;    2	#include <ctype.h>
+                           A   202    ;    3	#include "mos-interface.h"
+                           A   203    ;    4	#include "vdp.h"
+                           A   204    ;    5	#include "agontimer.h"
+                           A   205    ;    6	
+                           A   206    ;    7	
+                           A   207    ;    8		
+                           A   208    ;    9	int main(int argc, char * argv[]) { 
+0400E5                     A   209    _main:
+                           A   210    .DEFINE "_main"
+                           A   211    
+                           A   212    .VALUE _main
+                           A   213    
+                           A   214    .CLASS 2
+                           A   215    
+                           A   216    .TYPE 68
+                           A   217    
+                           A   218    .ENDEF
+                           A   219    
+                           A   220    .BEGFUNC "main",9,"_main"
+                           A   221    
+                           A   222    .LINE 9
+                           A   223    
+                           A   224    .DEFINE "argc"
+                           A   225    
+                           A   226    .CLASS 65
+                           A   227    
+                           A   228    .VALUE 6
+                           A   229    
+                           A   230    .TYPE 4
+                           A   231    
+                           A   232    .ENDEF
+                           A   233    
+                           A   234    .DEFINE "argv"
+                           A   235    
+                           A   236    .CLASS 65
+                           A   237    
+                           A   238    .VALUE 9
+                           A   239    
+                           A   240    .TYPE 290
+                           A   241    
+                           A   242    .ENDEF
+                           A   243    
+                           A   244    .DEFINE "running"
+                           A   245    
+                           A   246    .CLASS 65
+                           A   247    
+                           A   248    .VALUE -1
+                           A   249    
+                           A   250    .TYPE 12
+                           A   251    
+                           A   252    .ENDEF
+                           A   253    
+                           A   254    .DEFINE "key"
+                           A   255    
+                           A   256    .CLASS 65
+                           A   257    
+                           A   258    .VALUE -3
+                           A   259    
+                           A   260    .TYPE 13
+                           A   261    
+                           A   262    .ENDEF
+                           A   263    
+                           A   264    .DEFINE "keycount"
+                           A   265    
+                           A   266    .CLASS 65
+                           A   267    
+                           A   268    .VALUE -5
+                           A   269    
+                           A   270    .TYPE 13
+                           A   271    
+                           A   272    .ENDEF
+                           A   273    
+                           A   274    .DEFINE "received"
+                           A   275    
+                           A   276    .CLASS 65
+                           A   277    
+                           A   278    .VALUE -7
+                           A   279    
+                           A   280    .TYPE 13
+                           A   281    
+                           A   282    .ENDEF
+                           A   283    
+                           A   284    .DEFINE "myUART1"
+                           A   285    
+                           A   286    .CLASS 65
+                           A   287    
+                           A   288    .VALUE -15
+                           A   289    
+                           A   290    .TAG "NONAME0"
+                           A   291    
+                           A   292    .TYPE 8
+                           A   293    
+                           A   294    .ENDEF
+                           A   295    
+                           A   296    .DEFINE "mypUART"
+                           A   297    
+                           A   298    .CLASS 65
+                           A   299    
+                           A   300    .VALUE -18
+                           A   301    
+                           A   302    .TAG "NONAME0"
+                           A   303    
+                           A   304    .TYPE 40
+                           A   305    
+                           A   306    .ENDEF
+                           A   307    
+0400E5 DDE5                A   308    	PUSH	IX
+0400E7 DD210000 00         A   309    	LD	IX,0
+0400EC DD39                A   310    	ADD	IX,SP
+0400EE ED22EB              A   311    	LEA	HL,IX+%FFFFFFEB
+0400F1 F9                  A   312    	LD	SP,HL
+                           A   313    ;   10		UINT16 received,key,keycount;
+                           A   314    ;   11		UINT8 resultTX;
+                           A   315    ;   12		int resultRX;
+                           A   316    ;   13		BOOL running;
+                           A   317    ;   14		UART myUART1;
+                           A   318    ;   15		UART *mypUART=&myUART1;
+                           A   319    .LINE 15
+                           A   320    
+0400F2 ED02F1              A   321    	LEA	BC,IX+%FFFFFFF1
+0400F5 DD0FEE              A   322    	LD	(IX+%FFFFFFEE),BC
+                           A   323    ;   16		char myString[];
+                           A   324    ;   17		
+                           A   325    ;   18		
+                           A   326    ;   19		myUART1.baudRate=38400;
+                           A   327    .LINE 19
+                           A   328    
+0400F8 01009600            A   329    	LD	BC,38400
+0400FC DD0FF1              A   330    	LD	(IX+%FFFFFFF1),BC
+                           A   331    ;   20		myUART1.dataBits =8;				
+                           A   332    .LINE 20
+                           A   333    
+0400FF DD36F408            A   334    	LD	(IX+%FFFFFFF4),%8
+                           A   335    ;   21		myUART1.stopBits =1;				
+                           A   336    .LINE 21
+                           A   337    
+040103 DD36F501            A   338    	LD	(IX+%FFFFFFF5),%1
+                           A   339    ;   22		myUART1.parity=0;				   
+                           A   340    .LINE 22
+                           A   341    
+040107 DD36F600            A   342    	LD	(IX+%FFFFFFF6),%0
+                           A   343    ;   23	    myUART1.flowcontrol =0;
+                           A   344    .LINE 23
+                           A   345    
+04010B DD36F700            A   346    	LD	(IX+%FFFFFFF7),%0
+                           A   347    ;   24		myUART1.eir =0;
+                           A   348    .LINE 24
+                           A   349    
+04010F DD36F800            A   350    	LD	(IX+%FFFFFFF8),%0
+                           A   351    ;   25		vdp_mode(3);
+                           A   352    .LINE 25
+                           A   353    
+040113 01030000            A   354    	LD	BC,3
+040117 C5                  A   355    	PUSH	BC
+040118 CD BE 02 04         A   356    	CALL	_vdp_mode
+04011C C1                  A   357    	POP	BC
+                           A   358    ;   26		mos_uopen(mypUART);
+                           A   359    .LINE 26
+                           A   360    
+04011D DD07EE              A   361    	LD	BC,(IX+%FFFFFFEE)
+040120 C5                  A   362    	PUSH	BC
+040121 CD 8A 10 04         A   363    	CALL	_mos_uopen
+040125 C1                  A   364    	POP	BC
+                           A   365    ;   27		puts("Opened serial port on UART1 =
+                           A   366    .LINE 27
+                           A   367    
+040126 01 ED 14 04         A   368    	LD	BC,L__0
+04012A C5                  A   369    	PUSH	BC
+04012B CD 8C 13 04         A   370    	CALL	_puts
+04012F C1                  A   371    	POP	BC
+                           A   372    ;   28	
+                           A   373    ;   29	    keycount = getsysvar_vkeycount();
+                           A   374    .LINE 29
+                           A   375    
+040130 CD 72 0E 04         A   376    	CALL	_getsysvar_vkeycount
+040134 4F                  A   377    	LD	C,A
+040135 0600                A   378    	LD	B,%0
+040137 C5E1                A   379    	LD	HL,BC
+040139 DD75FB              A   380    	LD	(IX+%FFFFFFFB),L
+04013C DD74FC              A   381    	LD	(IX+%FFFFFFFC),H
+                           A   382    ;   30	    
+                           A   383    ;   31		running=TRUE;
+                           A   384    .LINE 31
+                           A   385    
+04013F DD36FF01            A   386    	LD	(IX+%FFFFFFFF),%1
+                           A   387    ;   32	    while (running) {
+                           A   388    .LINE 32
+                           A   389    
+040143 C3 F6 01 04         A   390    	JR	L_6
+040147                     A   391    L_7:
+                           A   392    ;   33	        
+                           A   393    ;   34	        if (getsysvar_vkeycount() != ke
+                           A   394    .LINE 34
+                           A   395    
+040147 DD07FB              A   396    	LD	BC,(IX+%FFFFFFFB)
+04014A CD 9E 12 04         A   397    	CALL	__stoiu
+04014E E5C1                A   398    	LD	BC,HL
+040150 DD0FEB              A   399    	LD	(IX+%FFFFFFEB),BC
+040153 CD 72 0E 04         A   400    	CALL	_getsysvar_vkeycount
+040157 DD07EB              A   401    	LD	BC,(IX+%FFFFFFEB)
+04015A B7ED62              A   402    	UEXT	HL
+04015D 6F                  A   403    	LD	L,A
+04015E E5D1                A   404    	LD	DE,HL
+040160 C5E1                A   405    	LD	HL,BC
+040162 B7                  A   406    	OR	A,A
+040163 ED52                A   407    	SBC	HL,DE
+040165 28 5F               A   408    	JR	Z,L_4
+040167 CD 66 0E 04         A   409    	CALL	_getsysvar_vkeydown
+04016B B7ED62              A   410    	UEXT	HL
+04016E 6F                  A   411    	LD	L,A
+04016F 01010000            A   412    	LD	BC,1
+040173 B7                  A   413    	OR	A,A
+040174 ED42                A   414    	SBC	HL,BC
+040176 20 4E               A   415    	JR	NZ,L_4
+                           A   416    ;   35				key=getsysvar_keyascii();
+                           A   417    .LINE 35
+                           A   418    
+040178 CD A4 0D 04         A   419    	CALL	_getsysvar_keyascii
+04017C 4F                  A   420    	LD	C,A
+04017D 0600                A   421    	LD	B,%0
+04017F C5E1                A   422    	LD	HL,BC
+040181 DD75FD              A   423    	LD	(IX+%FFFFFFFD),L
+040184 DD74FE              A   424    	LD	(IX+%FFFFFFFE),H
+                           A   425    ;   36				mos_uputc(key);
+                           A   426    .LINE 36
+                           A   427    
+040187 DD07FD              A   428    	LD	BC,(IX+%FFFFFFFD)
+04018A CD 9E 12 04         A   429    	CALL	__stoiu
+04018E E5                  A   430    	PUSH	HL
+04018F CD C1 10 04         A   431    	CALL	_mos_uputc
+040193 C1                  A   432    	POP	BC
+                           A   433    ;   37				keycount = getsysvar_vkeyco
+                           A   434    .LINE 37
+                           A   435    
+040194 CD 72 0E 04         A   436    	CALL	_getsysvar_vkeycount
+040198 4F                  A   437    	LD	C,A
+040199 0600                A   438    	LD	B,%0
+04019B C5E1                A   439    	LD	HL,BC
+04019D DD75FB              A   440    	LD	(IX+%FFFFFFFB),L
+0401A0 DD74FC              A   441    	LD	(IX+%FFFFFFFC),H
+                           A   442    ;   38				switch( (key&0xFF)) {	
+                           A   443    .LINE 38
+                           A   444    
+0401A3 DD07FD              A   445    	LD	BC,(IX+%FFFFFFFD)
+0401A6 CD 9E 12 04         A   446    	CALL	__stoiu
+0401AA 7D                  A   447    	LD	A,L
+0401AB B7ED62              A   448    	UEXT	HL
+0401AE 6F                  A   449    	LD	L,A
+0401AF 011B0000            A   450    	LD	BC,27
+0401B3 B7                  A   451    	OR	A,A
+0401B4 ED42                A   452    	SBC	HL,BC
+0401B6 20 0E               A   453    	JR	NZ,L_4
+                           A   454    ;   39				
+                           A   455    ;   40					case 0x1b:
+                           A   456    .LINE 40
+                           A   457    
+                           A   458    ;   41							puts("ESC - BYE
+                           A   459    .LINE 41
+                           A   460    
+0401B8 01 19 15 04         A   461    	LD	BC,L__3
+0401BC C5                  A   462    	PUSH	BC
+0401BD CD 8C 13 04         A   463    	CALL	_puts
+0401C1 C1                  A   464    	POP	BC
+                           A   465    ;   42							running = FALSE
+                           A   466    .LINE 42
+                           A   467    
+0401C2 DD36FF00            A   468    	LD	(IX+%FFFFFFFF),%0
+                           A   469    ;   43					default:				
+                           A   470    ;   44							break;			
+                           A   471    ;   45					}
+                           A   472    ;   46				}
+0401C6                     A   473    L_4:
+                           A   474    .LINE 46
+                           A   475    
+                           A   476    ;   47			received = mos_ugetc();
+                           A   477    .LINE 47
+                           A   478    
+0401C6 CD AF 10 04         A   479    	CALL	_mos_ugetc
+0401CA DD75F9              A   480    	LD	(IX+%FFFFFFF9),L
+0401CD DD74FA              A   481    	LD	(IX+%FFFFFFFA),H
+                           A   482    ;   48			if(received>255) {
+                           A   483    .LINE 48
+                           A   484    
+0401D0 DD07F9              A   485    	LD	BC,(IX+%FFFFFFF9)
+0401D3 4921FF00            A   486    	LD.LIS	HL,255
+0401D7 B7                  A   487    	OR	A,A
+0401D8 40ED42              A   488    	SBC.SIS	HL,BC
+0401DB 30 19               A   489    	JR	NC,L_6
+                           A   490    ;   49				printf("%c",received&0xFF);
+                           A   491    .LINE 49
+                           A   492    
+0401DD 01 A4 12 04         A   493    	LD	BC,___print_uputch
+0401E1 ED43 EA 14 04       A   494    	LD	(___print_xputch),BC
+0401E6 DD07F9              A   495    	LD	BC,(IX+%FFFFFFF9)
+0401E9 CD 9E 12 04         A   496    	CALL	__stoiu
+0401ED 4D                  A   497    	LD	C,L
+0401EE 0600                A   498    	LD	B,%0
+0401F0 C5                  A   499    	PUSH	BC
+0401F1 CD A4 12 04         A   500    	CALL	___print_uputch
+0401F5 C1                  A   501    	POP	BC
+                           A   502    ;   50				}	
+                           A   503    ;   51			
+                           A   504    ;   52	    }
+0401F6                     A   505    L_6:
+                           A   506    .LINE 52
+                           A   507    
+0401F6 DD7EFF              A   508    	LD	A,(IX+%FFFFFFFF)
+0401F9 B7                  A   509    	OR	A,A
+0401FA C2 47 01 04         A   510    	JR	NZ,L_7
+                           A   511    ;   53	
+                           A   512    ;   54		puts("Clean exit.");
+                           A   513    .LINE 54
+                           A   514    
+0401FE 01 23 15 04         A   515    	LD	BC,L__6
+040202 C5                  A   516    	PUSH	BC
+040203 CD 8C 13 04         A   517    	CALL	_puts
+040207 C1                  A   518    	POP	BC
+                           A   519    ;   55		return 0;
+                           A   520    .LINE 55
+                           A   521    
+040208 B7                  A   522    	OR	A,A
+040209 ED62                A   523    	SBC	HL,HL
+                           A   524    ;   56	}
+                           A   525    .LINE 56
+                           A   526    
+04020B DDF9                A   527    	LD	SP,IX
+04020D DDE1                A   528    	POP	IX
+04020F C9                  A   529    	RET	
+                           A   530    
+                           A   531    
+                           A   532    ;**************************** _main ***********
+                           A   533    ;Name                         Addr/Register   S
+                           A   534    ;___print_xputch                     IMPORT    
+                           A   535    ;___print_uputch                     IMPORT  --
+                           A   536    ;_mos_ugetc                          IMPORT  --
+                           A   537    ;_mos_uputc                          IMPORT  --
+                           A   538    ;_getsysvar_keyascii                 IMPORT  --
+                           A   539    ;_getsysvar_vkeydown                 IMPORT  --
+                           A   540    ;_getsysvar_vkeycount                IMPORT  --
+                           A   541    ;_puts                               IMPORT  --
+                           A   542    ;_mos_uopen                          IMPORT  --
+                           A   543    ;_vdp_mode                           IMPORT  --
+                           A   544    ;mypUART                              IX-18    
+                           A   545    ;myUART1                              IX-15    
+                           A   546    ;received                              IX-7    
+                           A   547    ;keycount                              IX-5    
+                           A   548    ;key                                   IX-3    
+                           A   549    ;running                               IX-1    
+                           A   550    ;argv                                  IX+9    
+                           A   551    ;argc                                  IX+6    
+                           A   552    
+                           A   553    
+                           A   554    ; Stack Frame Size: 33 (bytes)
+                           A   555    ;       Spill Code: 0 (instruction)
+                           A   556    
+                           A   557    
+                           A   558    .ENDFUNC "main",56,"_main"
+                           A   559    	SEGMENT STRSECT
+0414ED                     A   560    L__0:
+0414ED 4F70656E 65642073   A   561    	DB	"Opened serial port on UART1 = Pins 14&
+0414F5 65726961 6C20706F 
+0414FD 7274206F 6E205541 
+041505 52543120 3D205069 
+04150D 6E732031 34263135 
+041515 20 
+041516 0D0A00              A   562    	DB	13,10,0
+041519                     A   563    L__3:
+041519 45534320 2D204259   A   564    	DB	"ESC - BYE"
+041521 45 
+041522 00                  A   565    	DB	0
+041523                     A   566    L__6:
+041523 436C6561 6E206578   A   567    	DB	"Clean exit."
+04152B 69742E 
+04152E 00                  A   568    	DB	0
+                           A   569    	XREF _vdp_mode:ROM
+                           A   570    	XREF _mos_uputc:ROM
+                           A   571    	XREF _mos_ugetc:ROM
+                           A   572    	XREF _mos_uopen:ROM
+                           A   573    	XREF _getsysvar_vkeycount:ROM
+                           A   574    	XREF _getsysvar_vkeydown:ROM
+                           A   575    	XREF _getsysvar_keyascii:ROM
+                           A   576    	XREF _puts:ROM
+                           A   577    	XREF ___print_xputch:ROM
+                           A   578    	XREF ___print_uputch:ROM
+                           A   579    	XREF __stoiu:ROM
+                           A   580    	XDEF _main
+                           A   581    	END
+
+
+Errors: 0
+Warnings: 0
+Lines Assembled: 582

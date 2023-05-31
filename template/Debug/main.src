@@ -1,0 +1,581 @@
+; Zilog eZ80 ANSI C Compiler Release 3.4
+; -nomodsect -optsize -noreduceopt -nopadbranch -debug
+; -peephole -globalopt -localcse -const=ROM 
+	FILE	"..\main.c"
+	.assume ADL=1
+.DEBUG "C"
+	SEGMENT CODE
+.BEGREC "fmt_type",19
+.DEFINE "status"
+.VALUE 0
+.CLASS 8
+.TYPE 12
+.ENDEF
+.DEFINE "flags"
+.VALUE 1
+.CLASS 8
+.TYPE 12
+.ENDEF
+.DEFINE "size"
+.VALUE 2
+.CLASS 8
+.TYPE 2
+.ENDEF
+.DEFINE "chr"
+.VALUE 3
+.CLASS 8
+.TYPE 2
+.ENDEF
+.DEFINE "type"
+.VALUE 4
+.CLASS 8
+.TYPE 2
+.ENDEF
+.DEFINE "field_width"
+.VALUE 5
+.CLASS 8
+.TYPE 2
+.ENDEF
+.DEFINE "precision"
+.VALUE 6
+.CLASS 8
+.TYPE 2
+.ENDEF
+.DEFINE "set_begin"
+.VALUE 7
+.CLASS 8
+.TYPE 34
+.ENDEF
+.DEFINE "set_end"
+.VALUE 10
+.CLASS 8
+.TYPE 34
+.ENDEF
+.DEFINE "pad_whole"
+.VALUE 13
+.CLASS 8
+.TYPE 12
+.ENDEF
+.DEFINE "pad_pre_fract"
+.VALUE 14
+.CLASS 8
+.TYPE 12
+.ENDEF
+.DEFINE "pad_post_fract"
+.VALUE 15
+.CLASS 8
+.TYPE 12
+.ENDEF
+.DEFINE "pad_at"
+.VALUE 16
+.CLASS 8
+.TYPE 34
+.ENDEF
+.ENDREC "fmt_type"
+.BEGREC "flt_info",12
+.DEFINE "flags"
+.VALUE 0
+.CLASS 8
+.TYPE 12
+.ENDEF
+.DEFINE "exp"
+.VALUE 1
+.CLASS 8
+.TYPE 2
+.ENDEF
+.DEFINE "digits"
+.VALUE 2
+.CLASS 8
+.DIM 10
+.TYPE 108
+.ENDEF
+.ENDREC "flt_info"
+.BEGREC "NONAME0",8
+.DEFINE "baudRate"
+.VALUE 0
+.CLASS 8
+.TYPE 4
+.ENDEF
+.DEFINE "dataBits"
+.VALUE 3
+.CLASS 8
+.TYPE 12
+.ENDEF
+.DEFINE "stopBits"
+.VALUE 4
+.CLASS 8
+.TYPE 12
+.ENDEF
+.DEFINE "parity"
+.VALUE 5
+.CLASS 8
+.TYPE 12
+.ENDEF
+.DEFINE "flowcontrol"
+.VALUE 6
+.CLASS 8
+.TYPE 12
+.ENDEF
+.DEFINE "eir"
+.VALUE 7
+.CLASS 8
+.TYPE 12
+.ENDEF
+.ENDREC "NONAME0"
+.BEGREC "NONAME1",15
+.DEFINE "fs"
+.VALUE 0
+.CLASS 8
+.TYPE 46
+.ENDEF
+.DEFINE "id"
+.VALUE 3
+.CLASS 8
+.TYPE 13
+.ENDEF
+.DEFINE "attr"
+.VALUE 5
+.CLASS 8
+.TYPE 12
+.ENDEF
+.DEFINE "stat"
+.VALUE 6
+.CLASS 8
+.TYPE 12
+.ENDEF
+.DEFINE "sclust"
+.VALUE 7
+.CLASS 8
+.TYPE 15
+.ENDEF
+.DEFINE "objsize"
+.VALUE 11
+.CLASS 8
+.TYPE 15
+.ENDEF
+.ENDREC "NONAME1"
+.BEGREC "NONAME2",36
+.DEFINE "obj"
+.VALUE 0
+.CLASS 8
+.TAG "NONAME1"
+.TYPE 8
+.ENDEF
+.DEFINE "flag"
+.VALUE 15
+.CLASS 8
+.TYPE 12
+.ENDEF
+.DEFINE "err"
+.VALUE 16
+.CLASS 8
+.TYPE 12
+.ENDEF
+.DEFINE "fptr"
+.VALUE 17
+.CLASS 8
+.TYPE 15
+.ENDEF
+.DEFINE "clust"
+.VALUE 21
+.CLASS 8
+.TYPE 15
+.ENDEF
+.DEFINE "sect"
+.VALUE 25
+.CLASS 8
+.TYPE 15
+.ENDEF
+.DEFINE "dir_sect"
+.VALUE 29
+.CLASS 8
+.TYPE 15
+.ENDEF
+.DEFINE "dir_ptr"
+.VALUE 33
+.CLASS 8
+.TYPE 46
+.ENDEF
+.ENDREC "NONAME2"
+;    1	#include <stdio.h >
+;    2	#include <ctype.h>
+;    3	#include "mos-interface.h"
+;    4	#include "vdp.h"
+;    5	#include "agontimer.h"
+;    6	
+;    7	
+;    8		
+;    9	int main(int argc, char * argv[]) { 
+_main:
+.DEFINE "_main"
+
+.VALUE _main
+
+.CLASS 2
+
+.TYPE 68
+
+.ENDEF
+
+.BEGFUNC "main",9,"_main"
+
+.LINE 9
+
+.DEFINE "argc"
+
+.CLASS 65
+
+.VALUE 6
+
+.TYPE 4
+
+.ENDEF
+
+.DEFINE "argv"
+
+.CLASS 65
+
+.VALUE 9
+
+.TYPE 290
+
+.ENDEF
+
+.DEFINE "running"
+
+.CLASS 65
+
+.VALUE -1
+
+.TYPE 12
+
+.ENDEF
+
+.DEFINE "key"
+
+.CLASS 65
+
+.VALUE -3
+
+.TYPE 13
+
+.ENDEF
+
+.DEFINE "keycount"
+
+.CLASS 65
+
+.VALUE -5
+
+.TYPE 13
+
+.ENDEF
+
+.DEFINE "received"
+
+.CLASS 65
+
+.VALUE -7
+
+.TYPE 13
+
+.ENDEF
+
+.DEFINE "myUART1"
+
+.CLASS 65
+
+.VALUE -15
+
+.TAG "NONAME0"
+
+.TYPE 8
+
+.ENDEF
+
+.DEFINE "mypUART"
+
+.CLASS 65
+
+.VALUE -18
+
+.TAG "NONAME0"
+
+.TYPE 40
+
+.ENDEF
+
+	PUSH	IX
+	LD	IX,0
+	ADD	IX,SP
+	LEA	HL,IX+%FFFFFFEB
+	LD	SP,HL
+;   10		UINT16 received,key,keycount;
+;   11		UINT8 resultTX;
+;   12		int resultRX;
+;   13		BOOL running;
+;   14		UART myUART1;
+;   15		UART *mypUART=&myUART1;
+.LINE 15
+
+	LEA	BC,IX+%FFFFFFF1
+	LD	(IX+%FFFFFFEE),BC
+;   16		char myString[];
+;   17		
+;   18		
+;   19		myUART1.baudRate=38400;
+.LINE 19
+
+	LD	BC,38400
+	LD	(IX+%FFFFFFF1),BC
+;   20		myUART1.dataBits =8;				//!< The number of databits per character to be used.
+.LINE 20
+
+	LD	(IX+%FFFFFFF4),%8
+;   21		myUART1.stopBits =1;				//!< The number of stopbits to be used.
+.LINE 21
+
+	LD	(IX+%FFFFFFF5),%1
+;   22		myUART1.parity=0;				   //!< The parity bit option to be used.
+.LINE 22
+
+	LD	(IX+%FFFFFFF6),%0
+;   23	    myUART1.flowcontrol =0;
+.LINE 23
+
+	LD	(IX+%FFFFFFF7),%0
+;   24		myUART1.eir =0;
+.LINE 24
+
+	LD	(IX+%FFFFFFF8),%0
+;   25		vdp_mode(3);
+.LINE 25
+
+	LD	BC,3
+	PUSH	BC
+	CALL	_vdp_mode
+	POP	BC
+;   26		mos_uopen(mypUART);
+.LINE 26
+
+	LD	BC,(IX+%FFFFFFEE)
+	PUSH	BC
+	CALL	_mos_uopen
+	POP	BC
+;   27		puts("Opened serial port on UART1 = Pins 14&15 \r\n");
+.LINE 27
+
+	LD	BC,L__0
+	PUSH	BC
+	CALL	_puts
+	POP	BC
+;   28	
+;   29	    keycount = getsysvar_vkeycount();
+.LINE 29
+
+	CALL	_getsysvar_vkeycount
+	LD	C,A
+	LD	B,%0
+	LD	HL,BC
+	LD	(IX+%FFFFFFFB),L
+	LD	(IX+%FFFFFFFC),H
+;   30	    
+;   31		running=TRUE;
+.LINE 31
+
+	LD	(IX+%FFFFFFFF),%1
+;   32	    while (running) {
+.LINE 32
+
+	JR	L_6
+L_7:
+;   33	        
+;   34	        if (getsysvar_vkeycount() != keycount && getsysvar_vkeydown() == 1) { 
+.LINE 34
+
+	LD	BC,(IX+%FFFFFFFB)
+	CALL	__stoiu
+	LD	BC,HL
+	LD	(IX+%FFFFFFEB),BC
+	CALL	_getsysvar_vkeycount
+	LD	BC,(IX+%FFFFFFEB)
+	UEXT	HL
+	LD	L,A
+	LD	DE,HL
+	LD	HL,BC
+	OR	A,A
+	SBC	HL,DE
+	JR	Z,L_4
+	CALL	_getsysvar_vkeydown
+	UEXT	HL
+	LD	L,A
+	LD	BC,1
+	OR	A,A
+	SBC	HL,BC
+	JR	NZ,L_4
+;   35				key=getsysvar_keyascii();
+.LINE 35
+
+	CALL	_getsysvar_keyascii
+	LD	C,A
+	LD	B,%0
+	LD	HL,BC
+	LD	(IX+%FFFFFFFD),L
+	LD	(IX+%FFFFFFFE),H
+;   36				mos_uputc(key);
+.LINE 36
+
+	LD	BC,(IX+%FFFFFFFD)
+	CALL	__stoiu
+	PUSH	HL
+	CALL	_mos_uputc
+	POP	BC
+;   37				keycount = getsysvar_vkeycount();
+.LINE 37
+
+	CALL	_getsysvar_vkeycount
+	LD	C,A
+	LD	B,%0
+	LD	HL,BC
+	LD	(IX+%FFFFFFFB),L
+	LD	(IX+%FFFFFFFC),H
+;   38				switch( (key&0xFF)) {	
+.LINE 38
+
+	LD	BC,(IX+%FFFFFFFD)
+	CALL	__stoiu
+	LD	A,L
+	UEXT	HL
+	LD	L,A
+	LD	BC,27
+	OR	A,A
+	SBC	HL,BC
+	JR	NZ,L_4
+;   39				
+;   40					case 0x1b:
+.LINE 40
+
+;   41							puts("ESC - BYE");
+.LINE 41
+
+	LD	BC,L__3
+	PUSH	BC
+	CALL	_puts
+	POP	BC
+;   42							running = FALSE;					
+.LINE 42
+
+	LD	(IX+%FFFFFFFF),%0
+;   43					default:						
+;   44							break;								
+;   45					}
+;   46				}
+L_4:
+.LINE 46
+
+;   47			received = mos_ugetc();
+.LINE 47
+
+	CALL	_mos_ugetc
+	LD	(IX+%FFFFFFF9),L
+	LD	(IX+%FFFFFFFA),H
+;   48			if(received>255) {
+.LINE 48
+
+	LD	BC,(IX+%FFFFFFF9)
+	LD.LIS	HL,255
+	OR	A,A
+	SBC.SIS	HL,BC
+	JR	NC,L_6
+;   49				printf("%c",received&0xFF);
+.LINE 49
+
+	LD	BC,___print_uputch
+	LD	(___print_xputch),BC
+	LD	BC,(IX+%FFFFFFF9)
+	CALL	__stoiu
+	LD	C,L
+	LD	B,%0
+	PUSH	BC
+	CALL	___print_uputch
+	POP	BC
+;   50				}	
+;   51			
+;   52	    }
+L_6:
+.LINE 52
+
+	LD	A,(IX+%FFFFFFFF)
+	OR	A,A
+	JR	NZ,L_7
+;   53	
+;   54		puts("Clean exit.");
+.LINE 54
+
+	LD	BC,L__6
+	PUSH	BC
+	CALL	_puts
+	POP	BC
+;   55		return 0;
+.LINE 55
+
+	OR	A,A
+	SBC	HL,HL
+;   56	}
+.LINE 56
+
+	LD	SP,IX
+	POP	IX
+	RET	
+
+
+;**************************** _main ***************************
+;Name                         Addr/Register   Size   Type
+;___print_xputch                     IMPORT      3   variable
+;___print_uputch                     IMPORT  -----   function
+;_mos_ugetc                          IMPORT  -----   function
+;_mos_uputc                          IMPORT  -----   function
+;_getsysvar_keyascii                 IMPORT  -----   function
+;_getsysvar_vkeydown                 IMPORT  -----   function
+;_getsysvar_vkeycount                IMPORT  -----   function
+;_puts                               IMPORT  -----   function
+;_mos_uopen                          IMPORT  -----   function
+;_vdp_mode                           IMPORT  -----   function
+;mypUART                              IX-18      3   variable
+;myUART1                              IX-15      8   variable
+;received                              IX-7      2   variable
+;keycount                              IX-5      2   variable
+;key                                   IX-3      2   variable
+;running                               IX-1      1   variable
+;argv                                  IX+9      3   parameter
+;argc                                  IX+6      3   parameter
+
+
+; Stack Frame Size: 33 (bytes)
+;       Spill Code: 0 (instruction)
+
+
+.ENDFUNC "main",56,"_main"
+	SEGMENT STRSECT
+L__0:
+	DB	"Opened serial port on UART1 = Pins 14&15 "
+	DB	13,10,0
+L__3:
+	DB	"ESC - BYE"
+	DB	0
+L__6:
+	DB	"Clean exit."
+	DB	0
+	XREF _vdp_mode:ROM
+	XREF _mos_uputc:ROM
+	XREF _mos_ugetc:ROM
+	XREF _mos_uopen:ROM
+	XREF _getsysvar_vkeycount:ROM
+	XREF _getsysvar_vkeydown:ROM
+	XREF _getsysvar_keyascii:ROM
+	XREF _puts:ROM
+	XREF ___print_xputch:ROM
+	XREF ___print_uputch:ROM
+	XREF __stoiu:ROM
+	XDEF _main
+	END
