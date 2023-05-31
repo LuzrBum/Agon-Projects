@@ -1,3 +1,6 @@
+# A serial terminal for Agon light, using UART1 on pins
+# Demo video 
+- https://youtu.be/dYVpXgn82Fk
 # Serial terminal
 - requires flashing slightly hacked MOS based on 1.04RC1 Only modifies serial/UART1
 - actual terminal program is "MUD.BIN"
@@ -9,7 +12,7 @@
 - After reboot "sudo nano /boot/cmdline.txt", change speed from 115200 to 38400 and reboot
 
 # Wiring
-| FUNCTION | AGON | RASPI |
-| GND | 3 | 3 |
-| RX-TX | 14 | 4 |
-| TX-RX | 15 | 5 |
+- | FUNC  | AGON | RASPI |
+- | GND   |  3   |  3    |
+- | RX-TX |  14  |  4    |
+- | TX-RX |  15  |  5    |
