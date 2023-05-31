@@ -1,6 +1,8 @@
 # Agon-Projects
 Various coding experiments for the Agon Light https://www.thebyteattic.com/p/agon.html  
 
+# Serial terminal (e.g. to Raspberry Pi console)  
+- https://github.com/LuzrBum/Agon-Projects/tree/main/template
 # MOS & VDP update walkthrough
 - https://github.com/LuzrBum/Agon-Projects/blob/main/agon-firmware-upgrade.md
 - I more or less successfully stumbled thorough these in this livestream https://www.youtube.com/live/1YSsFT5JrCM and https://www.youtube.com/live/7eSDdzOzUZU
