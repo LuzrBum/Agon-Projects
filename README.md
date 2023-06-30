@@ -1,6 +1,12 @@
 # Agon-Projects
 Various coding experiments for the Agon Light https://www.thebyteattic.com/p/agon.html  
 
+# "SNEK" game
+- For 3rd Week Olimex Coding challenge 2023 https://olimex.wordpress.com/2023/06/02/agonlight-week-programming-challenge-issue-3/
+- YouTube video https://youtu.be/bDwvFlDvt2M
+- https://github.com/LuzrBum/Agon-Projects/blob/main/snek.bbc
+- BAS version (=plaintext) https://github.com/LuzrBum/Agon-Projects/blob/main/SNEK.BAS
+- 
 # Serial terminal (e.g. to Raspberry Pi console)  
 - https://github.com/LuzrBum/Agon-Projects/tree/main/AgonTerm/template
 # MOS & VDP update walkthrough
