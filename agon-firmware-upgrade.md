@@ -37,7 +37,7 @@
 - 
 ## VDP
 - Install Arduino IDE
-- Config Arduino IDE - follow ALL instructions https://github.com/breakintoprogram/agon-vdp , enter the URL + install the board, also install the two libraries selecting the right version
+- Config Arduino IDE - follow ALL instructions https://github.com/breakintoprogram/agon-vdp , enter the URL + install the board, also install the two libraries selecting the right version (note: since 1.04x, it uses vdp-gl instead of fab-gl) 
 - Open the folder of your VDP version
 - Disconnect power ~~& flip jumper x2 (ON)
 - connect USB-C to Agon and PC
