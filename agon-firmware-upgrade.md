@@ -1,4 +1,13 @@
-# Upgrading MOS and VDP on an Agon light 
+# This is thankfully outdated, keeping below for reference (and anyone below 1.04 RC1)
+- New "flash" tool from envenomator https://github.com/envenomator/agon-flash does both VDP and MOS (!)
+- Easy to up/downgrade
+- See also in this video https://youtu.be/iLz1VUNjSAU
+- Binaries https://github.com/envenomator/agon-binaries/tree/master and https://github.com/AgonConsole8
+
+
+
+
+# Upgrading MOS and VDP on an Agon light OLD SKOOL
 - Complete and tested(-ish) steps to update Agon Light from ~~1.02~~ 1.03-RC3 to latest (1.03 Official Release)
 - More or less successfully stumbled through these steps in this livestream https://www.youtube.com/live/1YSsFT5JrCM and https://www.youtube.com/live/7eSDdzOzUZU
 
