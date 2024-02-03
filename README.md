@@ -1,5 +1,23 @@
 # Agon-Projects
-Various coding experiments for the Agon Light https://www.thebyteattic.com/p/agon.html  
+Various coding experiments for the Agon Light SBC - described here https://www.thebyteattic.com/p/agon.html  
+
+LOTS OF SOFTWARE HERE https://github.com/sabotrax/agon-software
+
+# MOS & VDP update walkthrough
+- New "flash" tool from envenomator https://github.com/envenomator/agon-flash does both VDP and MOS (!) Easy to up/downgrade
+- Shown  in this video https://youtu.be/iLz1VUNjSAU
+- Binaries https://github.com/envenomator/agon-binaries/tree/master and https://github.com/AgonConsole8
+- OLD SKOOL version if below MOS 1.04 RC1 https://github.com/LuzrBum/Agon-Projects/blob/main/agon-firmware-upgrade.md
+- I more or less successfully stumbled thorough these in this livestream https://www.youtube.com/live/1YSsFT5JrCM and https://www.youtube.com/live/7eSDdzOzUZU
+
+# Agon Ascii Star Wars
+- https://github.com/LuzrBum/Agon-Projects/tree/main/ASW
+
+ # "WordyBird" game 
+- https://github.com/LuzrBum/Agon-Projects/tree/main/WordyBird
+- My submission for this challenge:  
+https://olimex.wordpress.com/2023/05/05/agonlight-weekend-programming-challenge-issue-2/
+- I "won"- YouTube news report https://www.youtube.com/watch?v=9VNhshYAGQ0
 
 # "SNEK" game
 - For 3rd Week Olimex Coding challenge 2023 https://olimex.wordpress.com/2023/06/02/agonlight-week-programming-challenge-issue-3/
@@ -7,31 +25,16 @@ Various coding experiments for the Agon Light https://www.thebyteattic.com/p/ago
 - https://github.com/LuzrBum/Agon-Projects/blob/main/snek.bbc
 - BAS version (=plaintext) https://github.com/LuzrBum/Agon-Projects/blob/main/SNEK.BAS
 - 
-# Serial terminal (e.g. to Raspberry Pi console)  
-- https://github.com/LuzrBum/Agon-Projects/tree/main/AgonTerm/template
-# MOS & VDP update walkthrough
-- https://github.com/LuzrBum/Agon-Projects/blob/main/agon-firmware-upgrade.md
-- I more or less successfully stumbled thorough these in this livestream https://www.youtube.com/live/1YSsFT5JrCM and https://www.youtube.com/live/7eSDdzOzUZU
-
-# "WordyBird" game 
-- https://github.com/LuzrBum/Agon-Projects/tree/main/WordyBird
-- My submission for this challenge:  
-https://olimex.wordpress.com/2023/05/05/agonlight-weekend-programming-challenge-issue-2/
-- I "won"- YouTube news report https://www.youtube.com/watch?v=9VNhshYAGQ0
-
 # Emulation
-- https://github.com/astralaster/agon-light-emulator
-- https://github.com/tomm/ez80
-- https://github.com/libsdl-org/SDL/releases/tag/release-2.26.5 (the "VC" file)
-- Video Walkthrough TBA
+See Sabotrax link up top 
 
 # "Simon" game 
 - for Olimex weekend Coding Challenge April 2023 https://olimex.wordpress.com/2023/04/21/agonlight-weekend-programming-challenge-issue-1/
 - for YouTube Video https://youtu.be/oXMx9FPrQQU
 - Original 1983 vesrion by D.Whitworth from https://www.bbcmicro.co.uk/game.php?id=3163
 
-# Agon Ascii Star Wars
-- https://github.com/LuzrBum/Agon-Projects/tree/main/ASW
+# Serial terminal (e.g. to Raspberry Pi console)  
+- https://github.com/LuzrBum/Agon-Projects/tree/main/AgonTerm/template
 
 # fullkeycode
 Below Discussed in the video https://www.youtube.com/watch?v=S7iilqWDxNE
@@ -41,7 +44,6 @@ Below Discussed in the video https://www.youtube.com/watch?v=S7iilqWDxNE
 * you may have to adjust the paths in fullkeycode.linkcmd to match the location of your ZDS
 * Grab fullkeycode.hex file from Debug folder, then hex2bin, then transfer to your SD card
 * https://sourceforge.net/projects/hex2bin/
-
 
 * I have 3 versions of "main.c" in the folder-01, -02, -03, copy the contents to main.c and Rebuild All
 * main-01 = Move an X across the screen with Arrow keys
