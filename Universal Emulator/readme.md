@@ -1,4 +1,4 @@
-# Universal EMUlator for Agon
+# Universaly EMUlator for Agon
 Experimental Multisystem Emulator for Agon Light (TM) SBC.
 This project is a multi-system emulator designed to bring back the golden age of 8-bit computing! 
 It allows you to play games and run software on your Agon Light (TM) that were originally designed for classic 8-bit home computers.
